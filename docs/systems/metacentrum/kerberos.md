@@ -120,166 +120,24 @@ ssh metacentrum klist -f          # shows a delegated LOGIN@META ticket
 
 ## 4. Install the helper script
 
-Save as `~/.local/bin/metacentrum-kinit` and edit `LOGIN` at the top:
-
-```python
-#!/usr/bin/python3
-"""Obtain a renewable MetaCentrum Kerberos ticket using a password kept in
-KDE Wallet (Plasma) or the Secret Service keyring (GNOME), then start
-krb5-auth-dialog to keep the ticket renewed.
-
-Usage:
-  metacentrum-kinit           get a ticket if none is valid, start monitor
-  metacentrum-kinit --store   validate a password with the KDC, then save it
-"""
-import getpass
-import os
-import shutil
-import subprocess
-import sys
-import tempfile
-
-LOGIN = "LOGIN"                      # <-- your MetaCentrum username
-PRINCIPAL = f"{LOGIN}@META"
-APP_ID = "metacentrum-kinit"
-KW_FOLDER = "Passwords"
-KW_ENTRY = f"MetaCentrum {PRINCIPAL}"
-SECRET_ATTRS = ["service", "metacentrum-kerberos", "principal", PRINCIPAL]
-
-
-# ---------- KDE Wallet backend (native D-Bus API) ----------
-
-def kwallet():
-    import dbus
-    bus = dbus.SessionBus()
-    for svc, path in (("org.kde.kwalletd6", "/modules/kwalletd6"),
-                      ("org.kde.kwalletd5", "/modules/kwalletd5")):
-        try:
-            iface = dbus.Interface(bus.get_object(svc, path), "org.kde.KWallet")
-            iface.localWallet()
-        except dbus.DBusException:
-            continue
-        handle = int(iface.open(str(iface.localWallet()), dbus.Int64(0), APP_ID))
-        if handle < 0:
-            raise RuntimeError("KDE Wallet could not be opened")
-        return iface, handle
-    return None
-
-
-def kwallet_read(kw):
-    iface, h = kw
-    return str(iface.readPassword(h, KW_FOLDER, KW_ENTRY, APP_ID))
-
-
-def kwallet_write(kw, password):
-    iface, h = kw
-    if not bool(iface.hasFolder(h, KW_FOLDER, APP_ID)):
-        iface.createFolder(h, KW_FOLDER, APP_ID)
-    if int(iface.writePassword(h, KW_FOLDER, KW_ENTRY, password, APP_ID)) != 0:
-        return False
-    return kwallet_read(kw) == password
-
-
-# ---------- Secret Service backend (GNOME Keyring via secret-tool) ----------
-
-def secret_read():
-    r = subprocess.run(["secret-tool", "lookup", *SECRET_ATTRS],
-                       capture_output=True, text=True, check=False)
-    return r.stdout.rstrip("\n") if r.returncode == 0 else ""
-
-
-def secret_write(password):
-    r = subprocess.run(["secret-tool", "store", "--label", KW_ENTRY, *SECRET_ATTRS],
-                       input=password, text=True, check=False)
-    return r.returncode == 0 and secret_read() == password
-
-
-def backend():
-    """Prefer KDE Wallet on Plasma, otherwise the Secret Service."""
-    if "KDE" in os.environ.get("XDG_CURRENT_DESKTOP", ""):
-        try:
-            kw = kwallet()
-            if kw:
-                return ("kwallet", kw)
-        except Exception as e:
-            print(f"KDE Wallet unavailable: {e}", file=sys.stderr)
-    if shutil.which("secret-tool"):
-        return ("secret", None)
-    raise RuntimeError("No usable password store (KDE Wallet or secret-tool)")
-
-
-def read_password(be):
-    return kwallet_read(be[1]) if be[0] == "kwallet" else secret_read()
-
-
-def write_password(be, password):
-    return kwallet_write(be[1], password) if be[0] == "kwallet" else secret_write(password)
-
-
-# ---------- Kerberos ----------
-
-def run_kinit(password, cache_name=None):
-    env = os.environ.copy()
-    if cache_name:
-        env["KRB5CCNAME"] = cache_name
-    return subprocess.run(["kinit", "-f", "-r", "7d", PRINCIPAL],
-                          input=password + "\n", text=True, env=env,
-                          check=False).returncode
-
-
-def start_monitor():
-    running = subprocess.run(["pgrep", "-f", "(^|/)krb5-auth-dialog( |$)"],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                             check=False).returncode == 0
-    if not running:
-        subprocess.Popen(["krb5-auth-dialog", "--auto"],
-                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                         start_new_session=True)
-
-
-def store_password():
-    password = getpass.getpass(f"Password for {PRINCIPAL} (validate, then save): ")
-    with tempfile.TemporaryDirectory(prefix="metacentrum-krb5-") as d:
-        if run_kinit(password, f"FILE:{d}/ccache") != 0:
-            print("MetaCentrum rejected that password; nothing was saved.", file=sys.stderr)
-            return 1
-    if not write_password(backend(), password):
-        print("Saving the password to the wallet failed.", file=sys.stderr)
-        return 1
-    print("Password validated and saved.")
-    return 0
-
-
-def acquire_ticket():
-    if subprocess.run(["klist", "-s"], check=False).returncode == 0:
-        start_monitor()
-        return 0
-    password = read_password(backend())
-    if not password:
-        print(f"No password for {PRINCIPAL} in the wallet; run with --store.",
-              file=sys.stderr)
-        return 1
-    result = run_kinit(password)
-    password = ""
-    if result == 0:
-        start_monitor()
-    return result
-
-
-if __name__ == "__main__":
-    if sys.argv[1:] == ["--store"]:
-        raise SystemExit(store_password())
-    if len(sys.argv) == 1:
-        raise SystemExit(acquire_ticket())
-    print(f"Usage: {sys.argv[0]} [--store]", file=sys.stderr)
-    raise SystemExit(2)
-```
-
-Make it executable and store the password. The script checks the password
-against the MetaCentrum KDC before saving it:
+The helper script is kept in the [site repository](https://github.com/ceico-cz/hpc-docs/blob/main/docs/systems/metacentrum/metacentrum-kinit).
+Download it, set your MetaCentrum username in it, and make it executable:
 
 ```bash
+mkdir -p ~/.local/bin
+curl -fsSL -o ~/.local/bin/metacentrum-kinit \
+  https://raw.githubusercontent.com/ceico-cz/hpc-docs/main/docs/systems/metacentrum/metacentrum-kinit
+sed -i 's/^LOGIN = "LOGIN"/LOGIN = "your-login"/' ~/.local/bin/metacentrum-kinit   # your MetaCentrum username
 chmod 0755 ~/.local/bin/metacentrum-kinit
+```
+
+The script reads your password, so look through it before you run it
+(`less ~/.local/bin/metacentrum-kinit`). It is about 150 lines and needs only Python,
+`python3-dbus` (KDE) or `secret-tool` (GNOME), and the Kerberos tools.
+
+Store your password. The script checks it against the MetaCentrum KDC before saving it:
+
+```bash
 ~/.local/bin/metacentrum-kinit --store
 ```
 
