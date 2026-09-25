@@ -13,7 +13,7 @@ High-performance computing for members of the CEICO project at the Institute of 
 of the Czech Academy of Sciences.
 
 [Get started](getting-started/index.md){ .md-button .md-button--primary }
-[Browse systems](systems/index.md){ .md-button }
+[Log in to Open OnDemand](https://ood.phoebe.ceico.cz){ .md-button }
 
 Web portals need the FZU network or VPN. From elsewhere, use the
 [external portal](getting-started/ondemand/index.md#two-portals) or the
