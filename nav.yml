@@ -10,10 +10,12 @@ nav:
       - Koios (legacy):
           - Overview: koios.md
           - Hardware: koios/hw.md
-          - Nvidia Tesla P100: koios/hw/p100.md
+          - Nvidia Tesla P100 (retired): koios/hw/p100.md
           - Xeon Gold 6130: koios/hw/Xeon_Gold_6130.md
       - Third-party systems:
           - MetaCentrum:
+              - Overview: systems/metacentrum/index.md
+              - Passwordless SSH with Kerberos: systems/metacentrum/kerberos.md
               - Multi-cluster jobs with HyperQueue: metacentrum/hq_at_metacentrum.md
       - In the media: in-media.md
   - Getting started:

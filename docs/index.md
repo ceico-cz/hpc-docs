@@ -26,7 +26,7 @@ clusters and third-party systems, and run your work.
 
     ---
 
-    The current CEICO cluster: 1344 CPU cores and 16 NVIDIA A100 GPUs on 100 Gb/s InfiniBand.
+    The current CEICO cluster: 1408 CPU cores and 16 NVIDIA A100 GPUs on 100 Gb/s InfiniBand.
 
     [:octicons-arrow-right-24: About Phoebe](systems/phoebe.md)
 
@@ -44,7 +44,7 @@ clusters and third-party systems, and run your work.
 
     External infrastructures available to CEICO members, such as MetaCentrum.
 
-    [:octicons-arrow-right-24: All systems](systems/index.md#third-party-systems)
+    [:octicons-arrow-right-24: MetaCentrum](systems/metacentrum/index.md)
 
 </div>
 

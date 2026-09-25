@@ -8,6 +8,11 @@ tags:
 
 # Running multi-cluster jobs on MetaCentrum, Phoebe and Koios
 
+!!! tip "Log in without a password"
+    Instead of keeping your MetaCentrum password in `~/.bashrc` as shown below, set up
+    [passwordless SSH with Kerberos](../systems/metacentrum/kerberos.md) and use
+    `ssh metacentrum`.
+
 ## Using HyperQueue as a unifying layer on top of multiple clusters
 
 

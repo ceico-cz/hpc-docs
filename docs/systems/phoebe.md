@@ -10,7 +10,7 @@ for new work. Log in through the front-end node `phoebe.fzu.cz`.
 
 <div class="stats" markdown>
 
--   **1344** CPU cores
+-   **1408** CPU cores
 -   **16** NVIDIA A100 GPUs
 -   **2 TB** RAM per GPU node
 -   **218 TB** shared storage
@@ -26,16 +26,34 @@ each carry 8 NVIDIA A100[^nvidia_A100] cards, 2 TB of RAM and 3.4 TB of local NV
 
 Software, user and project data are stored on 218 TB of hybrid storage built from both solid
 state and rotational drives. All components are connected by a low-latency 100 Gbit
-InfiniBand fabric.
+InfiniBand fabric. All nodes run Rocky Linux 8.
 
 | pcs | hostnames | resource | n~cores~ | f~cpu~ (base) | f~cpu~ (max) | RAM | local storage | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20  | `n[1-20]` | CPU compute nodes | 64  | 2.8 GHz | 3.7 GHz | 512 GB | 1.7 TB |  -   |
 | 2   | `gpu[1-2]` | GPU-accelerated *fat* nodes | 64  | 2.8 GHz | 3.7 GHz | 2 TB | 3.4 TB | 8× NVIDIA A100 |
-| 1   | `phoebe.fzu.cz` | login front-end node | 48  | 3.5 GHz | 4.0 GHz | 368 GB | -  |  -   |
+| 1   | `phoebe.fzu.cz` | login front-end node (virtual machine) | 24 vCPU | 3.5 GHz | 4.0 GHz | 384 GB | -  | AMD EPYC 73F3 host |
 
 More detail: [Phoebe hardware](../hardware.md). If Phoebe helped your research, please
 [acknowledge it](../acknowledgement_template.md) in your publications.
+
+## Slurm partitions
+
+Jobs go to the `cpu` partition unless you ask for another one with `--partition`. The
+`*_int` partitions are meant for interactive work (see
+[interactive session](../slurm/interactive_slurm_cli_session.md)).
+
+| Partition | Nodes | Per node | Time limit | Use |
+| --- | --- | --- | --- | --- |
+| `cpu` (default) | `n[4-20]` | 64 cores (128 threads), 512 GB | 18 days 8 h | batch CPU jobs |
+| `cpu_int` | `n[1-20]` | 64 cores (128 threads), 512 GB | 20 days 10 h | interactive CPU work |
+| `gpu` | `gpu[1-2]` | 64 cores, 8× A100 80 GB, 2 TB | 18 days 8 h | batch GPU jobs |
+| `gpu1`, `gpu2` | `gpu1` or `gpu2` | as `gpu` | 14 days 4 h | pin a job to one GPU node |
+| `gpu_int` | `gpu[1-2]` | as `gpu` | 20 days 10 h | interactive GPU work |
+| `small_int` | `s[1-4]` | 8 cores, 64 GB | 7 days 7 h | light interactive work |
+| `preempt` | `n[1-20]` | 64 cores (128 threads), 512 GB | 5 days | jobs that may be preempted |
+
+Limits change from time to time; `sinfo` on the login node shows the current values.
 
 ## Pictures from the datacenter
 

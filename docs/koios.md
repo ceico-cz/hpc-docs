@@ -6,7 +6,10 @@ description: "Description of CEICO legacy cluster"
 
 # Koios system description
 
-The Koios cluster, a previous-generation system, is composed of 28 compute nodes. Each node is equipped with two 16-core Intel Xeon Skylake CPUs. Moreover, a dedicated node is allocated for GPU-accelerated computing, hosting four high-performance Nvidia Tesla P100 GPUs.
+The Koios cluster, a previous-generation system, is composed of 27 compute nodes. Each node is equipped with two 16-core Intel Xeon Skylake CPUs (Xeon Gold 6130) and 384 GB of RAM. All nodes run Rocky Linux 9.
+
+!!! info "No GPUs on Koios"
+    The former GPU node `n28`, with four NVIDIA Tesla P100 cards, is no longer part of the cluster. Use the A100 nodes on [Phoebe](systems/phoebe.md) for GPU work.
 
 ## Accessing Koios
 
@@ -17,6 +20,14 @@ Koios shares the authentication backend with Phoebe, meaning that the same usern
 
 Jobs at Koios are managed by the Slurm workload manager, which implements multiple fair-use and priority-queuing algorithms for effective system utilization.
 
+| Partition | Nodes | Per node | Time limit | Use |
+| --- | --- | --- | --- | --- |
+| `cpu` (default) | `n[1-9,11-27]` | 32 cores (64 threads), 384 GB | 9 days 1 h | batch jobs |
+| `cpu_int` | `n[11-12]` | 32 cores (64 threads), 384 GB | 9 days 1 h | interactive work |
+| `preempt` | `n8` | 32 cores (64 threads), 384 GB | 9 days 1 h | jobs that may be preempted |
+
+Limits change from time to time; `sinfo` on the login node shows the current values.
+
 ## Hardware
 
 (detailed list of Koios hardware is [here](koios/hw.md))
@@ -24,7 +35,6 @@ Jobs at Koios are managed by the Slurm workload manager, which implements multip
 | Node type | amount | Hostnames   |Processors         | GPUs          | Number of cores (logical CPUs) | Main memory | nvme   |
 |-----------|--------|-------------|-------------------|---------------|--------------------------------|-------------|--------|
 | compute   | 27     | `n[1-27]`   | 2x [Xeon Gold 6130](koios/hw/Xeon_Gold_6130.md) | -             | 32(64)                         | 384 GB      | 1x 2TB |
-| GPU       | 1      | `n28`       | 2x [Xeon Gold 6130](koios/hw/Xeon_Gold_6130.md) | 4x [Tesla P100](koios/hw/p100.md) | 32(64) GPU:4x3584              | 384 GB      | 1x 2TB |
 
 ## Interconnect network
 
