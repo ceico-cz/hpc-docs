@@ -19,7 +19,7 @@ Phoebe supercomputer is placed in datacenter of Institute of Physics and infrast
 * 1,92TB NVMe KINGSTON SEDC1500M1920G
 * p~max~ = 360W / node
 
-![Block diagram of the Gigabyte H262-Z63 compute node with two AMD EPYC CPUs](phoebe_hw_diagrams/compute_node_block_diagram.png)
+![Block diagram of the Gigabyte H262-Z63 compute node with two AMD EPYC CPUs](compute_node_block_diagram.png)
 /// caption
 Block diagram of a compute node (Gigabyte H262-Z63)
 ///
@@ -44,6 +44,15 @@ Block diagram of a compute node (Gigabyte H262-Z63)
 * p~max~ = 696 W
 
 
+## Small nodes (3×, s[1-3])
+
+* CPU: 8 cores
+* Memory: 64 GB
+* used by the `small_int` partition for light interactive work
+
+!!! warning "TODO"
+    Add the platform, CPU model and power figure of the small nodes.
+
 ## High speed interconnect network
 
 * Infiniband MQM8700 Mellanox Quantum™ HDR Edge Switch ([vendor_link](https://network.nvidia.com/files/doc-2020/pb-qm8700.pdf))
@@ -55,6 +64,18 @@ Block diagram of a compute node (Gigabyte H262-Z63)
 
 * p~max~ = 132 W
 
+!!! warning "TODO"
+    Add the Ethernet switch model and uplink speed.
+
 ## Storage infrastructure
 
+218 TB of hybrid storage built from solid state and rotational drives holds software, user and
+project data. See [storage](../storage.md) for how it is organised for users.
+
+!!! warning "TODO"
+    Describe the storage hardware (servers, disk shelves, BeeGFS layout), or remove this section.
+
 ## Power management
+
+!!! warning "TODO"
+    Describe power management (PDUs, UPS, power capping), or remove this section.

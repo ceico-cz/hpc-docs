@@ -53,7 +53,7 @@ This asks for your MetaCentrum password every time. To log in without a password
 
     Get a Kerberos ticket at desktop login, keep it renewed and use it for SSH.
 
--   [:material-lan: **Multi-cluster jobs with HyperQueue**](../../metacentrum/hq_at_metacentrum.md)
+-   [:material-lan: **Multi-cluster jobs with HyperQueue**](hyperqueue.md)
 
     Run one set of tasks across MetaCentrum, Phoebe and Koios.
 

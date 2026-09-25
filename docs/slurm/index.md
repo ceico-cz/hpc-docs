@@ -17,8 +17,8 @@ only on Phoebe.
 * [Job history and troubleshooting](troubleshooting.md): find out why a job failed or is still waiting
 
 The partitions (groups of nodes with their own time limits) are listed on the system pages:
-[Phoebe partitions](../systems/phoebe.md#slurm-partitions) and
-[Koios partitions](../koios.md).
+[Phoebe partitions](../systems/phoebe/index.md#slurm-partitions) and
+[Koios partitions](../systems/koios/index.md#slurm-partitions).
 
 ## Common commands
 

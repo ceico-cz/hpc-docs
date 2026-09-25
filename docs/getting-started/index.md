@@ -37,6 +37,4 @@ The login node is shared by everyone. Run your computations as jobs on the compu
 
 To copy data to and from the cluster, see [mount storage with sshfs](sshfs.md).
 
-!!! warning "TODO"
-    Add where users should keep their data: home directory size and quota, any project or
-    scratch storage, and whether anything is backed up.
+See [storage and software](../systems/storage.md) for where your files live.
