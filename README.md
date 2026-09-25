@@ -1,4 +1,4 @@
-# PHOEBE compute system wiki
+# CEICO HPC Services documentation
 
 Sources of <https://hpc.ceico.cz>, built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
 and published by GitHub Pages.
@@ -15,6 +15,14 @@ entries the sidebar. Add every new page there.
 Each page shows a "Last updated" date: its last git commit, or for pages not touched since
 the import, the Wiki.js edit date from the `wikijs_updated` front-matter field
 (`hooks/last_updated.py`).
+
+### Adding a system
+
+Systems are listed on `docs/systems/index.md` and have their own section under the
+"Systems" tab in `nav.yml`. For a new system, create its pages under `docs/systems/<name>/`
+(an overview first), add a row to the right table in `docs/systems/index.md` (CEICO clusters
+or third-party systems), and add a section to `nav.yml`. Add a card to "Our systems" on the
+home page only for systems most users need.
 
 The home page (`docs/index.md`) is hand-designed; its styles are in `docs/assets/extra.css`.
 

@@ -1,6 +1,21 @@
 # Site navigation. Top-level entries become the tabs in the header.
 nav:
   - Home: index.md
+  - Systems:
+      - Overview: systems/index.md
+      - Phoebe:
+          - Overview: systems/phoebe.md
+          - Hardware: hardware.md
+          - Acknowledging Phoebe: acknowledgement_template.md
+      - Koios (legacy):
+          - Overview: koios.md
+          - Hardware: koios/hw.md
+          - Nvidia Tesla P100: koios/hw/p100.md
+          - Xeon Gold 6130: koios/hw/Xeon_Gold_6130.md
+      - Third-party systems:
+          - MetaCentrum:
+              - Multi-cluster jobs with HyperQueue: metacentrum/hq_at_metacentrum.md
+      - In the media: in-media.md
   - Getting started:
       - Account:
           - Get an account: getting-there/getting-a-user-account.md
@@ -22,7 +37,6 @@ nav:
       - Submit a batch job: submit-job.md
       - Interactive session: slurm/interactive_slurm_cli_session.md
       - Troubleshooting jobs: slurm/slurm_jobs_troubleshooting.md
-      - Multi-cluster jobs with HyperQueue: metacentrum/hq_at_metacentrum.md
   - Software:
       - Software modules (Lmod): useful/module_use.md
       - Python with uv: useful/python-uv.md
@@ -42,15 +56,6 @@ nav:
       - SSH as a VPN: useful/poor_mans_vpn_ssh.md
       - Find your public IP: useful/get_public_ip.md
       - Unpack an RPM: useful/unpack_rpm.md
-  - About:
-      - Phoebe hardware: hardware.md
-      - Koios (legacy cluster):
-          - Overview: koios.md
-          - Hardware: koios/hw.md
-          - Nvidia Tesla P100: koios/hw/p100.md
-          - Xeon Gold 6130: koios/hw/Xeon_Gold_6130.md
-      - Acknowledging Phoebe: acknowledgement_template.md
-      - In the media: in-media.md
   - Admin notes:
       - Overview: admin-stuff.md
       - CUDA system notes: cuda-system-considerations.md
