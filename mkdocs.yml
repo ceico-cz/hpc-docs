@@ -50,6 +50,10 @@ theme:
     - content.tooltips
     - toc.follow
 
+# Pages kept in the repository but not published. See the linked issue before re-enabling.
+exclude_docs: |
+  software/cosmolattice.md
+
 plugins:
   - search
   - privacy          # self-host Google Fonts and other external assets
