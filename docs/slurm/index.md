@@ -18,7 +18,8 @@ only on Phoebe.
 
 The partitions (groups of nodes with their own time limits) are listed on the system pages:
 [Phoebe partitions](../systems/phoebe/index.md#slurm-partitions) and
-[Koios partitions](../systems/koios/index.md#slurm-partitions).
+[Koios partitions](../systems/koios/index.md#slurm-partitions). On Phoebe, `sinfo` also shows the
+partitions `debug` and `project001`; they are reserved, so don't submit jobs to them.
 
 ## Common commands
 
@@ -56,7 +57,9 @@ allocated CPU:
 A job that uses more memory than it has is killed with the state `OUT_OF_MEMORY`.
 
 On the CPU nodes of both clusters, a "CPU" in Slurm is one hardware thread; every core has
-two. `--cpus-per-task=64` on a Phoebe CPU node therefore gets 32 physical cores.
+two. `--cpus-per-task=64` on a Phoebe CPU node therefore gets 32 physical cores. On Phoebe,
+Slurm hands out whole cores, so an odd number of CPUs is rounded up: `--cpus-per-task=1` gets
+2 CPUs, and with them twice the default memory per CPU.
 
 ### Per-user limits
 
@@ -71,10 +74,25 @@ Some users and projects have their own limits. If your job waits with a reason s
 
 ### Priority and fair share
 
-Job priority depends mostly on fair share: the less you have used the cluster recently, the
-higher your jobs' priority. The usage that counts is reset every week. Jobs also gain a
-little priority while they wait. `sprio` shows the priority of pending jobs, and `sshare` your
-usage.
+A pending job's priority is the sum of three parts:
+
+* **QOS**: a fixed amount set by your QOS. Most users have the `normal` QOS, which gives every
+  job the same amount. A few special QOS with their own CPU or GPU limits add nothing, so their
+  jobs usually queue behind jobs with `normal`.
+* **Fair share**: the less you have used the cluster recently, the more priority your jobs get.
+  The usage that counts is reset every week.
+* **Age**: jobs gain a little priority while they wait, for up to 7 days.
+
+`sprio -w` shows how much each part can add at most:
+
+```
+$ sprio -w
+          JOBID PARTITION   PRIORITY       SITE        AGE  FAIRSHARE        QOS
+        Weights                               1       1000     100000     100000
+```
+
+In practice the QOS part is the largest. `sprio -u $USER` shows the parts for your pending
+jobs, and `sshare` your usage.
 
 ## Preemption: when a job can be paused or stopped
 

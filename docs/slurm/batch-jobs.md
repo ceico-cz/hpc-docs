@@ -19,11 +19,11 @@ The job script is a file typically containing properties, required resources, an
 
 ```shell
 #!/bin/bash
-#SBATCH --job-name=NameOfJob   # specify job name
-#SBATCH --time=00:33:33        # set a limit on the total run time
-#SBATCH --partition=cpu        # specify partition name
-#SBATCH --ntasks=1             # specify number of (MPI) processes
-#SBATCH --cpus-per-task=64     # specify amount of cpu cores per task
+#SBATCH --job-name=sleep2      # a name for the job
+#SBATCH --time=00:33:33        # time limit for the whole job
+#SBATCH --partition=cpu        # partition to run in
+#SBATCH --ntasks=1             # number of (MPI) processes
+#SBATCH --cpus-per-task=1      # number of CPUs for each process
 
 echo "sbatch-INFO: start of job"
 echo "sbatch-INFO: nodes: ${SLURM_JOB_NODELIST}"
@@ -35,13 +35,17 @@ echo "sbatch-INFO: we're done"
 date
 ```
 
-A batch script in SLURM is essentially a standard shell script. Any line in the script that begins with the `#SBATCH` keyword is considered to contain metadata specific to the SLURM job, providing configuration and instructions for job execution.
+A job script is an ordinary shell script. Lines starting with `#SBATCH` are options for Slurm:
+they say what resources the job needs. Slurm reads them when you submit the script, and the
+shell ignores them as comments when the script runs.
 
-All options of jobscript are described here: [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html) - so only quick review of  options used above:
--   `--job-name=NameOfJob` **name** your job with some descriptive name. It can be useful when looking for eg. failed jobs in the history of scheduler. Avoid including spaces or special characters in the job name
+All options are described in the [`sbatch` manual](https://slurm.schedmd.com/sbatch.html). The
+ones used above:
+
+-   `--job-name=sleep2` gives the job a **name**, which helps when you look for it later, for example among failed jobs in the job history. Avoid spaces and special characters.
 -   `--time=00:33:33` sets the **deadline / walltime** for the job. Provide a conservative estimate (x2) of your job's requirements. Always set it: without it, the job gets the partition's maximum (18 days on `cpu`) and usually waits longer to start. The format is in `MM:SS`, `HH:MM:SS`, or `D-HH:MM:SS`. For example, `1-13:12:11` represents one day, 13 hours, 12 minutes, and 11 seconds.
 -   `--partition=cpu` designates the specific **partition** where your job is scheduled. `cpu` is the default for batch jobs; see the [Phoebe partitions](../systems/phoebe/index.md#slurm-partitions) and [Koios partitions](../systems/koios/index.md#slurm-partitions) for the others, and [GPU jobs](gpu-jobs.md) for the GPU partitions.
--   `--cpus-per-task=64` determines the **number of CPU cores** allocated to each process. Certain applications can leverage multiple cores, so it is meaningful to allocate an appropriate number of cores to enhance their performance.
+-   `--cpus-per-task=1` sets the **number of CPUs** for each process. On Phoebe's CPU nodes a CPU is one hardware thread, and every core has two, so `--cpus-per-task=64` gets 32 cores. Slurm hands out whole cores, so `--cpus-per-task=1` actually gets one core (2 CPUs). Ask for more CPUs only if your program uses them; `sleep` needs just one.
 -   With argument `--mem=4G` one can specify **memory requirements** per node, or per allocated CPU with `--mem-per-cpu=2G`. Without either, Phoebe's CPU partitions give 2 GB per CPU and Koios 3 GB per CPU (see [memory per CPU](index.md#memory-per-cpu)). When memory limits are exceeded, the job is killed to protect other jobs.
 
 ## Submit the job
@@ -81,41 +85,34 @@ If the job has already finished, it is no longer shown by `squeue`; use `sacct` 
 In the output above we see that our job 10811 is in state “**R**” - Running at compute node n11. To see more details about particular job, we can use command `scontrol show job=NNNNN` where `NNNN` is the job number:
 
 ```shell
-$ scontrol show job=10811 
-JobId=10811 JobName=sleep2 
-  UserId=jose(30012) GroupId=jose(30012) MCS_label=N/A 
-  Priority=50000 Nice=0 Account=fzu_a_39 QOS=normal 
-  JobState=COMPLETED Reason=None Dependency=(null) 
-  Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 
-  RunTime=00:00:15 TimeLimit=00:34:00 TimeMin=N/A 
-  SubmitTime=2022-10-06T13:40:52 EligibleTime=2022-10-06T13:40:52 
-  AccrueTime=2022-10-06T13:40:52 
-  StartTime=2022-10-06T13:40:52 EndTime=2022-10-06T13:41:07 Deadline=N/A 
-  SuspendTime=None SecsPreSuspend=0 LastSchedEval=2022-10-06T13:40:52 Scheduler=Backfill 
-  Partition=cpu AllocNode:Sid=slurm1:1561034 
-  ReqNodeList=(null) ExcNodeList=(null) 
-  NodeList=n11 
-  BatchHost=n11 
-  NumNodes=1 NumCPUs=64 NumTasks=1 CPUs/Task=64 ReqB:S:C:T=0:0:*:2 
-  TRES=cpu=64,node=1,billing=64 
-  Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* 
-  MinCPUsNode=64 MinMemoryNode=0 MinTmpDiskNode=0 
-  Features=(null) DelayBoot=00:00:00 
-  OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) 
-  Command=/home/jose/projects/handson1/jobscript.sh 
-  WorkDir=/home/jose/projects/handson1 
-  StdErr=/home/jose/projects/handson1/slurm-10811.out 
-  StdIn=/dev/null 
-  StdOut=/home/jose/projects/handson1/slurm-10811.out 
-  Power= 
+$ scontrol show job=10811
+JobId=10811 JobName=sleep2
+  ...
+  JobState=COMPLETED Reason=None Dependency=(null)
+  ...
+  RunTime=00:00:15 TimeLimit=00:34:00 TimeMin=N/A
+  ...
+  Partition=cpu AllocNode:Sid=slurm1:1561034
+  ...
+  NodeList=n11
+  ...
+  Command=/home/jose/projects/handson1/jobscript.sh
+  WorkDir=/home/jose/projects/handson1
+  StdErr=/home/jose/projects/handson1/slurm-10811.out
+  StdIn=/dev/null
+  StdOut=/home/jose/projects/handson1/slurm-10811.out
+  ...
 $
 ```
 
-From that output we can see our job already finished (`JobState=COMPLETED`) and we see files, where `stderr` and `stdout` were forwarded to. By default, these files are in the job submission directory.
+The output is shortened here (`...`). It shows that the job has finished (`JobState=COMPLETED`)
+and where its output and error messages went (`StdOut`, `StdErr`). By default, both go to one
+file in the directory you submitted the job from.
 
 ## Watch the output of a running job
 
-To see live output of job, using `scontrol show job=NNNNN` find the `StdOut` file path, and watch it using tail command - eg. 
+To follow the output of a running job, find its `StdOut` file with `scontrol show job=<jobid>`
+and watch it with `tail -F`, for example:
 
 ```shell
 tail -F ~/projects/handson1/slurm-10811.out
