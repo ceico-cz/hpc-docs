@@ -8,8 +8,8 @@ description: "Description of CEICO legacy cluster"
 
 The Koios cluster, a previous-generation system, is composed of 27 compute nodes. Each node is equipped with two 16-core Intel Xeon Skylake CPUs (Xeon Gold 6130) and 384 GB of RAM. All nodes run Rocky Linux 9.
 
-!!! info "No GPUs on Koios"
-    The former GPU node `n28`, with four NVIDIA Tesla P100 cards, is no longer part of the cluster. Use the A100 nodes on [Phoebe](systems/phoebe.md) for GPU work.
+!!! info "GPU node temporarily unavailable"
+    The GPU node with four [NVIDIA Tesla P100](koios/hw/p100.md) cards is currently dedicated to a project and is not available through Slurm. It will return to general use later. Until then, use the A100 nodes on [Phoebe](systems/phoebe.md) for GPU work.
 
 ## Accessing Koios
 

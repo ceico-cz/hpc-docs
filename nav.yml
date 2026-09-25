@@ -10,7 +10,7 @@ nav:
       - Koios (legacy):
           - Overview: koios.md
           - Hardware: koios/hw.md
-          - Nvidia Tesla P100 (retired): koios/hw/p100.md
+          - Nvidia Tesla P100: koios/hw/p100.md
           - Xeon Gold 6130: koios/hw/Xeon_Gold_6130.md
       - Third-party systems:
           - MetaCentrum:
