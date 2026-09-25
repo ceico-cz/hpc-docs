@@ -1,0 +1,67 @@
+# Site navigation. Top-level entries become the tabs in the header.
+nav:
+  - Home: index.md
+  - Systems:
+      - Overview: systems/index.md
+      - Storage and software: systems/storage.md
+      - Phoebe:
+          - Overview: systems/phoebe/index.md
+          - Hardware: systems/phoebe/hardware.md
+          - Acknowledging Phoebe: systems/phoebe/acknowledgement.md
+      - Koios (legacy):
+          - Overview: systems/koios/index.md
+          - Hardware: systems/koios/hardware.md
+      - Third-party systems:
+          - MetaCentrum:
+              - Overview: systems/metacentrum/index.md
+              - Passwordless SSH with Kerberos: systems/metacentrum/kerberos.md
+              - Multi-cluster jobs with HyperQueue: systems/metacentrum/hyperqueue.md
+  - Getting started:
+      - Overview: getting-started/index.md
+      - Account:
+          - Get an account: getting-started/account.md
+          - Create an SSH key: getting-started/ssh-key.md
+          - Portal passkey: getting-started/passkey.md
+      - Connect:
+          - SSH: getting-started/ssh.md
+          - Open OnDemand:
+              - Log in and manage sessions: getting-started/ondemand/index.md
+              - JupyterLab: getting-started/ondemand/jupyterlab.md
+              - Remote desktop: getting-started/ondemand/desktop.md
+          - VS Code remote tunnel: getting-started/vscode-tunnel.md
+          - From outside the FZU network (SOCKS proxy): getting-started/socks-proxy.md
+      - Transfer data:
+          - Mount storage with sshfs: getting-started/sshfs.md
+  - Running jobs:
+      - Overview: slurm/index.md
+      - Batch jobs: slurm/batch-jobs.md
+      - GPU jobs: slurm/gpu-jobs.md
+      - Interactive sessions: slurm/interactive.md
+      - Job history and troubleshooting: slurm/troubleshooting.md
+  - Software:
+      - Overview: software/index.md
+      - Environments:
+          - Software modules (Lmod): software/modules.md
+          - Conda on Phoebe: software/conda.md
+          - Python with uv: software/python-uv.md
+          - Unpack an RPM without root: software/unpack-rpm.md
+      - Applications:
+          - CosmoLattice: software/cosmolattice.md
+          - CosmoSIS with Python 2.7: software/cosmosis-py27.md
+          - CuPy on GPUs: software/cupy.md
+          - MESA stellar evolution: software/mesa.md
+          - Pyoperon: software/pyoperon.md
+          - Wolfram Mathematica: software/mathematica/index.md
+  - Tips & tricks:
+      - Overview: tips/index.md
+      - Bash tweaks: tips/bash-tweaks.md
+      - Tabbed screen sessions: tips/screen.md
+      - Shell one-liners: tips/one-liners.md
+  - Administration:
+      - Overview: admin/index.md
+      - Reference:
+          - Accounts, QOS and limits: admin/slurm-accounting.md
+          - Slurm admin snippets: admin/slurm-snippets.md
+          - CUDA driver and toolkit: admin/cuda.md
+      - Admin blog:
+          - admin/blog/index.md

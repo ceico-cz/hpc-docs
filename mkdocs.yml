@@ -1,0 +1,104 @@
+INHERIT: nav.yml
+
+site_name: CEICO HPC Services
+site_url: https://hpc.ceico.cz/
+site_description: User documentation for HPC services provided to members of the CEICO project at the Institute of Physics (FZU) of the Czech Academy of Sciences
+site_author: CEICO, Institute of Physics (FZU) of the Czech Academy of Sciences
+copyright: >-
+  <a href="https://www.fzu.cz/ceico">CEICO</a> – Central European Institute for Cosmology and Fundamental Physics,
+  Institute of Physics (FZU) of the Czech Academy of Sciences · content licensed CC0
+
+repo_url: https://github.com/ceico-cz/hpc-docs
+repo_name: ceico-cz/hpc-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/ceico-logo-negative.svg
+  favicon: assets/ceico-icon.svg
+  font:
+    text: Wix Madefor Text
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle: { icon: material/brightness-auto, name: Switch to light mode }
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle: { icon: material/brightness-7, name: Switch to dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle: { icon: material/brightness-4, name: Switch to system preference }
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+    - content.tooltips
+    - toc.follow
+
+plugins:
+  - search
+  - privacy          # self-host Google Fonts and other external assets
+  - glightbox:
+      skip_classes: [off-glb]
+      zoomable: true
+      draggable: false
+  - tags
+  - blog:
+      blog_dir: admin/blog
+      blog_toc: true
+      post_date_format: long
+      post_url_format: "{date}/{slug}"
+      authors: false
+      categories: false
+      archive_name: By date
+  - redirects:
+      redirect_maps: {}   # filled by hooks/wikijs_redirects.py
+
+hooks:
+  - hooks/wikijs_redirects.py
+  - hooks/last_updated.py
+
+extra_css:
+  - assets/extra.css
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.blocks.caption
+  - pymdownx.caret        # ^superscript^
+  - pymdownx.tilde        # ~subscript~ and ~~strike~~
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
