@@ -7,8 +7,8 @@ wikijs_updated: 2023-11-15
 
 To exchange data quickly between your laptop and our clusters, you can mount your cluster
 home directory on your laptop or workstation with sshfs. It then behaves like a local
-folder. Phoebe and Koios share home directories, so mounting either one gives you the
-same files.
+folder. Phoebe and Koios have separate home directories; the examples below mount your Phoebe
+home.
 
 ## Prerequisites
 

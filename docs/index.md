@@ -37,8 +37,7 @@ Web portals need the FZU network or VPN. From elsewhere, use the
 
     ---
 
-    The previous-generation CEICO cluster: 864 CPU cores, sharing accounts and home directories
-    with Phoebe.
+    The previous-generation CEICO cluster: 864 CPU cores, sharing accounts with Phoebe.
 
     [:octicons-arrow-right-24: About Koios](systems/koios/index.md)
 
@@ -126,7 +125,7 @@ Web portals need the FZU network or VPN. From elsewhere, use the
 
 -   [:material-folder-outline: **Storage**](systems/storage.md)
 
-    Where your files live: home directories, local scratch and the archive.
+    Where your files live: home directories, project space and local scratch.
 
 -   [:material-format-quote-close: **Acknowledge Phoebe**](systems/phoebe/acknowledgement.md)
 

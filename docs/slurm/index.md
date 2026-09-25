@@ -57,9 +57,9 @@ allocated CPU:
 A job that uses more memory than it has is killed with the state `OUT_OF_MEMORY`.
 
 On the CPU nodes of both clusters, a "CPU" in Slurm is one hardware thread; every core has
-two. `--cpus-per-task=64` on a Phoebe CPU node therefore gets 32 physical cores. On Phoebe,
-Slurm hands out whole cores, so an odd number of CPUs is rounded up: `--cpus-per-task=1` gets
-2 CPUs, and with them twice the default memory per CPU.
+two. `--cpus-per-task=64` on a Phoebe CPU node therefore gets 32 physical cores. Slurm hands out
+whole cores, so an odd number of CPUs is rounded up: `--cpus-per-task=1` gets 2 CPUs, and with
+them twice the default memory per CPU.
 
 ### Per-user limits
 

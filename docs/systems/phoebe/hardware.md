@@ -46,12 +46,11 @@ Block diagram of a compute node (Gigabyte H262-Z63)
 
 ## Small nodes (3×, s[1-3])
 
-* CPU: 8 cores
+* Platform: KVM virtual machines
+* CPU: 8 virtual cores of an AMD EPYC 73F3 ([vendor link](https://www.amd.com/en/products/cpu/amd-epyc-73f3))
 * Memory: 64 GB
+* No InfiniBand; local disk about 1 TB
 * used by the `small_int` partition for light interactive work
-
-!!! warning "TODO"
-    Add the platform, CPU model and power figure of the small nodes.
 
 ## High speed interconnect network
 

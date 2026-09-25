@@ -1,40 +1,72 @@
 ---
 title: "Storage and software on Phoebe and Koios"
-description: "Home directories, local scratch, archive storage and the software tree on the CEICO clusters"
+description: "Home directories, project space, local scratch and the software tree on the CEICO clusters"
 ---
 
 # Storage and software on Phoebe and Koios
 
-!!! warning "TODO"
-    This page is based on the Koios documentation. Check that each part also applies to Phoebe,
-    and add:
+| What | Path | Phoebe | Koios |
+| --- | --- | --- | --- |
+| Home directory | `~` (`/home/<username>`) | own home directory | own home directory, separate from Phoebe's |
+| Project space | `/mnt/proj/<project>` | yes | yes, the same directories |
+| Local scratch | `/tmp` on the compute node | shared by the jobs on a node | private to each job |
+| Shared scratch | `/mnt/shared-scratch` | - | yes |
+| Software | `/cvmfs/...` | `2023a` to `2026a` and `system` stacks | its own stack, `c9` |
 
-    - home directory quotas, and how users can check their usage
-    - whether anything is backed up
-    - any project or shared scratch storage
+!!! warning "TODO"
+    Add home directory quotas and how users can check their usage, whether anything is backed
+    up, how to get project space, and what `/mnt/shared-scratch` on Koios is for.
 
 ## Home directories
 
-Your home directory is on a [BeeGFS](https://www.beegfs.io/c/) cluster file system shared by
-Phoebe and Koios, so you see the same files on both clusters.
+Both clusters keep home directories on the same [BeeGFS](https://www.beegfs.io/c/) storage
+(218 TB), but **each cluster has its own home directory**: files you create on Phoebe don't
+appear on Koios, and the other way round. To move files between the clusters, copy them, for
+example with `rsync` over SSH.
 
-## Local fast temporary storage
+Your account and SSH key are the same on both clusters.
 
-Each compute node has a local NVMe disk mounted as `/tmp` and available to jobs as `$TMPDIR`
-(about 2 TB on Koios, 1.7 TB on Phoebe CPU nodes and 3.4 TB on Phoebe GPU nodes). It is much
-faster than the shared file system for many small files.
+## Project space
 
-This storage is not persistent: it is cleaned periodically, for example when node images are
-updated. Copy results you want to keep back to your home directory before your job ends.
+`/mnt/proj` holds one directory per project, named `pNNN_<name>`, on both clusters. A project
+directory belongs to the project's own group, and only its members can read and write it. New
+files and directories inside it get the project group automatically, so the whole project can
+use them.
 
-## Archive directory
+The project space is 1 TB in total and is shared by all projects.
 
-`/mnt/archive` is slower storage with deduplication and compression
-([VDO](https://www.redhat.com/en/blog/understanding-concepts-behind-virtual-data-optimizer-vdo-rhel-75-beta)).
-Use it as an archive for files you rarely need.
+## Local temporary storage
+
+Each compute node has a local NVMe disk for temporary files, much faster than the shared file
+systems for many small files. Copy results you want to keep to your home directory or project
+space before your job ends.
+
+=== "Phoebe"
+
+    `/tmp` is on the node's NVMe disk: 1.7 TB on the CPU nodes, 3.2 TB on the GPU nodes and
+    about 1 TB on the small nodes. It is shared by all jobs on the node, and files are not
+    removed when a job ends; the system deletes files in `/tmp` that haven't been used for 10
+    days. `$TMPDIR` is not set.
+
+    Use a directory of your own and remove it at the end of the job:
+
+    ```shell
+    export TMPDIR=/tmp/$USER/$SLURM_JOB_ID
+    mkdir -p "$TMPDIR"
+    # ... your work ...
+    rm -rf "$TMPDIR"
+    ```
+
+=== "Koios"
+
+    Each job gets its own private `/tmp` on the node's NVMe disk (1.7 TB per node, shared by the
+    jobs on the node). Other jobs don't see it, and it is deleted when the job ends.
 
 ## Software tree
 
-Application software is provided through [CVMFS](https://cernvm.cern.ch/fs/) (CernVM File
-System) in `/cvmfs`. It is built with the [EasyBuild](https://docs.easybuild.io/) framework and
-loaded with Lmod [software modules](../software/modules.md).
+Application software comes from [CVMFS](https://cernvm.cern.ch/fs/) (CernVM File System) under
+`/cvmfs`. It is built with the [EasyBuild](https://docs.easybuild.io/) framework and loaded with
+Lmod [software modules](../software/modules.md). The two clusters have different trees:
+
+* **Phoebe**: the stacks `2023a` to `2026a` and `system`, under `/cvmfs/<stack>.phoebe.lan`.
+* **Koios**: its own tree, `/cvmfs/c9.phoebe.lan`.
