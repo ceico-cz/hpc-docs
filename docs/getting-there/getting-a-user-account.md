@@ -1,9 +1,11 @@
 ---
-title: "Getting a user account on Phoebe"
+title: "Getting a user account on Phoebe and Koios"
 wikijs_updated: 2023-11-15
 ---
 
-# Getting a user account on Phoebe
+# Getting a user account on Phoebe and Koios
+
+Phoebe and Koios share user accounts, so one account and SSH key work on both clusters.
 
 First create a fresh SSH key pair:
 

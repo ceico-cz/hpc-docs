@@ -43,7 +43,7 @@ ssh-keygen -t ed25519
     +----[SHA256]-----+
     ```
 
-Print your **public** key and send it to the Phoebe admin:
+Print your **public** key and send it to the CEICO HPC administrator:
 
 ```bash
 cat ~/.ssh/id_ed25519.pub

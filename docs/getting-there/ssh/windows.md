@@ -1,12 +1,12 @@
 ---
-title: "Accessing Phoebe using SSH from Windows"
+title: "Accessing Phoebe and Koios using SSH from Windows"
 wikijs_updated: 2023-11-15
 ---
 
-# Accessing Phoebe using SSH from Windows
+# Accessing Phoebe and Koios using SSH from Windows
 
 !!! info "Note"
-    Before first login, initial [activating Phoebe account](../getting-a-user-account.md) is necessary.
+    Before first login, you need to [activate your account](../getting-a-user-account.md). The same account works on Phoebe and Koios.
 
 
 ## Install an SSH client
@@ -43,7 +43,7 @@ MobaXterm is a popular terminal software that includes an embedded X server and 
 - Once the key pair is generated, you can save it to your local machine.
 - Click on the "Save private key" button to save the private key. This private key file will typically have a `.ppk` (Putty private key) extension. Select the directory and clisk on `Save` button.
 - Click on the "Save public key" button to save the public key. This is the key you'll share with servers or services.
-- Copy out Public key from field `Public key for pasting into OpenSSH server` and provide it to Phoebe admin
+- Copy out Public key from field `Public key for pasting into OpenSSH server` and provide it to the CEICO HPC administrator
 
 ### Close MobaKeyGen
 
@@ -57,10 +57,12 @@ MobaXterm is a popular terminal software that includes an embedded X server and 
 
 1. click on <kbd>Session</kbd> and then <kbd>SSH</kbd>
 1. fill-in remote host as `phoebe.fzu.cz`
-1. tick the <kbd>Specify username</kbd> checkbox and fill in your koios username ( usually your short FZU username )
+1. tick the <kbd>Specify username</kbd> checkbox and fill in your username (usually your short FZU username)
 1. click on "Advanced SSH settings"
 1. tick <kbd>Use private key</kbd> and select the private part of your key
 1. click on <kbd>OK</kbd>
+
+For Koios, create a second profile the same way with remote host `koios1.fzu.cz`.
 
 ## Connect to Phoebe using the profile
 

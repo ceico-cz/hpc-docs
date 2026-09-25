@@ -1,9 +1,9 @@
 ---
-title: "Accessing Phoebe using SSH (command line interface)"
+title: "Accessing Phoebe and Koios using SSH (command line interface)"
 wikijs_updated: 2025-10-13
 ---
 
-# Accessing Phoebe using SSH (command line interface)
+# Accessing Phoebe and Koios using SSH (command line interface)
 
 ## SSH host key fingerprints
 * **phoebe** ED25519 key fingerprint:  `SHA256:xy6+Upes9O4LWWQkME7TjWsmotoTOMlZMSBBWg+j2Zk`
@@ -26,3 +26,5 @@ wikijs_updated: 2025-10-13
 /// caption
 How you reach Phoebe: everything goes through the front-end node `phoebe.fzu.cz`.
 ///
+
+Koios works the same way through its front-end node `koios1.fzu.cz`.
