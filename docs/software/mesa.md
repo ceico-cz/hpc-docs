@@ -9,13 +9,14 @@ This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (ME
 
 ## Configure the shell environment for the SDK
 
-The MESA SDK is already unpacked in the shared software area `/sw/phoebe`. That area is mounted
-on the compute nodes but not on the login node, so run the steps below in an
-[interactive session](../slurm/interactive.md) or a batch job. Configure the environment
-variables:
+!!! warning "TODO"
+    The MESA SDK needs a supported location, for example the `system` software stack. Replace
+    `<MESA SDK directory>` below with it.
+
+Configure the environment variables for the MESA SDK:
 
 ```shell
-export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1
+export MESASDK_ROOT="<MESA SDK directory>"
 source $MESASDK_ROOT/bin/mesasdk_init.sh
 ```
 
@@ -81,7 +82,7 @@ nano ~/.bashrc
 and **append** (do not forget to modify the MESA\_DIR to reflect your mesa star installation directory! )
 
 ```shell
-export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1 
+export MESASDK_ROOT="<MESA SDK directory>" 
 source $MESASDK_ROOT/bin/mesasdk_init.sh 
 export MESA_DIR=$HOME/projects/mesaStar/mesa-r22.05.1
 ```

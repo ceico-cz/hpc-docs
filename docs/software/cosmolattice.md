@@ -19,21 +19,15 @@ cluster.
 
 ### Important module detail
 
-On Phoebe, the `2022a` toolchain works reliably only if `OpenSSL/1.1` is loaded
-explicitly before the other modules.
-
-The `2022a` modules live in `/sw/phoebe`, which is mounted on the compute nodes but not on the
-login node, so build and run CosmoLattice on a compute node, for example in an
-[interactive session](../slurm/interactive.md). There is no `CMake` module any more; the
-system `cmake` (3.26.5) works.
+Use the `2023a` toolchain with its HDF5 module. `cmake` comes with the system (3.26.5); there
+is no `CMake` module.
 
 Use this sequence:
 
 ```bash
 module purge
-module load OpenSSL/1.1
-module load HDF5/1.12.2-gompi-2022a
-module load foss/2022a
+module load foss/2023a
+module load HDF5/1.14.0-gompi-2023a
 ```
 
 ### Example build
@@ -42,8 +36,10 @@ This example reflects a Phoebe build configuration that has been proven to
 work:
 
 !!! warning "TODO"
-    The proven build used the `CMake/3.23.1-GCCcore-11.3.0` module, which no longer exists.
-    Re-test the build with the system `cmake` 3.26.5.
+    Not yet tested with `2023a`. The proven build used the `2022a` toolchain, the
+    `CMake/3.23.1-GCCcore-11.3.0` module and `OpenSSL/1.1` loaded first. Re-test with
+    `foss/2023a`, `HDF5/1.14.0-gompi-2023a` and the system `cmake`, and check whether
+    `OpenSSL/1.1` is still needed.
 
 ```bash
 ssh your-user@phoebe.fzu.cz
@@ -54,9 +50,8 @@ mkdir -p build
 cd build
 
 module purge
-module load OpenSSL/1.1
-module load HDF5/1.12.2-gompi-2022a
-module load foss/2022a
+module load foss/2023a
+module load HDF5/1.14.0-gompi-2023a
 
 cmake .. -DMPI=ON -DHDF5=ON -DPFFT=OFF -DMODEL=dws
 cmake --build . -j 8
@@ -162,9 +157,8 @@ This is an example job script showing a working Phoebe setup:
 export SLURM_UNBUFFEREDIO=1
 
 module purge
-module load OpenSSL/1.1
-module load HDF5/1.12.2-gompi-2022a
-module load foss/2022a
+module load foss/2023a
+module load HDF5/1.14.0-gompi-2023a
 
 INPUT=example.in
 OUTDIR=${SLURM_JOB_ID}_${INPUT%.in}

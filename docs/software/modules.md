@@ -16,24 +16,17 @@ Modules are grouped into stacks. Each numbered stack is built with one
 13.3 with OpenMPI, FlexiBLAS, FFTW and ScaLAPACK. Modules from different stacks don't mix: load
 one `foss` toolchain and modules built with it.
 
-| Stack | Location | Toolchain | Available on |
-| --- | --- | --- | --- |
-| `2026a` | `/cvmfs/2026a.phoebe.lan` | `foss/2026.1` (GCC 15.2), `lfoss/2026.1` | all nodes |
-| `2025a` | `/cvmfs/2025a.phoebe.lan` | `foss/2025a` (GCC 14.2) | all nodes |
-| `2024a` | `/cvmfs/2024a.phoebe.lan` | `foss/2024a` (GCC 13.3) | all nodes |
-| `2023a` | `/cvmfs/2023a.phoebe.lan` | `foss/2023a` (GCC 12.3) | all nodes |
-| `system` | `/cvmfs/system.phoebe.lan` | none: CUDA, Miniforge3, Mathematica, MATLAB, Julia, VTune | all nodes |
-| `2022a`, `2022b`, `standalone` | `/sw/phoebe` | `foss/2022a`, `foss/2022b` | **compute and GPU nodes only** |
+| Stack | Location | Toolchain |
+| --- | --- | --- |
+| `2026a` | `/cvmfs/2026a.phoebe.lan` | `foss/2026.1` (GCC 15.2), `lfoss/2026.1` |
+| `2025a` | `/cvmfs/2025a.phoebe.lan` | `foss/2025a` (GCC 14.2) |
+| `2024a` | `/cvmfs/2024a.phoebe.lan` | `foss/2024a` (GCC 13.3) |
+| `2023a` | `/cvmfs/2023a.phoebe.lan` | `foss/2023a` (GCC 12.3) |
+| `system` | `/cvmfs/system.phoebe.lan` | none: CUDA, Miniforge3, Mathematica, MATLAB, Julia, VTune |
 
-!!! warning "Older software only on compute nodes"
-    The older stacks in `/sw/phoebe` (`2022a` with CuPy, PyTorch and TensorFlow, and
-    `standalone` with Mathematica 13.3 and 14.0 and the MESA SDK) are not mounted on the login
-    node. `module avail` on the login node doesn't show them. To use them, start an
-    [interactive session](../slurm/interactive.md) or a batch job.
+All stacks are available on the login node and on every compute node.
 
-!!! warning "TODO"
-    Say whether the `/sw/phoebe` stacks are being retired, and which stack is recommended for
-    new work.
+For new work, use the newest stack that has what you need.
 
 ## Search for available modules
 
@@ -80,7 +73,7 @@ Python/3.14.2-GCCcore-15.2.0
 ```
 
 `module spider <name>/<version>` shows how to load one version, including any modules it
-needs first. Like `module avail`, it only sees the stacks mounted on the node you run it on.
+needs first.
 
 ## Load a specific module
 

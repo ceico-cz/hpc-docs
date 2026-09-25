@@ -65,9 +65,7 @@ See [interactive sessions](interactive.md) for how to keep the session alive wit
 CUDA is available as modules on every node, from `CUDA/11.4.1` to `CUDA/13.3.0`. The GPU
 nodes' driver runs all of them.
 
-Ready-made GPU frameworks are older and only on the compute and GPU nodes, in the `2022a`
-stack: `PyTorch/1.12.1-foss-2022a-CUDA-11.7.0`, `PyTorch/2.0.1-foss-2022a`,
-`TensorFlow/2.11.0-foss-2022a-CUDA-11.7.0` and `CuPy/12.0.0-foss-2022a`. For current
-versions, install them yourself with [conda](../software/conda.md) or
-[uv](../software/python-uv.md); see [CuPy on GPUs](../software/cupy.md) for an example. See
-also [software modules](../software/modules.md).
+GPU frameworks such as PyTorch, TensorFlow and CuPy are not provided as modules. Install them
+yourself with [conda](../software/conda.md) or [uv](../software/python-uv.md); see
+[CuPy on GPUs](../software/cupy.md) for an example. See also
+[software modules](../software/modules.md).

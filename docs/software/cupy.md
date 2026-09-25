@@ -12,11 +12,7 @@ tags:
 
 # Create a conda environment with CuPy
 
-!!! tip "Ready-made module"
-    An older CuPy is available as the module `CuPy/12.0.0-foss-2022a`, but only on the compute
-    and GPU nodes (the `2022a` stack is not mounted on the login node). Build your own conda
-    environment if you need a newer CuPy or CUDA version. For getting conda itself, see
-    [Conda on Phoebe](conda.md).
+For getting conda itself, see [Conda on Phoebe](conda.md).
 
 ## Get an interactive shell on a GPU node
 

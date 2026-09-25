@@ -44,17 +44,12 @@ use `module spider Mathematica`:
      Versions:
         Mathematica/11.3.0
         Mathematica/12.0.0
-        Mathematica/13.3.0
-        Mathematica/14.0.0
+        Mathematica/13.1.0
         Mathematica/14.1.0
 ```
-
-Run it on a compute node, where your job runs: versions 13.3.0 and 14.0.0 come from
-`/sw/phoebe`, which the login node doesn't mount, so `module spider` there lists a different
-set.
 and load selected Mathematica version:
 
-`module load Mathematica/14.0.0`
+`module load Mathematica/14.1.0`
 
 
 4. Run package - `math` binary should be able to execute our module in non-interactive mode:
@@ -82,7 +77,7 @@ echo "sbatch-INFO: start of job"
 echo "sbatch-INFO: nodes: ${SLURM_JOB_NODELIST}"
 echo "sbatch-INFO: system: ${SLURM_CLUSTER_NAME}"
 
-module load Mathematica/13.3.0
+module load Mathematica/14.1.0
 
 math -run < package.m 
 
