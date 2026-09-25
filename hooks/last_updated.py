@@ -1,24 +1,38 @@
 """Show a "last updated" date on every page.
 
-Pages edited in git after the Wiki.js import use their last commit date. Pages untouched
-since the import use the Wiki.js edit date stored in front matter (wikijs_updated), so the
-import commit itself does not make every page look freshly updated.
+The date is the page's last git commit, ignoring bulk commits that touched every page
+without changing its content (the Wiki.js import, reformatting). Pages with no other commit
+use the Wiki.js edit date stored in front matter (wikijs_updated).
+
+Add the hash of any future bulk commit (e.g. a final re-sync from Wiki.js) to BULK_COMMITS.
 """
 import datetime
 import subprocess
 
-IMPORT_COMMIT = "f02778ea9dc8df77689966ec7199cfbf4390c891"
+BULK_COMMITS = {
+    "f02778ea9dc8df77689966ec7199cfbf4390c891",  # initial import from Wiki.js
+    "27bd6cf",                                   # redesign: callout titles, wikijs_updated field
+}
+
+
+def _is_bulk(sha):
+    return any(sha.startswith(b) or b.startswith(sha) for b in BULK_COMMITS)
 
 
 def _git_date(path):
     try:
         out = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", f"{IMPORT_COMMIT}..HEAD", "--", path],
+            ["git", "log", "--format=%H %cs", "--", path],
             capture_output=True, text=True, check=True,
-        ).stdout.strip()
+        ).stdout.split("\n")
     except (OSError, subprocess.CalledProcessError):
         return None
-    return out or None
+    for line in out:
+        if line.strip():
+            sha, date = line.split()
+            if not _is_bulk(sha):
+                return date
+    return None
 
 
 def on_page_markdown(markdown, page, config, files):
