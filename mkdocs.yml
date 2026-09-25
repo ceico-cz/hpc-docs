@@ -1,0 +1,86 @@
+INHERIT: nav.yml
+
+site_name: PHOEBE compute system wiki
+site_url: https://hpc.ceico.cz/
+site_description: User documentation for the Phoebe HPC system at CEICO, Institute of Physics of the Czech Academy of Sciences
+site_author: CEICO | Institute of Physics ASCR
+copyright: CEICO | Institute of Physics ASCR · content licensed CC0
+
+# Placeholder until the GitHub repository exists
+repo_url: https://github.com/ceico-cz/hpc-docs
+repo_name: ceico-cz/hpc-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/ceico-logo.png
+  favicon: assets/ceico-logo.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle: { icon: material/brightness-auto, name: Switch to light mode }
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+      toggle: { icon: material/brightness-7, name: Switch to dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle: { icon: material/brightness-4, name: Switch to system preference }
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+
+plugins:
+  - search
+  - tags
+  - redirects:
+      redirect_maps: {}   # filled by hooks/wikijs_redirects.py
+
+hooks:
+  - hooks/wikijs_redirects.py
+
+extra_css:
+  - assets/extra.css
+
+# Pages reachable by links but not listed in the sidebar, like in Wiki.js
+not_in_nav: |
+  /**/*.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.caret        # ^superscript^
+  - pymdownx.tilde        # ~subscript~ and ~~strike~~
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg

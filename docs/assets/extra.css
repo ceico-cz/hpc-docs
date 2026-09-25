@@ -1,0 +1,9 @@
+/* Wiki.js {.align-center} on images */
+.md-typeset img.align-center { display: block; margin-left: auto; margin-right: auto; }
+/* callouts converted from Wiki.js have no title */
+.md-typeset .admonition > p:first-child:empty { display: none; }
+/* tinted callouts, closer to Wiki.js {.is-info} / {.is-warning} */
+.md-typeset .admonition.info    { background-color: color-mix(in srgb, #00b8d4 8%, transparent); }
+.md-typeset .admonition.warning { background-color: color-mix(in srgb, #ff9100 8%, transparent); }
+.md-typeset .admonition.success { background-color: color-mix(in srgb, #00c853 8%, transparent); }
+.md-typeset .admonition.danger  { background-color: color-mix(in srgb, #ff1744 8%, transparent); }
