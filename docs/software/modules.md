@@ -5,124 +5,126 @@ wikijs_updated: 2023-11-15
 
 # Using Lmod software modules
 
-Lmod (Lua-based Modules) is a module system used in high-performance computing (HPC) environments to manage environment variables and paths for different software packages and libraries. Here's a general guide on how to use Lmod and the environment modules it generates on an HPC system:
+Lmod (Lua-based Modules) sets up your environment (paths and variables) for the software you
+choose. Most compilers, libraries and applications on Phoebe are installed centrally and
+loaded as modules.
+
+## Where modules come from
+
+Modules are grouped into stacks. Each numbered stack is built with one
+[EasyBuild](https://docs.easybuild.io/) toolchain generation; `foss/2024a`, for example, is GCC
+13.3 with OpenMPI, FlexiBLAS, FFTW and ScaLAPACK. Modules from different stacks don't mix: load
+one `foss` toolchain and modules built with it.
+
+| Stack | Location | Toolchain | Available on |
+| --- | --- | --- | --- |
+| `2026a` | `/cvmfs/2026a.phoebe.lan` | `foss/2026.1` (GCC 15.2), `lfoss/2026.1` | all nodes |
+| `2025a` | `/cvmfs/2025a.phoebe.lan` | `foss/2025a` (GCC 14.2) | all nodes |
+| `2024a` | `/cvmfs/2024a.phoebe.lan` | `foss/2024a` (GCC 13.3) | all nodes |
+| `2023a` | `/cvmfs/2023a.phoebe.lan` | `foss/2023a` (GCC 12.3) | all nodes |
+| `system` | `/cvmfs/system.phoebe.lan` | none: CUDA, Miniforge3, Mathematica, MATLAB, Julia, VTune | all nodes |
+| `2022a`, `2022b`, `standalone` | `/sw/phoebe` | `foss/2022a`, `foss/2022b` | **compute and GPU nodes only** |
+
+!!! warning "Older software only on compute nodes"
+    The older stacks in `/sw/phoebe` (`2022a` with CuPy, PyTorch and TensorFlow, and
+    `standalone` with Mathematica 13.3 and 14.0 and the MESA SDK) are not mounted on the login
+    node. `module avail` on the login node doesn't show them. To use them, start an
+    [interactive session](../slurm/interactive.md) or a batch job.
 
 !!! warning "TODO"
-    The example output below shows the `2022a` and `2021b` stacks under `/sw/phoebe/`.
-    Update it to the current stacks (e.g. `2024a` under `/cvmfs/2024a.phoebe.lan`).
+    Say whether the `/sw/phoebe` stacks are being retired, and which stack is recommended for
+    new work.
 
 ## Search for available modules
 
-Use the `module avail` command to see a list of available modules:
+`module avail` lists every module you can load, stack by stack. `module -t avail` prints one
+module per line, which is easier to search. On the login node:
 
 ```
-[jose@login1 ~]$ module avail
-
-------------------------------------------------------------------------- /sw/phoebe/2022a/modules/all -------------------------------------------------------------------------
-   CFITSIO/4.2.0-GCCcore-11.3.0                       PyTorch/1.12.1-foss-2022a-CUDA-11.7.0    (D)    foss/2022a
-   CUDA/11.7.0                                        ROOT/6.28.04-foss-2022a                  (D)    gnuplot/5.4.4-GCCcore-11.3.0              (D)
-   CuPy/12.0.0-foss-2022a                      (D)    SciPy-bundle/2022.05-foss-2022a                 matplotlib/3.5.2-foss-2022a
-   Cuba/3.0-GCC-11.3.0                         (D)    TensorFlow/2.11.0-foss-2022a-CUDA-11.7.0 (D)    scikit-learn/1.1.3-foss-2022a             (D)
-   HDF5/1.12.2-gompi-2022a                            astropy/5.1.1-foss-2022a                 (D)    torchvision/0.13.1-foss-2022a-CUDA-11.7.0 (D)
-   IPython/8.5.0-GCCcore-11.3.0                       emcee/3.1.4-foss-2022a                   (D)    zeus-mcmc/2.5.4-foss-2022a                (D)
-   OpenCV/4.6.0-foss-2022a-CUDA-11.7.0-contrib (D)    fastai/2.7.10-foss-2022a-CUDA-11.7.0     (D)
-
-------------------------------------------------------------------------- /sw/phoebe/2021b/modules/all -------------------------------------------------------------------------
-...
-```
-
-## Load a specific module
-
-Use the `module load` command to load a specific module:
-
-```
-[jose@login1 ~]$ module load IPython/8.5.0-GCCcore-11.3.0
-```
-
-## Check loaded modules
-
-Use the `module list`, or its shorthand `ml` to see the currently loaded modules:
-
-```
-[jose@login1 ~]$ module list
-
-Currently Loaded Modules:
-  1) GCCcore/11.3.0                   (H)   7) Tcl/8.6.12-GCCcore-11.3.0    (H)  13) Python/3.10.4-GCCcore-11.3.0    (H)  19) libxslt/1.1.34-GCCcore-11.3.0
-       (H)
-  2) zlib/1.2.12-GCCcore-11.3.0       (H)   8) SQLite/3.38.3-GCCcore-11.3.0 (H)  14) OpenPGM/5.2.122-GCCcore-11.3.0  (H)  20) lxml/4.9.1-GCCcore-11.3.0 
-          (H)
-  3) binutils/2.38-GCCcore-11.3.0     (H)   9) XZ/5.2.5-GCCcore-11.3.0      (H)  15) libsodium/1.0.18-GCCcore-11.3.0 (H)  21) BeautifulSoup/4.10.0-GCCcore-
-11.3.0 (H)
-  4) bzip2/1.0.8-GCCcore-11.3.0       (H)  10) GMP/6.2.1-GCCcore-11.3.0     (H)  16) util-linux/2.38-GCCcore-11.3.0  (H)  22) IPython/8.5.0-GCCcore-11.3.0
-  5) ncurses/6.3-GCCcore-11.3.0       (H)  11) libffi/3.4.2-GCCcore-11.3.0  (H)  17) ZeroMQ/4.3.4-GCCcore-11.3.0     (H)
-  6) libreadline/8.1.2-GCCcore-11.3.0 (H)  12) OpenSSL/1.1                  (H)  18) libxml2/2.9.13-GCCcore-11.3.0   (H)
-
-  Where:
-   H:  Hidden Module
-[jose@login1 ~]$
+[jose@login1 ~]$ module -t avail 2>&1 | grep -i '^python'
+Python-bundle-PyPI/
+Python-bundle-PyPI/2023.06-GCCcore-12.3.0
+Python/
+Python/3.11.3-GCCcore-12.3.0
+Python-bundle-PyPI/
+Python-bundle-PyPI/2024.06-GCCcore-13.3.0
+Python/
+Python/3.10.14-GCCcore-13.3.0-bare
+Python/3.11.9-GCCcore-13.3.0-bare
+Python/3.12.3-GCCcore-13.3.0
+Python/
+Python/3.13.1-GCCcore-14.2.0
+Python/
+Python/3.14.2-GCCcore-15.2.0
 ```
 
 ## Use `module spider` for information or search
 
-The module spider command provides more detailed information about a module and it's capable to look for particular software:
+`module spider` finds a module in any stack and describes it:
 
 ```
-[jose@login1 ~]$ module spider tensorflow
+[jose@login1 ~]$ module spider Mathematica
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  TensorFlow:
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
+  Mathematica:
+----------------------------------------------------------------------------
     Description:
-      An open-source software library for Machine Intelligence
+      Mathematica is a computational software program used in many
+      scientific, engineering, mathematical and computing fields.
 
      Versions:
-        TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1
-        TensorFlow/2.11.0-foss-2022a-CUDA-11.7.0
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  For detailed information about a specific "TensorFlow" package (including how to load the modules) use the module's full name.
-  Note that names that have a trailing (E) are extensions provided by other modules.
-  For example:
-
-     $ module spider TensorFlow/2.11.0-foss-2022a-CUDA-11.7.0
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
- 
-
-[jose@login1 ~]$
+        Mathematica/11.3.0
+        Mathematica/12.0.0
+        Mathematica/13.1.0
+        Mathematica/14.1.0
 ```
+
+`module spider <name>/<version>` shows how to load one version, including any modules it
+needs first. Like `module avail`, it only sees the stacks mounted on the node you run it on.
+
+## Load a specific module
+
+Use `module load` with the full name to get a predictable version:
+
+```
+[jose@login1 ~]$ module load IPython/8.14.0-GCCcore-12.3.0
+```
+
+Lmod also loads the modules it depends on.
+
+## Check loaded modules
+
+`module list`, or its shorthand `ml`, shows the currently loaded modules, including the
+dependencies Lmod loaded for you.
 
 ## Save the current session
 
-Our systems allow you to save your loaded modules in a file so that you can easily recreate the environment later.
-
-Use the `module save` command to save the current environment to a file. Choose a descriptive name for the session name.
+You can save your loaded modules as a named collection, so that you can easily recreate the
+environment later. Choose a descriptive name:
 
 ```
-[jose@login1 ~]$ module save josef-ipython
-Saved current collection of modules to: "josef-ipython"
-
-[jose@login1 ~]$
+[jose@login1 ~]$ module save my-ipython
+Saved current collection of modules to: "my-ipython"
 ```
 
-Sessions are stored in `~/.lmod` directory.
+Collections are stored in `~/.config/lmod`.
 
 ## Restore a saved session
 
-Use the `module restore` command to load the modules saved session previously.
+Use `module restore` to load a saved collection:
 
 ```
-[jose@login1 ~]$ module restore josef-ipython
-Restoring modules from user's josef-ipython
-[jose@login1 ~]$
+[jose@login1 ~]$ module restore my-ipython
+Restoring modules from user's my-ipython
 ```
 
 ## Unload all modules
 
-Run the `module purge` command to unload all currently loaded modules. Now that the module environment is clean, you can load the specific modules you need for your current task.
+Run `module purge` to unload all currently loaded modules. With a clean environment, load only
+the modules you need for your current task.
 
 ## Further reading
 
 * [Jeff Layton: Environment Modules – A Great Tool for Clusters](https://www.admin-magazine.com/HPC/Articles/Environment-Modules) (Admin magazine)
-* [Lmod: A New Environment Module System](https://lmod.readthedocs.io/en/latest/) (Project documentation) 
+* [Lmod: A New Environment Module System](https://lmod.readthedocs.io/en/latest/) (Project documentation)
 * [Managing software with Lmod](https://arc.umich.edu/document/managing-software-with-lmod/) (Advanced research computing, University of Michigan)

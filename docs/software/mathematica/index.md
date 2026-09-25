@@ -42,10 +42,16 @@ use `module spider Mathematica`:
       Mathematica is a computational software program used in many scientific, engineering, mathematical and computing fields.
 
      Versions:
+        Mathematica/11.3.0
+        Mathematica/12.0.0
         Mathematica/13.3.0
         Mathematica/14.0.0
-(...)
+        Mathematica/14.1.0
 ```
+
+Run it on a compute node, where your job runs: versions 13.3.0 and 14.0.0 come from
+`/sw/phoebe`, which the login node doesn't mount, so `module spider` there lists a different
+set.
 and load selected Mathematica version:
 
 `module load Mathematica/14.0.0`

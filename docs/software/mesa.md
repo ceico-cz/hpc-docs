@@ -9,7 +9,10 @@ This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (ME
 
 ## Configure the shell environment for the SDK
 
-As the current Mesa SDK is already unpacked in the Phoebe shared filesystem, it is essential to configure the relevant environment variables:
+The MESA SDK is already unpacked in the shared software area `/sw/phoebe`. That area is mounted
+on the compute nodes but not on the login node, so run the steps below in an
+[interactive session](../slurm/interactive.md) or a batch job. Configure the environment
+variables:
 
 ```shell
 export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1

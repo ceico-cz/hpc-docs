@@ -8,10 +8,9 @@ tags:
 
 # Conda on Phoebe
 
-!!! warning "TODO"
-    Confirm that the `Miniforge3` module is the recommended way to get conda on Phoebe, and
-    whether `/etc/profile.d/conda.sh` (used in the [CosmoSIS guide](cosmosis-py27.md)) is
-    still supported or should be removed from that guide.
+Conda comes from the `Miniforge3` module in the `system` stack, on the login node and on all
+compute nodes. There is no system-wide conda installation (`/etc/profile.d/conda.sh` does not
+exist).
 
 ## Activate conda
 
@@ -25,8 +24,9 @@ source ${EBROOTMINIFORGE3}/etc/profile.d/conda.sh
 This does not modify your `~/.bashrc`, so conda is only active in this shell. Use the same two
 lines at the start of batch job scripts.
 
-!!! warning "TODO"
-    Add the recommended Miniforge3 version (`module spider Miniforge3`) if users should pin one.
+Three versions are installed: `Miniforge3/24.7.1-2`, `25.3.1-0` and `26.3.2-3`. Without a
+version, `module load Miniforge3` picks the newest. Name a version in job scripts, for example
+`module load Miniforge3/26.3.2-3`, so that a new default doesn't change your environment.
 
 ## Create and use an environment
 

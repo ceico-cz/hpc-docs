@@ -16,9 +16,10 @@ description: "How software is provided on the CEICO clusters, and guides for spe
 * **Without root**: you can still extract binaries from an RPM package into your home
   directory. See [Unpack an RPM without root](unpack-rpm.md).
 
-!!! warning "TODO"
-    Describe the module stacks on Phoebe (e.g. `2022a`, `2024a` under `/cvmfs`), which one
-    is current, and how the `foss` toolchains relate to them.
+Modules come in stacks, one per toolchain generation: `2023a` to `2026a` under `/cvmfs` on
+all nodes, a `system` stack with CUDA, Miniforge3 and commercial software, and older stacks
+(`2022a`, `2022b`) in `/sw/phoebe` that only the compute nodes see. See
+[where modules come from](modules.md#where-modules-come-from).
 
 ## Requesting software
 

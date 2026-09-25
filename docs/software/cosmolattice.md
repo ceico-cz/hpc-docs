@@ -22,12 +22,16 @@ cluster.
 On Phoebe, the `2022a` toolchain works reliably only if `OpenSSL/1.1` is loaded
 explicitly before the other modules.
 
+The `2022a` modules live in `/sw/phoebe`, which is mounted on the compute nodes but not on the
+login node, so build and run CosmoLattice on a compute node, for example in an
+[interactive session](../slurm/interactive.md). There is no `CMake` module any more; the
+system `cmake` (3.26.5) works.
+
 Use this sequence:
 
 ```bash
 module purge
 module load OpenSSL/1.1
-module load CMake/3.23.1-GCCcore-11.3.0
 module load HDF5/1.12.2-gompi-2022a
 module load foss/2022a
 ```
@@ -37,8 +41,13 @@ module load foss/2022a
 This example reflects a Phoebe build configuration that has been proven to
 work:
 
+!!! warning "TODO"
+    The proven build used the `CMake/3.23.1-GCCcore-11.3.0` module, which no longer exists.
+    Re-test the build with the system `cmake` 3.26.5.
+
 ```bash
 ssh your-user@phoebe.fzu.cz
+srun --partition=cpu_int --cpus-per-task=8 --mem=16G --time=02:00:00 --pty bash
 
 cd /home/your-user/projects/cosmolattice
 mkdir -p build
@@ -46,7 +55,6 @@ cd build
 
 module purge
 module load OpenSSL/1.1
-module load CMake/3.23.1-GCCcore-11.3.0
 module load HDF5/1.12.2-gompi-2022a
 module load foss/2022a
 
@@ -155,7 +163,6 @@ export SLURM_UNBUFFEREDIO=1
 
 module purge
 module load OpenSSL/1.1
-module load CMake/3.23.1-GCCcore-11.3.0
 module load HDF5/1.12.2-gompi-2022a
 module load foss/2022a
 
