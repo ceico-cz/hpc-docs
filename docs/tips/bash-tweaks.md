@@ -1,32 +1,33 @@
 ---
-title: "Bash terminal tweaks"
+title: "Bash tweaks"
 wikijs_updated: 2023-11-15
 ---
 
-# Bash terminal tweaks
+# Bash tweaks
 
-If not specified, following tweaks were meant to append to your `~/.bashrc` - a script that is executed whenever you start a new interactive instance of the Bash shell on Unix-like operating systems. The tilde `~` represents your home directory, so `~/.bashrc` refers to the `.bashrc` file in your home directory.
+Unless noted otherwise, add these snippets to your `~/.bashrc` on the login node. Bash runs
+that file whenever you start a new interactive shell; the tilde `~` stands for your home
+directory. Run `source ~/.bashrc` to apply changes to the current shell.
 
-## Alias `showinclude`
+## Keep a complete shell history
 
-Print gcc include dirs  (your dir with `.h` files should be there) 
-
-```
-alias showinclude='echo | gcc -E -Wp,-v -'
-```
-
-## Tweak bash history
-
-By default, bash saves history on exit of shell. That leads to non-consistent history file. This tweak saves the history on every "Enter" key hit and increase bash history file size to 99999 lines.
+By default, Bash keeps only the last 500 commands and writes the history file when a shell
+exits, so with several open shells (or `screen` tabs) commands get lost. This keeps up to
+99 999 commands and appends each one to the history file as soon as you press ++enter++:
 
 ```
-export PROMPT_COMMAND='history -a'
+shopt -s histappend
+HISTSIZE=99999
 HISTFILESIZE=99999
+PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 ```
+
+The last line adds `history -a` to `PROMPT_COMMAND` instead of replacing what may already be
+there.
 
 ## Fancier prompt
 
-Perhaps the default prompt is not fancy enough for you. This one is better - it shows your username, servername and directory path in different colors :)).
+This prompt shows your username, the host name and the current directory in different colours:
 
 ```
 PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
@@ -38,8 +39,37 @@ PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 
 ```
 sacct_nice_format="jobid,User,jobname%22,partition,state,NNodes%5,NodeList,Start,End,Elapsed,UserCPU"
-alias showmyjobs="sacct -a --user=${USER} --format=${sacct_nice_format} --starttime=$(date --date='-1 month' +%Y-%m-%d)"
-alias showalljobs="sacct -a --allusers --format=${sacct_nice_format} --starttime=$(date --date='-1 month' +%Y-%m-%d)"
+showmyjobs()  { sacct --user="$USER" --format="$sacct_nice_format" --starttime="$(date --date='-1 month' +%F)" "$@"; }
+showalljobs() { sacct --allusers   --format="$sacct_nice_format" --starttime="$(date --date='-1 month' +%F)" "$@"; }
 alias si='sinfo -R -o "%25N %8u %21H %10t %E"'
+```
 
+* `showmyjobs`: your jobs from the last month. Extra options are passed on to `sacct`, for
+  example `showmyjobs -X` to show one line per job, without its steps.
+* `showalljobs`: everyone's jobs from the last month.
+* `si`: nodes that are down or drained, with the reason.
+
+They are functions rather than aliases so that "the last month" is computed each time you run
+them, not once when the shell starts. See [job history and troubleshooting](../slurm/troubleshooting.md)
+for what the columns and job states mean.
+
+## Show the compiler's include directories
+
+Print the directories `gcc` searches for header files (your directory with `.h` files should be
+among them):
+
+```
+alias showinclude='echo | gcc -E -Wp,-v -'
+```
+
+It shows the paths of the `gcc` that is active: the system GCC 8.5, or the one from a loaded
+`foss` module (see [software modules](../software/modules.md)).
+
+## Find your public IP address
+
+Print the IP address your computer uses on the internet, for example when you're unsure because
+of NAT or a VPN. Run this on your own computer:
+
+```
+curl ifconfig.me
 ```

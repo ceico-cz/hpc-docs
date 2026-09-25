@@ -34,7 +34,7 @@ name it "session007":
 [user@login1 ~]$ screen -S session007
 ```
 
-Detach with ++ctrl+a++ ++d++. To come back later, log in again and reattach:
+Detach with ++ctrl+a++, then `d` (two separate key presses; see [screen sessions](../tips/screen.md)). To come back later, log in again and reattach:
 
 ```
 [user@login1 ~]$ screen -r session007
