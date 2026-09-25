@@ -10,6 +10,9 @@ tags:
 
 # Add a new LVM logical volume
 
+!!! warning "Work in progress"
+    These notes are incomplete.
+
 * in fstab disable /tmp mount
 * reboot
 *
