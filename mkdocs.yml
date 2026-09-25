@@ -1,8 +1,8 @@
 INHERIT: nav.yml
 
-site_name: Phoebe HPC
+site_name: CEICO HPC Services
 site_url: https://hpc.ceico.cz/
-site_description: User documentation for the Phoebe HPC cluster at CEICO, Institute of Physics (FZU) of the Czech Academy of Sciences
+site_description: User documentation for HPC services provided to members of the CEICO project at the Institute of Physics (FZU) of the Czech Academy of Sciences
 site_author: CEICO, Institute of Physics (FZU) of the Czech Academy of Sciences
 copyright: >-
   <a href="https://www.fzu.cz/ceico">CEICO</a> – Central European Institute for Cosmology and Fundamental Physics,
