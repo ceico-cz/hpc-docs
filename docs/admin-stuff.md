@@ -22,10 +22,6 @@ description: "things which do not fit anywhere else"
 * [Build cosmosis with python2.7](admin-stuff/Build_cosmosis_with_Python27.md)
 
 
-## Other
-
-* [In media](in-media.md)
-
 <!-- ## Internals
 
 -->

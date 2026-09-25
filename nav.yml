@@ -18,7 +18,6 @@ nav:
               - Overview: systems/metacentrum/index.md
               - Passwordless SSH with Kerberos: systems/metacentrum/kerberos.md
               - Multi-cluster jobs with HyperQueue: metacentrum/hq_at_metacentrum.md
-      - In the media: in-media.md
   - Getting started:
       - Account:
           - Get an account: getting-there/getting-a-user-account.md
