@@ -1,16 +1,17 @@
 ---
-title: "Set up a passkey for the Phoebe portal"
+title: "Set up a passkey for the external portal"
 wikijs_updated: 2026-07-20
 ---
 
-# Set up a passkey for the Phoebe portal
+# Set up a passkey for the external portal
 
-A passkey lets you sign in to the Phoebe portal without requesting a new one-time login link
-each time. This guide stores the passkey in Bitwarden in Firefox.
+The external Open OnDemand portal, [ext.phoebe.fzu.cz](https://ext.phoebe.fzu.cz), is reachable
+from anywhere. You sign in to it at `id.phoebe.fzu.cz` with a passkey instead of a password.
+A passkey lets you sign in without requesting a new one-time login link each time. This guide
+stores the passkey in Bitwarden in Firefox.
 
-!!! warning "TODO"
-    Name the portal this page is about and give its URL. It is not the Open OnDemand portal,
-    which uses your FZU Kerberos password.
+The [internal portal](ondemand/index.md#two-portals) uses your FZU Kerberos password instead and
+needs no passkey.
 
 **Before you start**
 

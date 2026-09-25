@@ -10,17 +10,29 @@ Open OnDemand (OOD) is a web portal for interactive work on Phoebe. You can star
 Linux, macOS or Windows. A session is a Slurm job on a compute node: it keeps running when you
 close the browser, until you end it or its time runs out.
 
-!!! warning "Important"
-    The portal is reachable only from FZU networks or over the FZU VPN.
+## Two portals
+
+Phoebe has two Open OnDemand portals with the same apps:
+
+| Portal | Address | Reachable from | Sign in with |
+| --- | --- | --- | --- |
+| Internal | [ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) | FZU network or FZU VPN | your FZU "Kerberos" username and password |
+| External | [ext.phoebe.fzu.cz](https://ext.phoebe.fzu.cz) | anywhere | a passkey, see [set up a passkey](../passkey.md) |
+
+From outside the FZU network, the internal portal shows the page "This service is available
+only from the FZU network" (HTTP 403). Connect to the VPN, or use the external portal.
 
 A short [screencast of a Phoebe remote desktop session](https://www.youtube.com/watch?v=TYqsTua9f2M)
 is on YouTube.
 
 ## Log in
 
-Go to [https://ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) and log in with your FZU
-"Kerberos" username (typically the part of your e-mail address before `@`) and the same password
-you use for web mail.
+On the **internal portal**, go to [https://ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) and
+log in with your FZU "Kerberos" username (typically the part of your e-mail address before `@`)
+and the same password you use for web mail.
+
+On the **external portal**, go to [https://ext.phoebe.fzu.cz](https://ext.phoebe.fzu.cz). It sends
+you to the sign-in page at `id.phoebe.fzu.cz`, where you sign in with your passkey.
 
 ![Open OnDemand login page asking for Kerberos username and password](screenshot_20220905_190242.png)
 

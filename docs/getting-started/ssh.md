@@ -66,10 +66,9 @@ How you reach Phoebe: everything goes through the front-end node `phoebe.fzu.cz`
 ## Check the host key on first connection
 
 The first time you connect, SSH shows the server's key fingerprint and asks whether to trust it.
-Continue only if it matches the one below:
+Continue only if it matches the one below. Both login nodes use only an ED25519 host key:
 
 | Host | ED25519 key fingerprint |
 | --- | --- |
 | `phoebe.fzu.cz` | `SHA256:xy6+Upes9O4LWWQkME7TjWsmotoTOMlZMSBBWg+j2Zk` |
 | `koios1.fzu.cz` | `SHA256:iIOuILdupxCyIhkFKNjlsRP1hs/cFHvuBKu9XF8HVFQ` |
-| `koios2.fzu.cz` | `SHA256:iwY/4d72sj+3KK5Mh5NgpcqJangwPK5GAIUYTm5i7Hw` |
