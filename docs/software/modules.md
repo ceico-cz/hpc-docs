@@ -7,6 +7,10 @@ wikijs_updated: 2023-11-15
 
 Lmod (Lua-based Modules) is a module system used in high-performance computing (HPC) environments to manage environment variables and paths for different software packages and libraries. Here's a general guide on how to use Lmod and the environment modules it generates on an HPC system:
 
+!!! warning "TODO"
+    The example output below shows the `2022a` and `2021b` stacks under `/sw/phoebe/`.
+    Update it to the current stacks (e.g. `2024a` under `/cvmfs/2024a.phoebe.lan`).
+
 ## Search for available modules
 
 Use the `module avail` command to see a list of available modules:

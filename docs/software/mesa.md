@@ -42,14 +42,14 @@ cd into unpacked archive and get current directory with command `pwd`.
 ```shell
 [user@login1 mesaStar]$ cd mesa-r22.05.1/ 
 [user@login1 mesa-r22.05.1]$ pwd 
-/home/jose/projects/mesaStar/mesa-r22.05.1 
+/home/user/projects/mesaStar/mesa-r22.05.1 
 [user@login1 mesa-r22.05.1]$
 ```
 
 export the path returned by command `pwd` as `MESA_DIR`:
 
 ```shell
-export MESA_DIR=/home/jose/projects/mesaStar/mesa-r22.05.1
+export MESA_DIR=$HOME/projects/mesaStar/mesa-r22.05.1
 ```
 
 ## Compile MESA star
@@ -80,7 +80,7 @@ and **append** (do not forget to modify the MESA\_DIR to reflect your mesa star 
 ```shell
 export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1 
 source $MESASDK_ROOT/bin/mesasdk_init.sh 
-export MESA_DIR=/home/jose/projects/mesaStar/mesa-r22.05.1
+export MESA_DIR=$HOME/projects/mesaStar/mesa-r22.05.1
 ```
 
 in all **new** shells, since now, mesa and mesaSDK will be activated automatically.
