@@ -59,22 +59,7 @@ plugins:
       draggable: false
   - tags
   - redirects:
-      redirect_maps:     # moved pages; old Wiki.js /en/ URLs are added by hooks/wikijs_redirects.py
-        # Admin section restructure (2026-09)
-        admin-stuff.md: admin/index.md
-        en/admin-stuff.md: admin/index.md
-        admin-stuff/Slurm_accoounting_admin_notes.md: admin/slurm-accounting.md
-        en/admin-stuff/Slurm_accoounting_admin_notes.md: admin/slurm-accounting.md
-        admin-stuff/Slurm_admin_snippets.md: admin/slurm-snippets.md
-        en/admin-stuff/Slurm_admin_snippets.md: admin/slurm-snippets.md
-        cuda-system-considerations.md: admin/cuda.md
-        en/cuda-system-considerations.md: admin/cuda.md
-        admin-stuff/add_LVM_volume_into_existing_layout.md: admin/lvm-volume.md
-        en/admin-stuff/add_LVM_volume_into_existing_layout.md: admin/lvm-volume.md
-        admin-stuff/Advantech_USB-5855_in_Ubuntu_23.md: admin/advantech-usb-5855.md
-        en/admin-stuff/Advantech_USB-5855_in_Ubuntu_23.md: admin/advantech-usb-5855.md
-        admin-stuff/Build_cosmosis_with_Python27.md: app/cosmosis-py27.md
-        en/admin-stuff/Build_cosmosis_with_Python27.md: app/cosmosis-py27.md
+      redirect_maps: {}   # filled by hooks/wikijs_redirects.py
 
 hooks:
   - hooks/wikijs_redirects.py
