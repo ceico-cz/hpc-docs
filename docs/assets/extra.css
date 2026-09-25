@@ -141,6 +141,21 @@
   font-family: var(--ceico-display); font-weight: 600;
 }
 .md-typeset .grid.cards > ul > li > p:first-child > a .twemoji { color: var(--ceico-icon); margin-right: 0.3em; }
+/* no lone card on the last row: three-card grids go 3 across, four-card grids 2 + 2 at
+   medium widths and 4 across when there is room */
+@media screen and (min-width: 45em) {
+  .md-typeset .grid.cards:has(> ul > li:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .md-typeset .grid.cards:has(> ul > li:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (min-width: 76.25em) {
+  .md-typeset .grid.cards:has(> ul > li:nth-child(4):last-child) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 
 /* ---- Home page ---------------------------------------------------------------- */
 .md-typeset .hero {
@@ -164,6 +179,9 @@
 }
 .md-typeset .hero h1 { color: #fff; margin: 0 0 0.4em; font-size: 2.2em; }
 .md-typeset .hero p { font-size: 0.95rem; max-width: 46rem; line-height: 1.55; }
+/* amber links on navy: 5.6:1 */
+.md-typeset .hero a:not(.md-button) { color: var(--ceico-amber); text-decoration: underline; }
+.md-typeset .hero a:not(.md-button):hover { color: #ff9530; }
 .md-typeset .hero .md-button {
   color: #fff; border-color: rgb(255 255 255 / 0.85); margin: 0.4em 0.5em 0 0;
 }
