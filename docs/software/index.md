@@ -28,7 +28,6 @@ Modules come in stacks, one per toolchain generation: `2023a` to `2026a` under `
 
 ## Application guides
 
-* [CosmoLattice](cosmolattice.md) - lattice simulations of scalar and gauge fields, with MPI
 * [CosmoSIS (Python 2.7)](cosmosis-py27.md) - building the Python 2.7 release in conda
 * [CuPy on GPUs](cupy.md) - NumPy and SciPy on NVIDIA GPUs
 * [MESA stellar evolution](mesa.md) - building and running MESA star with the MESA SDK
