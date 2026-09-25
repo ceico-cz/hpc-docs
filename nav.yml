@@ -43,15 +43,19 @@ nav:
       - Interactive session: slurm/interactive_slurm_cli_session.md
       - Troubleshooting jobs: slurm/slurm_jobs_troubleshooting.md
   - Software:
-      - Software modules (Lmod): software/modules.md
-      - Python with uv: software/python-uv.md
-      - CuPy in conda: conda/cupy.md
-      - Wolfram Mathematica: wolfram/main_page.md
-      - MESA stellar evolution: mesa-mesa_sdk.md
-      - CosmoLattice: app/cosmolattice.md
-      - Pyoperon: app/pyoperon.md
-      - CosmoSIS with Python 2.7: app/cosmosis-py27.md
-      - Unpack an RPM without root: software/unpack-rpm.md
+      - Overview: software/index.md
+      - Environments:
+          - Software modules (Lmod): software/modules.md
+          - Conda on Phoebe: software/conda.md
+          - Python with uv: software/python-uv.md
+          - Unpack an RPM without root: software/unpack-rpm.md
+      - Applications:
+          - CosmoLattice: software/cosmolattice.md
+          - CosmoSIS with Python 2.7: software/cosmosis-py27.md
+          - CuPy on GPUs: software/cupy.md
+          - MESA stellar evolution: software/mesa.md
+          - Pyoperon: software/pyoperon.md
+          - Wolfram Mathematica: software/mathematica/index.md
   - Tips & tricks:
       - Overview: tips/index.md
       - Bash tweaks: tips/bash-tweaks.md

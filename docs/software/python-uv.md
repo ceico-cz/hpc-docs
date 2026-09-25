@@ -1,7 +1,7 @@
 ---
 title: "Using the uv package manager with Python on Phoebe"
 wikijs_updated: 2024-11-25
-description: "TBF"
+description: "Install uv and manage Python projects with it on Phoebe"
 ---
 
 # Using the uv package manager with Python on Phoebe
@@ -16,11 +16,14 @@ module load foss/2024a
 module load Python/3.12.3-GCCcore-13.3.0
 ```
 
-To make sure, we're not interfering with packages leftovers, we clean our local site-packages directory. Make sure there is nothing valuable.
+Packages you installed earlier with `pip install --user` for the same Python version (in
+`~/.local/lib/python3.12`) can interfere with uv environments. Check what is there:
 
 ```
-rm ~/.local/lib/python3.12 -rf
+python -m pip list --user
 ```
+
+and remove only what you no longer need with `python -m pip uninstall <package>`.
 
 Install the uv using pip:
 
@@ -29,6 +32,17 @@ python -m pip install uv
 ```
 
 that's it :)
+
+### Create a uv _project_
+
+```
+mkdir ~/example
+cd ~/example
+uv init
+```
+
+This creates `pyproject.toml` and a few starter files. uv creates the project's virtual
+environment in `.venv` the first time you run or add something.
 
 ### Run Python in a uv _project_
 

@@ -12,6 +12,11 @@ tags:
 
 # Create a conda environment with CuPy
 
+!!! tip "Ready-made module"
+    CuPy is also available as a software module (`module spider CuPy`, e.g.
+    `CuPy/12.0.0-foss-2022a`). Build your own conda environment only if you need a newer
+    CuPy or CUDA version. For getting conda itself, see [Conda on Phoebe](conda.md).
+
 ## Get an interactive shell on a GPU node
 
 From Phoebe login node, request 16CPUs, some RAM and one NVIDIA A100:
@@ -41,7 +46,7 @@ First, create new conda environment with recent python included:
 example:
 
 ```
-[jose@gpu2 ~]$ conda create --name cupy-2023_10 python=3.11
+[jose@gpu2 ~]$ conda create --name cupy-231030 python=3.11
 Collecting package metadata (current_repodata.json): done
 ...
 Proceed ([y]/n)? y

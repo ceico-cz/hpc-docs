@@ -135,7 +135,8 @@ module load Miniforge3
 source ${EBROOTMINIFORGE3}/etc/profile.d/conda.sh
 # here make sure you load the right enb
 conda activate pyoperon_mpi
-cd /home/jose/projects/pyoperon_in_micromamba/pyoperon
+# the directory where you cloned pyoperon
+cd $HOME/pyoperon
 mpirun python ./hello_world.py
 
 

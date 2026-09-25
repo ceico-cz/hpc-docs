@@ -28,7 +28,7 @@ make sure that `COSMOSIS_SRC_DIR` is set properly to root of cosmosis source cod
 (cosmosis_py27_gcc95_v2) [jose@login1 cosmosis_EMU]$ cat setup-my-cosmosis
 # setup cosmosis:
 
-export COSMOSIS_SRC_DIR=/home/jose/projects/2024_02_26__cosmosis/cosmosis_EMU
+export COSMOSIS_SRC_DIR=$HOME/projects/cosmosis_EMU
 
 #The gnu science library
 export GSL_INC=${CONDA_PREFIX}/include
@@ -82,11 +82,11 @@ make
 #SBATCH --time=12:00:00
 #SBATCH --exclusive
 
-cd /home/jose/projects/2024_02_26__cosmosis/cosmosis_EMU
+cd $HOME/projects/cosmosis_EMU
 
 # activate conda:
 source /etc/profile.d/conda.sh
-conda activate cosmosis_py27_gcc9
+conda activate cosmosis_py27_gcc95_v2
 
 # test if we see right gcc
 which gcc
