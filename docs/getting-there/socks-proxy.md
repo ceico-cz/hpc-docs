@@ -5,6 +5,10 @@ wikijs_updated: 2023-11-15
 
 # Poor man's VPN over SSH
 
+!!! info "FZU account required"
+    This uses the institute SSH server `limba.fzu.cz`, so you need an FZU institute account
+    (your main e-mail username and Kerberos password), not just a Phoebe account.
+
 Using traffic tunneling over a SOCKS tunnel, especially through SSH, offers several benefits, like security, encryption and posibility to access services available from FZU internal networks only.
 
 To configure Firefox to tunnel traffic over a SOCKS tunnel created by SSH, you can follow these steps:
