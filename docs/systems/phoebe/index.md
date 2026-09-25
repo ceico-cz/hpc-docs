@@ -56,6 +56,9 @@ Jobs go to the `cpu` partition unless you ask for another one with `--partition`
 | `small_int` | `s[1-3]` | 8 cores, 64 GB | 7 days 7 h | light interactive work |
 | `preempt` | `n[1-20]` | 64 cores (128 threads), 512 GB | 5 days | jobs that may be preempted |
 
+`sinfo` also lists the partitions `debug` and `project001`. They are reserved; don't submit jobs
+to them.
+
 Limits change from time to time; `sinfo` on the login node shows the current values.
 
 ## Pictures from the datacenter

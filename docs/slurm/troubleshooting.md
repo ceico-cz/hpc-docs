@@ -68,6 +68,7 @@ $ squeue --me
 | `AssocGrpGRES`, `AssocGrpCpuLimit` | Your account or project has reached its limit. |
 | `ReqNodeNotAvail, Reserved for maintenance` | Planned maintenance is coming. The job would not finish before it starts, so it waits. A shorter `--time` may let it run before the maintenance. |
 
+All reasons are explained in Slurm's list of [job reason codes](https://slurm.schedmd.com/job_reason_codes.html).
 `scontrol show job <jobid>` shows the full details, including `StartTime`: Slurm's estimate of
 when a pending job will start.
 
