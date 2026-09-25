@@ -15,7 +15,8 @@ of the Czech Academy of Sciences.
 [Get started](getting-started/index.md){ .md-button .md-button--primary }
 [Browse systems](systems/index.md){ .md-button }
 
-FZU network or VPN required. From elsewhere, use the
+Web portals need the FZU network or VPN. From elsewhere, use the
+[external portal](getting-started/ondemand/index.md#two-portals) or the
 [SOCKS proxy](getting-started/socks-proxy.md).
 
 </div>

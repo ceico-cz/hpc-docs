@@ -14,7 +14,6 @@ Phoebe and Koios share user accounts, so one account and SSH key work on both cl
 !!! warning "TODO"
     - Add a general contact for account requests (e-mail address or ticket system), so
       requests don't depend on one person.
-    - Explain how this relates to the e-mail invitation described in the
-      [portal passkey guide](passkey.md): is the invitation now the normal way to get an
-      account?
+    - Explain how this relates to the e-mail invitation for the external portal described in
+      the [passkey guide](passkey.md): is the invitation now the normal way to get an account?
     - Say what users without an FZU account (external collaborators) need to do.

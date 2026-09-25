@@ -9,9 +9,12 @@ Phoebe and Koios share user accounts, SSH keys and home directories, so one acco
 both clusters.
 
 !!! warning "Institute network or VPN required"
-    Most Phoebe and Koios services, including the Open OnDemand portal, are reachable only from
-    FZU networks or over the FZU VPN. From elsewhere you can use the
-    [SOCKS proxy over SSH](socks-proxy.md) if you have an FZU account.
+    Most Phoebe and Koios web services, including the internal Open OnDemand portal, are
+    reachable only from FZU networks or over the FZU VPN; from elsewhere they show the page
+    "This service is available only from the FZU network". From outside, use the
+    [external Open OnDemand portal](ondemand/index.md#two-portals), or the
+    [SOCKS proxy over SSH](socks-proxy.md) if you have an FZU account. SSH to the login nodes
+    works from anywhere.
 
 ## 1. Get an account
 

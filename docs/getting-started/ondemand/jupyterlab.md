@@ -18,18 +18,16 @@ portal creates it for you in `~/.venvs/`.
 
 On the portal, select **VENV-based JupyterLab** and fill in the form:
 
-* **Slurm partition**: `cpu`, or `gpu` if you need GPU acceleration.
+* **Slurm partition**: `cpu`, or `gpu` if you need GPU acceleration, or `small` for light work.
+  The session runs in the matching interactive partition: `cpu_int`, `gpu_int` or `small_int`.
 * **Preloaded moduleset**: keep empty.
 * **Python version**: the version you need, typically the latest.
-* **Session duration**: how long the session may run.
-* **Instance size**: the number of CPU cores.
-* **GPU count**: leave at 0 unless you need GPUs.
-* **Venv name to be created in ~/.venvs/**: a name for your new virtual environment.
+* **Session duration**: how long the session may run, from 8 hours to 14 days.
+* **Instance size**: the number of CPU cores, from 8 to 128.
+* **GPU count**: leave at 0 unless you need GPUs (up to 4).
+* **Venv name to be created in ~/.venvs/**: a name for your new virtual environment (default
+  `venv_default`).
 * **Existing venv path to use**: keep empty; this option is not ready yet.
-
-!!! warning "TODO"
-    Check which partitions the form offers. For interactive work the Slurm pages recommend
-    `cpu_int` and `gpu_int`; if the form offers those, name them above.
 
 Click **Launch** to submit the session as a job to Slurm.
 
