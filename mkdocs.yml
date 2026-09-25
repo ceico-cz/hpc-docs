@@ -58,6 +58,14 @@ plugins:
       zoomable: true
       draggable: false
   - tags
+  - blog:
+      blog_dir: admin/blog
+      blog_toc: true
+      post_date_format: long
+      post_url_format: "{date}/{slug}"
+      authors: false
+      categories: false
+      archive_name: By date
   - redirects:
       redirect_maps: {}   # filled by hooks/wikijs_redirects.py
 

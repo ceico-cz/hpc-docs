@@ -59,11 +59,9 @@ nav:
       - Shell one-liners: tips/one-liners.md
   - Administration:
       - Overview: admin/index.md
-      - Slurm:
-          - Accounting and limits: admin/slurm-accounting.md
-          - Operational snippets: admin/slurm-snippets.md
-      - Nodes:
+      - Reference:
+          - Accounts, QOS and limits: admin/slurm-accounting.md
+          - Slurm admin snippets: admin/slurm-snippets.md
           - CUDA driver and toolkit: admin/cuda.md
-          - Add an LVM volume: admin/lvm-volume.md
-      - Lab equipment:
-          - Advantech USB-5855 on Ubuntu: admin/advantech-usb-5855.md
+      - Admin blog:
+          - admin/blog/index.md
