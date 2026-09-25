@@ -6,7 +6,8 @@ description: "How to submit non-interactive batch job to cluster scheduler."
 
 # Submit a batch job
 
-At Phoebe cluster, we use workload manager [slurm](https://slurm.schedmd.com) to schedule user jobs over compute nodes.
+A batch job runs a script on compute nodes without you being logged in to them. This page
+walks through a first job on Phoebe; the same steps work on Koios.
 
 ## Example code to run
 
@@ -20,7 +21,7 @@ The job script is a file typically containing properties, required resources, an
 #!/bin/bash
 #SBATCH --job-name=NameOfJob   # specify job name
 #SBATCH --time=00:33:33        # set a limit on the total run time
-#SBATCH --partition=cpu        # specify partition name (cpu/gpu)
+#SBATCH --partition=cpu        # specify partition name
 #SBATCH --ntasks=1             # specify number of (MPI) processes
 #SBATCH --cpus-per-task=64     # specify amount of cpu cores per task
 
@@ -38,26 +39,26 @@ A batch script in SLURM is essentially a standard shell script. Any line in the 
 
 All options of jobscript are described here: [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html) - so only quick review of  options used above:
 -   `--job-name=NameOfJob` **name** your job with some descriptive name. It can be useful when looking for eg. failed jobs in the history of scheduler. Avoid including spaces or special characters in the job name
--   `--time=00:33:33` sets the **deadline / walltime** for the job. Provide a conservative estimate (x2) of your job's requirements to prevent jobs from getting stuck or blocking the cluster for an extended period. The format is in `MM:SS`, `HH:MM:SS`, or `D-HH:MM:SS`. For example, `1-13:12:11` represents one day, 13 hours, 12 minutes, and 11 seconds.
--   `--partition=cpu` designates the specific **partition** where your job is scheduled. Currently, users of the Phoebe cluster have the option to choose between the cpu and gpu partitions.
+-   `--time=00:33:33` sets the **deadline / walltime** for the job. Provide a conservative estimate (x2) of your job's requirements. Always set it: without it, the job gets the partition's maximum (18 days on `cpu`) and usually waits longer to start. The format is in `MM:SS`, `HH:MM:SS`, or `D-HH:MM:SS`. For example, `1-13:12:11` represents one day, 13 hours, 12 minutes, and 11 seconds.
+-   `--partition=cpu` designates the specific **partition** where your job is scheduled. `cpu` is the default for batch jobs; see the [Phoebe partitions](../systems/phoebe.md#slurm-partitions) and [Koios partitions](../koios.md) for the others, and [GPU jobs](gpu-jobs.md) for the GPU partitions.
 -   `--cpus-per-task=64` determines the **number of CPU cores** allocated to each process. Certain applications can leverage multiple cores, so it is meaningful to allocate an appropriate number of cores to enhance their performance.
-- With argument `--mem=4G` one can specify **memory requirements** in total, or per allocated CPU with `-mem-per-cpu=2G`. Please note, that Koios allocates 3GB/cpu and Phoebe 2GB/cpu. When memory limits are exceeded, the job will be terminated to protect other jobs from memory issues.
+-   With argument `--mem=4G` one can specify **memory requirements** per node, or per allocated CPU with `--mem-per-cpu=2G`. Without either, Phoebe's CPU partitions give 2 GB per CPU and Koios 3 GB per CPU (see [memory per CPU](index.md#memory-per-cpu)). When memory limits are exceeded, the job is killed to protect other jobs.
 
 ## Submit the job
 
-[Login to cluster front-end node](getting-there/ssh.md), copy content of example jobscript from above into e.g. file `jobscript.sh` into your home directory and submit it using sbatch command:
+[Log in to the cluster front-end node](../getting-there/ssh.md), copy content of example jobscript from above into e.g. file `jobscript.sh` into your home directory and submit it using sbatch command:
 
 ```shell
 $ sbatch jobscript.sh  
-Submitted batch job 10810 
+Submitted batch job 10811 
 $
 ```
 
-Job was apparently successfully created under job id **10810**.
+The job was created with job ID **10811**.
 
 ## Monitor job execution
 
-Depending on the lenght/duration of your job, state of queue at cluster the job might be started immediately, or it can wait in the queue to get requested resources.
+Depending on the resources you asked for and how busy the cluster is, the job starts immediately or waits in the queue.
 
 ### `squeue`
 
@@ -72,20 +73,8 @@ $ squeue --me
 $ 
 ```
 
-### `sacct`
-
-If job already finished/failed, it's not anymore visible in squeue. Use `sacct` command to see recent jobs:
-
-```shell
-$ sacct
-JobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
------------- ---------- ---------- ---------- ---------- ---------- -------- 
-1410269      sys/dashb+    cpu_int   fzu_a_39         16 CANCELLED+      0:0 
-1410269.bat+      batch              fzu_a_39         16  CANCELLED     0:15 
-1410269.ext+     extern              fzu_a_39         16  COMPLETED      0:0 
-$
-```
-
+If the job has already finished, it is no longer shown by `squeue`; use `sacct` instead
+(see [job history and troubleshooting](troubleshooting.md)).
 
 ### `scontrol show job`
 
@@ -129,7 +118,7 @@ From that output we can see our job already finished (`JobState=COMPLETED`) and 
 To see live output of job, using `scontrol show job=NNNNN` find the `StdOut` file path, and watch it using tail command - eg. 
 
 ```shell
-tail -F /home/jose/projects/handson1/slurm-10811.out
+tail -F ~/projects/handson1/slurm-10811.out
 ```
 
 ## Interrupt or cancel a job
@@ -140,23 +129,8 @@ Sometimes, things might go wrong. Already running, or queued job can be cancelle
 [jose@login1]$ scancel 10811
 ```
 
-## Search the job history
+## Next steps
 
-`sacct` (**S**lurm  **acc**ounting) command can show important information about job runtime, results, etc. 
-
-For example, command `sacct --format=jobid,User,jobname%22,partition,state,NNodes%5,NodeList,Start,End,Elapsed,UserCPU --starttime=2022-09-30` will show jobs started after 30.9.2022 for currently logged-in user:
-
-```shell
-$ sacct --format=jobid,User,jobname%22,partition,state,NNodes%5,NodeList,Start,End,Elapsed,UserCPU --starttime=2022-09-30 
-JobID             User                JobName  Partition      State NNode        NodeList               Start                 End    Elapsed    UserCPU  
------------- --------- ---------------------- ---------- ---------- ----- --------------- ------------------- ------------------- ---------- ----------  
-1333              jose sys/dashboard/sys/ood+        cpu CANCELLED+     1              n2 2022-09-30T16:03:13 2022-09-30T16:11:13   00:08:00  00:10.340  
-1333.batch                              batch             CANCELLED     1              n2 2022-09-30T16:03:13 2022-09-30T16:11:14   00:08:01  00:10.340  
-1334              jose sys/dashboard/sys/bc_+        cpu CANCELLED+     1              n1 2022-09-30T16:08:29 2022-09-30T16:11:11   00:02:42  00:13.169  
-1334.batch                              batch             CANCELLED     1              n1 2022-09-30T16:08:29 2022-09-30T16:11:12   00:02:43  00:13.169  
-8096              jose sys/dashboard/sys/ood+        cpu    RUNNING     1             n11 2022-10-05T18:54:19             Unknown 1-17:10:12   00:00:00  
-8096.batch                              batch               RUNNING     1             n11 2022-10-05T18:54:19             Unknown 1-17:10:12   00:00:00  
-8106              jose                   echo        cpu  COMPLETED     1             n11 2022-10-05T19:09:50 2022-10-05T19:09:50   00:00:00   00:00:00  
-8106.0                                   echo             COMPLETED     1             n11 2022-10-05T19:09:50 2022-10-05T19:09:50   00:00:00   00:00:00  
-$
-```
+* [Job history and troubleshooting](troubleshooting.md): `sacct`, job states and why a job is still pending
+* [GPU jobs](gpu-jobs.md): request A100 GPUs
+* [Interactive sessions](interactive.md): try things out on a compute node before writing a job script
