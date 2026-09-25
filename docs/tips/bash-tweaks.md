@@ -38,7 +38,7 @@ PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 
 ```
 sacct_nice_format="jobid,User,jobname%22,partition,state,NNodes%5,NodeList,Start,End,Elapsed,UserCPU"
-alias showmyjobs="sacct -a --user=${whoami} --format=${sacct_nice_format} --starttime=$(date --date='-1 month' +%Y-%m-%d)"
+alias showmyjobs="sacct -a --user=${USER} --format=${sacct_nice_format} --starttime=$(date --date='-1 month' +%Y-%m-%d)"
 alias showalljobs="sacct -a --allusers --format=${sacct_nice_format} --starttime=$(date --date='-1 month' +%Y-%m-%d)"
 alias si='sinfo -R -o "%25N %8u %21H %10t %E"'
 

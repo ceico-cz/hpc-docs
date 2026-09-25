@@ -105,7 +105,7 @@ clusters and third-party systems, and run your work.
 
     Find out why a job failed or is still waiting.
 
--   [:material-package-variant: **Software modules**](useful/module_use.md)
+-   [:material-package-variant: **Software modules**](software/modules.md)
 
     Load compilers, libraries and applications with Lmod.
 
