@@ -12,10 +12,7 @@ tags:
 
 # Create a conda environment with CuPy
 
-!!! tip "Ready-made module"
-    CuPy is also available as a software module (`module spider CuPy`, e.g.
-    `CuPy/12.0.0-foss-2022a`). Build your own conda environment only if you need a newer
-    CuPy or CUDA version. For getting conda itself, see [Conda on Phoebe](conda.md).
+For getting conda itself, see [Conda on Phoebe](conda.md).
 
 ## Get an interactive shell on a GPU node
 
