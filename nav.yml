@@ -47,6 +47,7 @@ nav:
       - MESA stellar evolution: mesa-mesa_sdk.md
       - CosmoLattice: app/cosmolattice.md
       - Pyoperon: app/pyoperon.md
+      - CosmoSIS with Python 2.7: app/cosmosis-py27.md
   - Tips & tricks:
       - Overview: useful.md
       - Bash tweaks: useful/bash_tweaks.md
@@ -58,11 +59,13 @@ nav:
       - SSH as a VPN: useful/poor_mans_vpn_ssh.md
       - Find your public IP: useful/get_public_ip.md
       - Unpack an RPM: useful/unpack_rpm.md
-  - Admin notes:
-      - Overview: admin-stuff.md
-      - CUDA system notes: cuda-system-considerations.md
-      - Slurm accounting: admin-stuff/Slurm_accoounting_admin_notes.md
-      - Slurm snippets: admin-stuff/Slurm_admin_snippets.md
-      - Add an LVM volume: admin-stuff/add_LVM_volume_into_existing_layout.md
-      - Advantech USB-5855 on Ubuntu: admin-stuff/Advantech_USB-5855_in_Ubuntu_23.md
-      - Build cosmosis with Python 2.7: admin-stuff/Build_cosmosis_with_Python27.md
+  - Administration:
+      - Overview: admin/index.md
+      - Slurm:
+          - Accounting and limits: admin/slurm-accounting.md
+          - Operational snippets: admin/slurm-snippets.md
+      - Nodes:
+          - CUDA driver and toolkit: admin/cuda.md
+          - Add an LVM volume: admin/lvm-volume.md
+      - Lab equipment:
+          - Advantech USB-5855 on Ubuntu: admin/advantech-usb-5855.md
