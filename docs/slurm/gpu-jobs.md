@@ -1,0 +1,67 @@
+---
+title: "GPU jobs"
+description: "Request NVIDIA A100 GPUs on Phoebe in batch jobs and interactive sessions"
+tags:
+  - "slurm"
+  - "gpu"
+---
+
+# GPU jobs
+
+Phoebe has two GPU nodes, `gpu1` and `gpu2`, each with 8 NVIDIA A100 80 GB cards, 64 CPU
+cores and 2 TB of RAM. Koios has no GPUs available through Slurm.
+
+## Choose a partition
+
+| Partition | Nodes | Time limit | Use |
+| --- | --- | --- | --- |
+| `gpu` | `gpu[1-2]` | 18 days 8 h | batch GPU jobs; never paused |
+| `gpu1`, `gpu2` | one node | 14 days 4 h | pin a batch job to one node; can be paused while an interactive GPU job needs the node |
+| `gpu_int` | `gpu[1-2]` | 20 days 10 h | [interactive](interactive.md) GPU work |
+
+For most batch jobs, use `gpu`. See [preemption](index.md#preemption-when-a-job-can-be-paused-or-stopped)
+for what "paused" means.
+
+## Request GPUs
+
+Ask for GPUs with `--gres=gpu:a100:N`, where `N` is the number of cards on one node (1 to 8).
+Slurm makes only the allocated cards visible to your job.
+
+Each GPU node has 8 cores per GPU, so ask for about `--cpus-per-task=8` for every GPU you
+request. That leaves room for other users' jobs on the same node. Without `--mem`, a job gets
+16 GB of RAM per CPU.
+
+You can use at most 16 GPUs at a time, across all your jobs.
+
+## Batch job example
+
+```shell
+#!/bin/bash
+#SBATCH --job-name=gpu-test
+#SBATCH --partition=gpu
+#SBATCH --time=02:00:00
+#SBATCH --gres=gpu:a100:1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+
+# shows only the GPU allocated to this job
+nvidia-smi
+
+python my_gpu_script.py
+```
+
+Submit it with `sbatch` as described in [batch jobs](batch-jobs.md).
+
+## Interactive example
+
+```shell
+srun --partition=gpu_int --gres=gpu:a100:1 --cpus-per-task=8 --time=04:00:00 --pty bash
+```
+
+See [interactive sessions](interactive.md) for how to keep the session alive with `screen`.
+
+## Software
+
+GPU-enabled software is available as modules, for example `CUDA`, `PyTorch`, `TensorFlow` and
+`CuPy` (see [software modules](../software/modules.md)). To install your own GPU stack, see
+[CuPy on GPUs](../software/cupy.md).

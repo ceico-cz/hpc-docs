@@ -93,15 +93,15 @@ clusters and third-party systems, and run your work.
 
 <div class="grid cards" markdown>
 
--   [:material-tray-arrow-up: **Submit a batch job**](submit-job.md)
+-   [:material-tray-arrow-up: **Submit a batch job**](slurm/batch-jobs.md)
 
     Write a Slurm job script and queue it.
 
--   [:material-timer-play-outline: **Interactive session**](slurm/interactive_slurm_cli_session.md)
+-   [:material-timer-play-outline: **Interactive session**](slurm/interactive.md)
 
     Get a shell on a compute node for testing and debugging.
 
--   [:material-bug-outline: **Troubleshoot a job**](slurm/slurm_jobs_troubleshooting.md)
+-   [:material-bug-outline: **Troubleshoot a job**](slurm/troubleshooting.md)
 
     Find out why a job failed or is still waiting.
 

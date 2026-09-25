@@ -38,10 +38,11 @@ nav:
       - Transfer data:
           - Mount storage with sshfs: getting-there/sshfs.md
   - Running jobs:
-      - Slurm basics: slurm.md
-      - Submit a batch job: submit-job.md
-      - Interactive session: slurm/interactive_slurm_cli_session.md
-      - Troubleshooting jobs: slurm/slurm_jobs_troubleshooting.md
+      - Overview: slurm/index.md
+      - Batch jobs: slurm/batch-jobs.md
+      - GPU jobs: slurm/gpu-jobs.md
+      - Interactive sessions: slurm/interactive.md
+      - Job history and troubleshooting: slurm/troubleshooting.md
   - Software:
       - Overview: software/index.md
       - Environments:

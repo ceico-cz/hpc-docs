@@ -41,7 +41,7 @@ More detail: [Phoebe hardware](../hardware.md). If Phoebe helped your research, 
 
 Jobs go to the `cpu` partition unless you ask for another one with `--partition`. The
 `*_int` partitions are meant for interactive work (see
-[interactive session](../slurm/interactive_slurm_cli_session.md)).
+[interactive session](../slurm/interactive.md)).
 
 | Partition | Nodes | Per node | Time limit | Use |
 | --- | --- | --- | --- | --- |
@@ -50,7 +50,7 @@ Jobs go to the `cpu` partition unless you ask for another one with `--partition`
 | `gpu` | `gpu[1-2]` | 64 cores, 8× A100 80 GB, 2 TB | 18 days 8 h | batch GPU jobs |
 | `gpu1`, `gpu2` | `gpu1` or `gpu2` | as `gpu` | 14 days 4 h | pin a job to one GPU node |
 | `gpu_int` | `gpu[1-2]` | as `gpu` | 20 days 10 h | interactive GPU work |
-| `small_int` | `s[1-4]` | 8 cores, 64 GB | 7 days 7 h | light interactive work |
+| `small_int` | `s[1-3]` | 8 cores, 64 GB | 7 days 7 h | light interactive work |
 | `preempt` | `n[1-20]` | 64 cores (128 threads), 512 GB | 5 days | jobs that may be preempted |
 
 Limits change from time to time; `sinfo` on the login node shows the current values.

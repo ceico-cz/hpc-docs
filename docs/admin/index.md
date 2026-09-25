@@ -7,7 +7,7 @@ description: "Notes for the administrators of the CEICO clusters and lab machine
 # Administration
 
 Notes from running the CEICO clusters and lab machines. Most commands on these pages need
-root or Slurm administrator rights; as a user, see [Running jobs](../slurm.md) and
+root or Slurm administrator rights; as a user, see [Running jobs](../slurm/index.md) and
 [Software](../software/modules.md) instead.
 
 ## Slurm
