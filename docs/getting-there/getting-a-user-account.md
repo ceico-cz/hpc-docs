@@ -1,9 +1,9 @@
 ---
-title: "Getting an user account at Phoebe system"
+title: "Getting a user account on Phoebe"
 wikijs_updated: 2023-11-15
 ---
 
-# Getting an user account at Phoebe system
+# Getting a user account on Phoebe
 
 First create fresh ssh keypair.
 

@@ -1,5 +1,5 @@
 ---
-title: "Create conda environment with cupy"
+title: "Create a conda environment with CuPy"
 wikijs_updated: 2023-10-27
 description: "Cupy is CUDA-aware numpy and scipy implementation"
 tags:
@@ -10,9 +10,9 @@ tags:
   - "python"
 ---
 
-# Create conda environment with cupy
+# Create a conda environment with CuPy
 
-### Get interactive shell session at GPU node
+## Get an interactive shell on a GPU node
 
 From Phoebe login node, request 16CPUs, some RAM and one NVIDIA A100:
 
@@ -30,7 +30,7 @@ srun: job 1401058 has been allocated resources
 
 (note that the last prompt changed, and we're now inside of interactive slurm session at gpu2 compute node)
 
-### Create empty conda env
+## Create an empty conda environment
 
 Note: to have CUDA detection properly working, this must be done on gpu node.
 
@@ -49,14 +49,14 @@ Proceed ([y]/n)? y
 [jose@gpu2 ~]$
 ```
 
-### Activate new environment and install cuda into it
+## Activate the new environment and install CUDA into it
 
 we install from NVIDIA conda channel because we need nvcc and other dependencies
 
 `conda activate cupy-231030`
 `conda install -c "nvidia/label/cuda-12.3.0" cuda-toolkit`
 
-### Install cupy for given CUDA version
+## Install CuPy for the given CUDA version
 
 above we installed cuda-12-x so:
 

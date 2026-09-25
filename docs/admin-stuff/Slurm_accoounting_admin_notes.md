@@ -9,7 +9,7 @@ tags:
 
 # Slurm accounting admin notes
 
-## limit amount of cpus per user
+## Limit the number of CPUs per user
 
 here we create specific qos:
 
@@ -25,13 +25,13 @@ if there are any jobs queued, we need to change qos there too:
 scontrol update job=123456 qos=max400cpu
 ```
 
-## Create user in accounting db and associate with account
+## Create a user in the accounting DB and associate it with an account
 
 ```
 sacctmgr create user name=UserName account=AccountName
 ```
 
-## Limit amount of actively used gres per user
+## Limit the number of GRES in use per user
 
 eg. we want to limit amount of GPU at cluster used by single user:
 

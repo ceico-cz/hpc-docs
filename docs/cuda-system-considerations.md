@@ -24,7 +24,7 @@ so here is table for desired system state expected to work by vendor engineers:
 
 According to: https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Rocky&target_version=8&target_type=rpm_local
 
-### install cuda toolkit
+### Install the CUDA toolkit
 
 ```
 wget https://developer.download.nvidia.com/compute/cuda/12.3.2/local_installers/cuda-repo-rhel8-12-3-local-12.3.2_545.23.08-1.x86_64.rpm
@@ -32,7 +32,7 @@ rpm -i cuda-repo-rhel8-12-3-local-12.3.2_545.23.08-1.x86_64.rpm
 dnf -y install cuda-toolkit-12-3
 ```
 
-### install nvidia-driver
+### Install the NVIDIA driver
 
 
 If there is already some installed, then:
@@ -46,7 +46,7 @@ dnf -y module install nvidia-driver:545-dkms
 
 ..and reboot to load driver.
 
-### create conda image with Tensorflow
+### Create a conda image with TensorFlow
 
 ```
 conda create --name tf_20240129 python=3.10

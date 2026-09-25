@@ -1,25 +1,25 @@
 ---
-title: "Using JupyterLab via Ondemand Portal at Phoebe system"
+title: "Using JupyterLab via the OnDemand portal on Phoebe"
 wikijs_updated: 2024-09-11
 ---
 
-# Using JupyterLab via Ondemand Portal at Phoebe system
+# Using JupyterLab via the OnDemand portal on Phoebe
 
 OnDemand is portal offering interactive work with Phoebe supercomputer. It's easy to use from any enviroment - Linux, Mac, or even Windows. Interactive session, once started, runs at the cluster, even if a browser is closed and user disconnected.
 
 !!! warning "Important"
     most of Phoebe services are available from Institute networks or VPN only
 
-## 1.1 Ondemand portal log-in
+## Log in to the OnDemand portal
 
 
 go to [https://ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) and login with your Institute “Kerberos” login (your username is typically the word before `@` in your email) and your password is same you're using for web-mail access.
 
-## 1.2 Python usage concept
+## How Python is provided
 
 Python itself is provided through Lmod modules. User-required packages are installed within isolated Python virtual environments, which must also include JupyterLab.
 
-## 1.3 Quick start
+## Quick start
 
 * Go to https://ood.ceico.cz
 * select "VENV-based JupyterLab"
@@ -34,19 +34,19 @@ Python itself is provided through Lmod modules. User-required packages are insta
 
 → Click on <kbd>Launch</kbd> button - this will submit the Jupyter session job to scheduler.
 
-## 1.4 Wait for job launch
+## Wait for the job to launch
 
 Especially for the first time, start of job, and related creating of initial conda environment can take some time. The session will be first in state <kbd>Queued</kbd>:
 
 ![screenshot_20220906_141417.png](../ood_howto/screenshot_20220906_141417.png)
 
-## 1.5 Connect to the launched session
+## Connect to the launched session
 
 Once the session is in <kbd>Running</kbd> state, click on <kbd>Connect to Jupyter</kbd> button. In the new tab of browser, Jupyter session will appear.
 
 ![screenshot_20220906_141524.png](../ood_howto/screenshot_20220906_141524.png)
 
-## 2 How-to: Reconnect to already running session
+## Reconnect to a running session
 
 As described above, login to the OnDemand portal at [https://ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) with your Kerberos username/password. Then, depending on your display resolution, in the top-menu, you should see either "My Interactive Sessions" menu item, or only corresponsing icon. Click on it..
 
@@ -66,7 +66,7 @@ As described above, login to the OnDemand portal at [https://ood.phoebe.ceico.cz
 
     ![screenshot_20220905_194650.png](../ood_howto/screenshot_20220905_194650.png)
 
-## 3 How-to: End running session
+## End a running session
 
 Every running session is consuming part of cluster resources. So after finishing your work, in "My Interactive Sessions" click on red "Delete" button.
 ```

@@ -1,9 +1,9 @@
 ---
-title: "Configuring screen to have nice tabbed view"
+title: "Configuring screen for a tabbed view"
 wikijs_updated: 2024-07-19
 ---
 
-# Configuring screen to have nice tabbed view
+# Configuring screen for a tabbed view
 
 ## Configuring screen
 

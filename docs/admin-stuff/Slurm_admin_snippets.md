@@ -1,5 +1,5 @@
 ---
-title: "Admin slurm snippets and scriptlets"
+title: "Slurm admin snippets"
 wikijs_updated: 2024-06-11
 description: "snippets from daily slurm driving"
 tags:
@@ -7,9 +7,9 @@ tags:
   - "slurm"
 ---
 
-# Admin slurm snippets and scriptlets
+# Slurm admin snippets
 
-## resume all jobs on particular node
+## Resume all jobs on a node
 
 = reactivate suspended jobs at given node, possible to combine with `--user` indeed.
 
@@ -17,7 +17,7 @@ tags:
 for job in $(squeue --noheader -w n14 | awk '{print $1}'| xargs); do scontrol resume job=$job ;done
 ```
 
-## create maintenance reservation
+## Create a maintenance reservation
 
 (Phoebe)
 

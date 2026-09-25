@@ -1,13 +1,13 @@
 ---
-title: "Lmod software module usage"
+title: "Using Lmod software modules"
 wikijs_updated: 2023-11-15
 ---
 
-# Lmod software module usage
+# Using Lmod software modules
 
 Lmod (Lua-based Modules) is a module system used in high-performance computing (HPC) environments to manage environment variables and paths for different software packages and libraries. Here's a general guide on how to use Lmod and the environment modules it generates on an HPC system:
 
-## Search for Available Modules
+## Search for available modules
 
 Use the `module avail` command to see a list of available modules:
 
@@ -27,7 +27,7 @@ Use the `module avail` command to see a list of available modules:
 ...
 ```
 
-## Load a Specific Module
+## Load a specific module
 
 Use the `module load` command to load a specific module:
 
@@ -35,7 +35,7 @@ Use the `module load` command to load a specific module:
 [jose@login1 ~]$ module load IPython/8.5.0-GCCcore-11.3.0
 ```
 
-## Check Loaded Modules
+## Check loaded modules
 
 Use the `module list`, or its shorthand `ml` to see the currently loaded modules:
 
@@ -58,7 +58,7 @@ Currently Loaded Modules:
 [jose@login1 ~]$
 ```
 
-## Use module spider for Information or search
+## Use `module spider` for information or search
 
 The module spider command provides more detailed information about a module and it's capable to look for particular software:
 
@@ -88,7 +88,7 @@ The module spider command provides more detailed information about a module and 
 [jose@login1 ~]$
 ```
 
-## Save current session
+## Save the current session
 
 Our systems allow you to save your loaded modules in a file so that you can easily recreate the environment later.
 
@@ -103,7 +103,7 @@ Saved current collection of modules to: "josef-ipython"
 
 Sessions are stored in `~/.lmod` directory.
 
-## Restore previously saved session
+## Restore a saved session
 
 Use the `module restore` command to load the modules saved session previously.
 
@@ -113,11 +113,11 @@ Restoring modules from user's josef-ipython
 [jose@login1 ~]$
 ```
 
-## Cleaning loaded modules
+## Unload all modules
 
 Run the `module purge` command to unload all currently loaded modules. Now that the module environment is clean, you can load the specific modules you need for your current task.
 
-## References / Further reading
+## Further reading
 
 * [Jeff Layton: Environment Modules – A Great Tool for Clusters](https://www.admin-magazine.com/HPC/Articles/Environment-Modules) (Admin magazine)
 * [Lmod: A New Environment Module System](https://lmod.readthedocs.io/en/latest/) (Project documentation) 

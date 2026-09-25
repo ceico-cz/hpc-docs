@@ -1,13 +1,13 @@
 ---
-title: "Build cosmosis with python 2.7 in conda"
+title: "Build CosmoSIS with Python 2.7 in conda"
 wikijs_updated: 2024-02-27
 tags:
   - "app-specific cosmosis"
 ---
 
-# Build cosmosis with python 2.7 in conda
+# Build CosmoSIS with Python 2.7 in conda
 
-## Create conda environment
+## Create the conda environment
 
 (as user)
 
@@ -20,7 +20,7 @@ this ensures
 conda create -n cosmosis_py27_gcc95_v2 python=2.7 gxx=9.5.0 gcc=9.5.0 openmpi mpi4py gsl cfitsio fftw lapack gfortran astropy cfitsio emcee future minuit2 pyyaml numpy scipy configparser backports openblas
 ```
 
-## Patch cosmosis setup file
+## Patch the CosmoSIS setup file
 
 make sure that `COSMOSIS_SRC_DIR` is set properly to root of cosmosis source code tree.
 
@@ -52,7 +52,7 @@ export PATH=${COSMOSIS_SRC_DIR}/bin:${PATH}
 (cosmosis_py27_gcc95_v2) [jose@login1 cosmosis_EMU]$
 ```
 
-## Insert -march=native in compiler opt
+## Add `-march=native` to the compiler options
 
 ensure that in `config/compilers.mk` is `-march=native` in non-debug config:
 
@@ -64,7 +64,7 @@ COMMON_FLAGS=-O3 -g -fPIC -march=native
 endif
 ```
 
-## Activate env and build cosmosis
+## Activate the environment and build CosmoSIS
 
 ```
 conda activate cosmosis_py27_gcc95_v2
@@ -72,7 +72,7 @@ source setup-my-cosmosis
 make
 ```
 
-## Create batch file
+## Create the batch file
 
 ```
 #!/bin/bash

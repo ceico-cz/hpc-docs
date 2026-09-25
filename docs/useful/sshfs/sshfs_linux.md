@@ -1,9 +1,9 @@
 ---
-title: "Mount remote directories using sshfs at Linux laptop/workstation"
+title: "Mount remote directories using sshfs on a Linux laptop or workstation"
 wikijs_updated: 2023-11-15
 ---
 
-# Mount remote directories using sshfs at Linux laptop/workstation
+# Mount remote directories using sshfs on a Linux laptop or workstation
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ Host koios1
   User johndoe
 ```
 
-## ~/.bashrc modification
+## Modify `~/.bashrc`
 
 Into your local `~/.bashrc` (if you use bash), insert this snippet. Replace `johndoe` with your real koios username.
 

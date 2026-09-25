@@ -1,9 +1,9 @@
 ---
-title: "Create ssh keypair at Linux / Mac OS"
+title: "Create an SSH key pair on Linux / macOS"
 wikijs_updated: 2022-09-06
 ---
 
-# Create ssh keypair at Linux / Mac OS
+# Create an SSH key pair on Linux / macOS
 
 At both Linux or Mac machines, if you do not have existing key/pair, run command `ssh-keygen -t ed25519`.
 

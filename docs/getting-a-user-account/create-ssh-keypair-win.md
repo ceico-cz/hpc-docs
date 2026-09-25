@@ -1,9 +1,9 @@
 ---
-title: "Create ssh keypair in MobaXterm console"
+title: "Create an SSH key pair in the MobaXterm console"
 wikijs_updated: 2022-09-06
 ---
 
-# Create ssh keypair in MobaXterm console
+# Create an SSH key pair in the MobaXterm console
 
 1. click on <kbd>Tools</kbd> and then <kbd>MobaKeyGen</kbd>
 1. click on <kbd>Generate</kbd> (and move your mouse over the blank area to generate some entropy)

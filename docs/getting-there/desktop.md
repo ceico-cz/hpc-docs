@@ -1,9 +1,9 @@
 ---
-title: "Using remote desktop at Phoebe"
+title: "Using remote desktop on Phoebe"
 wikijs_updated: 2023-11-15
 ---
 
-# Using remote desktop at Phoebe
+# Using remote desktop on Phoebe
 
 Open OnDemand (OOD) is a web portal that simplifies access to high-performance computing (HPC) resources. It provides a user-friendly interface for managing files, submitting jobs, and accessing various HPC tools.
 
@@ -18,37 +18,37 @@ In first chapter we describe starting new session, in the second one how to conn
 </div>
 
 
-## 1 How-to: starting new session
+## Start a new session
 
 !!! warning "Important"
     most of Phoebe services are available from Institute networks or VPN only
 
-### 1.1 Ondemand portal log-in
+### Log in to the OnDemand portal
 
 go to [https://ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) and login with your Institute “Kerberos” login (your username is typically the word before `@` in your email) and your password is same you're using for webmail access.
 
 ![](../screenshot_20220905_190242.png)
 
-### 1.2 Start new Desktop session
+### Start a new Desktop session
 
 Click on icon “Phoebe CPU Desktop”
 
 ![](../ood_howto/screenshot_20220905_190751.png)
 
-### 1.3 Set Desktop deadline
+### Set the Desktop deadline
 
 In following dialog, select Deadline for the new desktop session in hours. (eg. 8) and click on "Launch" button.  
 This will submit the Desktop job to scheduler.
 
 ![](../ood_howto/screenshot_20220905_191135.png)
 
-### 1.4 submitting Desktop session to scheduler
+### Submit the Desktop session to the scheduler
 
 After submitting job, we can see Desktop job as "**Queued**" with light blue header.
 
 ![screenshot_20220905_192347.png](../ood_howto/screenshot_20220905_192347.png)
 
-### 1.5 Accessing newly started session
+### Access the newly started session
 
 Once scheduler finds proper resources for your Desktop, header of job greens, and blue button "Lauch..." appears.
 
@@ -59,7 +59,7 @@ In new tab of browser should be opened remote desktop at Phoebe cluster.
 
 ![screenshot_20220905_192859.png](../ood_howto/screenshot_20220905_192859.png)
 
-## 2 How-to: Reconnect to already running session
+## Reconnect to a running session
 
 As described above, login to the OnDemand portal at [https://ood.phoebe.ceico.cz](https://ood.phoebe.ceico.cz) with your Kerberos username/password. Then, depending on your display resolution, in the top-menu, you should see either "My Interactive Sessions" menu item, or only corresponsing icon. Click on it..
 
@@ -79,6 +79,6 @@ As described above, login to the OnDemand portal at [https://ood.phoebe.ceico.cz
 
     ![screenshot_20220905_194650.png](../ood_howto/screenshot_20220905_194650.png)
 
-## 3 How-to: End running session
+## End a running session
 
 Every running session is consuming part of cluster resources. So after finishing your work, in "My Interactive Sessions" click on red "Delete" button.

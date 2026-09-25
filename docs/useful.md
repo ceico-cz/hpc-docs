@@ -1,9 +1,9 @@
 ---
-title: "Useful hints, tips and tricks for seasoned HPC user"
+title: "Tips and tricks for seasoned HPC users"
 wikijs_updated: 2024-01-28
 ---
 
-# Useful hints, tips and tricks for seasoned HPC user
+# Tips and tricks for seasoned HPC users
 
 * [Mounting directories over SSHFS](useful/sshfs.md) at your workstation/laptop
 * [Unpacking rpm](useful/unpack_rpm.md) without installing

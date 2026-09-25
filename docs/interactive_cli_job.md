@@ -1,17 +1,17 @@
 ---
-title: "VScode remote tunnel at Phoebe"
+title: "VS Code remote tunnel on Phoebe"
 wikijs_updated: 2023-12-22
 ---
 
-# VScode remote tunnel at Phoebe
+# VS Code remote tunnel on Phoebe
 
-### Prepare your workstation
+## Prepare your workstation
 
 - make sure you have working [github.com](http://github.com) account
 - Install vscode at your workstation/laptop.  [Installers are available](https://code.visualstudio.com/) for most Linux distributions, MacOS, and Windows.
 - At vscode, install  [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
-### login to Phoebe using ssh CLI.
+## Log in to Phoebe using SSH
 
 ```text
 jose@jose-t14s:~$ ssh phoebe.fzu.cz -l jose
@@ -20,7 +20,7 @@ Last login: Fri Dec 22 13:30:38 2023 from phoebe-gw.fzu.cz
 [jose@login1 ~]$
 ```
 
-### Download (at the first time use) vscode cli and unpack it
+## Download and unpack the VS Code CLI (first use only)
 
 Download:
 
@@ -45,7 +45,7 @@ $
 
 Good, we see the `code` binary aavailable in current directory.
 
-### Start `screen` or connect to existing screen session
+## Start `screen` or attach to an existing screen session
 
 In this example we start new `screen` session named "tunnel".
 
@@ -63,7 +63,7 @@ srun --part=gpu_int --job-name "code_tunnel" --gres=gpu:a100:1 --cpus-per-task=1
 
 This snippet created job limited by walltime 24hours, requesting one A100 GPU with tunnel name "Phoebe".
 
-### Start remote code instance
+## Start the remote VS Code instance
 
 Navitage trough following dialog, log in using your github account:
 
@@ -86,7 +86,7 @@ visit the URL offered by script - typically device login page <https://github.co
 
 ![screenshot_2023-12-22_at_13-58-06_build_software_better_together.png](screenshots/screenshot_2023-12-22_at_13-58-06_build_software_better_together.png)
 
-## Connect using your local VScode instance
+## Connect from your local VS Code
 
 Once you've authorized vscode app, you can connect from your local vscode to registered tunnel:
 

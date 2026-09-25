@@ -1,18 +1,18 @@
 ---
-title: "Submit batch job"
+title: "Submit a batch job"
 wikijs_updated: 2023-11-16
 description: "How to submit non-interactive batch job to cluster scheduler."
 ---
 
-# Submit batch job
+# Submit a batch job
 
 At Phoebe cluster, we use workload manager [slurm](https://slurm.schedmd.com) to schedule user jobs over compute nodes.
 
-## Example “code” to run
+## Example code to run
 
 In this tutorial, we will submit a dummy job executing the well-known command `sleep 600`. This command simply pauses for 600 seconds before completing. Once you are acquainted with the job submission process, feel free to replace this placeholder command with the actual command for your application.
 
-## Create jobscript
+## Create the job script
 
 The job script is a file typically containing properties, required resources, and instructions for launching your application/command. Below is an example job script that you can tailor to meet your specific requirements.
 
@@ -59,7 +59,7 @@ Job was apparently successfully created under job id **10810**.
 
 Depending on the lenght/duration of your job, state of queue at cluster the job might be started immediately, or it can wait in the queue to get requested resources.
 
-### squeue command
+### `squeue`
 
 Current status of job scheduler queue can be viewed by command `squeue --me`. The `--me` option filters jobs belonging to the currently logged-in user,
 
@@ -72,7 +72,7 @@ $ squeue --me
 $ 
 ```
 
-### sacct command
+### `sacct`
 
 If job already finished/failed, it's not anymore visible in squeue. Use `sacct` command to see recent jobs:
 
@@ -87,7 +87,7 @@ $
 ```
 
 
-### scontrol show job command
+### `scontrol show job`
 
 In the output above we see that our job 10811 is in state “**R**” - Running at compute node n11. To see more details about particular job, we can use command `scontrol show job=NNNNN` where `NNNN` is the job number:
 
@@ -124,7 +124,7 @@ $
 
 From that output we can see our job already finished (`JobState=COMPLETED`) and we see files, where `stderr` and `stdout` were forwarded to. By default, these files are in the job submission directory.
 
-## Watching output of running job
+## Watch the output of a running job
 
 To see live output of job, using `scontrol show job=NNNNN` find the `StdOut` file path, and watch it using tail command - eg. 
 
@@ -132,7 +132,7 @@ To see live output of job, using `scontrol show job=NNNNN` find the `StdOut` fil
 tail -F /home/jose/projects/handson1/slurm-10811.out
 ```
 
-## Interrupt / cancel a job
+## Interrupt or cancel a job
 
 Sometimes, things might go wrong. Already running, or queued job can be cancelled by command `scancel` and job id.
 
@@ -140,7 +140,7 @@ Sometimes, things might go wrong. Already running, or queued job can be cancelle
 [jose@login1]$ scancel 10811
 ```
 
-## Searching in history of jobs
+## Search the job history
 
 `sacct` (**S**lurm  **acc**ounting) command can show important information about job runtime, results, etc. 
 

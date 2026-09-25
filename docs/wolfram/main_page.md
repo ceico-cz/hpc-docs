@@ -1,13 +1,13 @@
 ---
-title: "Wolfram Mathematica at Phoebe cluster"
+title: "Wolfram Mathematica on Phoebe"
 wikijs_updated: 2024-04-17
 tags:
   - "wolfram mathematica"
 ---
 
-# Wolfram Mathematica at Phoebe cluster
+# Wolfram Mathematica on Phoebe
 
-### Wolfram Mathematica Licenses
+## Licenses
 
 Our Wolfram license server is available from FZU neworks at `license.ceico.cz` - at the same URL the current utilization numbers are available - [https://license.ceico.cz/](https://license.ceico.cz/). Please refrain from using multiple Mathematica instances simultaneously, as we have a limited number available..
 
@@ -20,7 +20,7 @@ Follow the [procedure outlined here](../getting-there/desktop.md) and effortless
 
 "One viable approach is to create a Mathematica Package File (distinct from a Wolfram Package file(!)) and submit it using a Slurm batch file.
 
-#### Creating Mathematica package (*.m) file from notebook
+### Create a Mathematica package (`*.m`) file from a notebook
 
 1. Choose the cells within the Mathematica Notebook, and proceed by following the instructions, clicking on `Cell` > `Cell Properties` > `Initialization Cell`. This will allow you to configure the selected cells to be included in the package.
 
@@ -58,7 +58,7 @@ math -run < package.m
 ...
 ```
 
-#### Create sbatch slurm job file
+### Create the sbatch job file
 
 To run our mathematica module on cluster, we need to create slurm sbatch file, describing time constraints and resource requirements to slurm job manager. 
 
@@ -84,12 +84,12 @@ echo "sbatch-INFO: we're done"
 date
 ```
 
-##### sbatch file hints
+#### sbatch file hints
 
 * use descriptive `--job-name`, but do not use whitespaces
 * Attempt to accurately estimate the time (`--time`)required for your task. Setting a value too low may result in premature termination of your application, while setting it too high could lead to suboptimal scheduling. In general, erring on the side of overestimating time constraints is preferable to underestimating, as it ensures a safer and more reliable execution.
 * If your application utilizes parallelization techniques such as `ParallelDo`[^docu^](https://reference.wolfram.com/language/ref/ParallelDo.html), ensure that you configure the appropriate number of CPUs per task. (`--cpus-per-task`)
 
-#### submit job
+### Submit the job
 
 By typing `sbatch sbatch_mathematica.sh` your job will be submitted.

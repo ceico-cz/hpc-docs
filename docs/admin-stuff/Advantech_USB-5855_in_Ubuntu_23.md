@@ -1,5 +1,5 @@
 ---
-title: "Advantech USB-5855 IO board control in recent Ubuntu"
+title: "Advantech USB-5855 I/O board control in recent Ubuntu"
 wikijs_updated: 2024-02-14
 description: "How to make Advantech USB-5855 input/output board working under recent Ubuntu 23.10"
 tags:
@@ -7,7 +7,7 @@ tags:
   - "hw"
 ---
 
-# Advantech USB-5855 IO board control in recent Ubuntu
+# Advantech USB-5855 I/O board control in recent Ubuntu
 
 ![20240213_145029.jpg](../screenshots/20240213_145029.jpg){.align-center}
 
@@ -15,7 +15,7 @@ Advantech USB-5855 IO card is
 
 > 32-ch Isolated Digital Input and 16-ch PhotoMOS Relay USB 3.0 I/O Module ^[2]^
 
-### Installation of vendor driver and daemon
+### Install the vendor driver and daemon
 
 Installer can be downloaded from 
 
@@ -41,11 +41,11 @@ click next. Most likely, compilation of base driver library, and specific device
 
 this is hint that we need to look better at kernel module compilation.
 
-### Patching source code of driver
+### Patch the driver source code
 
 Vendor claims support for quite old version of Ubuntu kernel. 
 
-#### Modification of `biokernbase.ko` generic driver module
+#### Modify the generic driver module `biokernbase.ko`
 
 
 Attempting to manually build base driver library ( `make` ) in 
@@ -73,7 +73,7 @@ Result of this build is:
 * `biokernbase.ko`
 * `/etc/udev/rules.d/71-bionic-daq.rules`
 
-#### Build of device-specific driver for USB-5855
+#### Build the device-specific driver for USB-5855
 
 By running 
 
@@ -87,7 +87,7 @@ In particular dir, do `make` and `make install`.
 
 Result is `bio5800dio` , no patches were needed.
 
-### Testing device
+### Test the device
 
 Now it's possible plug-in USB-5855 USB cable into our computer. In dmesg one can see:
 
@@ -110,7 +110,7 @@ Using test utilities, verify that we can see our device:
 cd /opt/advantech/daqnavi_driver_source_code/linux_driver_source_4.0.10.0_64bit/tools
 ```
 
-#### testing with `dndev`:
+#### Test with `dndev`
 
 ```
 # ./dndev 
@@ -119,7 +119,7 @@ DAQNavi devices list in system:
 # 
 ```
 
-#### testing `device_enum`:
+#### Test `device_enum`
 
 ```
 # ./dev_enum 
@@ -133,7 +133,7 @@ DAQNavi devices list in system:
 #
 ```
 
-#### Blinking LED with Python SDK example
+#### Blink an LED with the Python SDK example
 
 cd to Python example directory:
 
@@ -173,7 +173,7 @@ Because of how integers are internally represented, interesting value to test is
 
 ### Notes
 
-#### issue with secure boot
+#### Issue with Secure Boot
 
 Modern Linux distributions enforce security consistency by validating cryptographic signatures of kernel and kernel modules. Indeed this tutorial doesn't cover this topic as we only compiled `*.ko` files.
 
@@ -181,7 +181,7 @@ If your system enforces kernel module signing, one can disable that using `mokut
 
 In case of dual-boot with certain proprietary non-UNIX system, their security device validation procedure might fail, and manual type-in of backup security keys might be needed.
 
-### Components of SW
+### Software components
 
 #### DAQNavi4 Device Monitor Daemon
 
@@ -195,7 +195,7 @@ runs `/opt/advantech/daqnavi_daemon/daqnavi_daemon`
 
 the full functionality is not yet understood. Analysis of system calls issued by this daemon reveals, that it attempts to interact with ```/var/lib/daq/daqnavi.config.db```, most SQLite3 config database file used by this binary.
 
-#### Udev rule file
+#### udev rule file
 
 placed in 
 
@@ -209,7 +209,7 @@ triggers run of `daqnavi_daemon` when device is plugged-in.
 
 created by driver, reprenent device in dev tree.
 
-#### SQLite3 database `daqnavi.config.db` 
+#### SQLite3 database `daqnavi.config.db`
 
 located by default in `/var/lib/daq`. When removed, breaks the funcionality of Python SDK.
 Contains both static and run-time variables of system, eg here we can see the information about USB connectivity of our device:

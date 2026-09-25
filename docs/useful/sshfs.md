@@ -1,9 +1,9 @@
 ---
-title: "Mount storage over ssh using sshfs"
+title: "Mount storage over SSH using sshfs"
 wikijs_updated: 2023-11-15
 ---
 
-# Mount storage over ssh using sshfs
+# Mount storage over SSH using sshfs
 
 To facilitate swift data exchange between your laptop and our HPC systems, you can utilize the sshfs protocol to remotely mount directories on your laptop or PC.
 

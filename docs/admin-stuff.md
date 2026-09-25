@@ -1,14 +1,14 @@
 ---
-title: "Other"
+title: "Admin notes"
 wikijs_updated: 2024-04-08
 description: "things which do not fit anywhere else"
 ---
 
-# Other
+# Admin notes
 
 *..things which do not fit anywhere else*
 
-## HW-related
+## Hardware
 
 * [Advantech USB-5855 in Ubuntu 23.10](admin-stuff/Advantech_USB-5855_in_Ubuntu_23.md)
 

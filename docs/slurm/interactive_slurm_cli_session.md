@@ -10,7 +10,7 @@ tags:
 
 ## Procedure
 
-### Login to the front-end login node
+### Log in to the front-end node
 
 ```
 user@jose-t14s:~$ ssh phoebe.fzu.cz -l jose
@@ -19,7 +19,7 @@ Last login: Tue Jan 30 16:58:54 2024 from phoebe-gw.fzu.cz
 [user@login1 ~]$
 ```
 
-### Start screen session to contain your slurm job
+### Start a screen session to hold your Slurm job
 
 Here we create slurm session with name "session007":
 
@@ -31,9 +31,9 @@ Here we create slurm session with name "session007":
 
 In this example, we'll request resources in gpu2 partition.
 
-### Request resources from slurm
+### Request resources from Slurm
 
-#### example1: get 128 cpus at any gpu node and 2 GPU cards
+#### Example 1: 128 CPUs and 2 GPUs on any GPU node
 
 ```
 srun --part=gpu_int --job-name "interactiveshell" --cpus-per-task=128 --mem=128G --time=24:00:00 --gres=gpu:a100:2 --pty /bin/bash
@@ -41,7 +41,7 @@ srun --part=gpu_int --job-name "interactiveshell" --cpus-per-task=128 --mem=128G
 
 
 
-#### example2: get 16cpus at node in gpu2 partition
+#### Example 2: 16 CPUs on a node in the gpu2 partition
 
 ```
 [user@login1 ~]$ srun --part=gpu2 --job-name "interactivesheell" --cpus-per-task=16 --mem=128G --time=24:00:00 --pty /bin/bash
@@ -50,7 +50,7 @@ srun: job 1962744 has been allocated resources
 [user@gpu2 ~]$
 ```
 
-##### comment 
+##### Notes
 
 Upon initiation, the shell opens, granting access for interactive tasks on the designated node — such as launching IPython sessions. Note that the job is set to conclude within a designated timeframe, as illustrated in this instance, within 24 hours.
 

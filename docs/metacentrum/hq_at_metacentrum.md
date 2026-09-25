@@ -1,14 +1,14 @@
 ---
-title: "Running multi-cluster jobs at Metacentrum, Phoebe and Koios"
+title: "Running multi-cluster jobs on MetaCentrum, Phoebe and Koios"
 wikijs_updated: 2024-07-26
 tags:
   - "hyperqueue"
   - "metacentrum"
 ---
 
-# Running multi-cluster jobs at Metacentrum, Phoebe and Koios
+# Running multi-cluster jobs on MetaCentrum, Phoebe and Koios
 
-## Using Hyperqueue as unifying layer on top of multiple clusters
+## Using HyperQueue as a unifying layer on top of multiple clusters
 
 
 ### Tweak your local workstation
@@ -25,4 +25,4 @@ alias go2tarkill="sshpass -p ${METACENTRUM_PASS} ssh ${METACENTRUM_USER}@${METAC
 
 reload shell, or `source ~/.bashrc` in your current shell.
 
-### Configure and run `hq server` at metacentrum oven node
+### Configure and run `hq server` on the MetaCentrum oven node

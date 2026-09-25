@@ -24,7 +24,7 @@ export PROMPT_COMMAND='history -a'
 HISTFILESIZE=99999
 ```
 
-## More fancy prompt
+## Fancier prompt
 
 Perhaps the default prompt is not fancy enough for you. This one is better - it shows your username, servername and directory path in different colors :)).
 

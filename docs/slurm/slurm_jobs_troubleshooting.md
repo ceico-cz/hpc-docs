@@ -1,13 +1,13 @@
 ---
-title: "Slurm jobs troubleshooting"
+title: "Troubleshooting Slurm jobs"
 wikijs_updated: 2023-11-16
 ---
 
-# Slurm jobs troubleshooting
+# Troubleshooting Slurm jobs
 
-## Get slurm job state
+## Get the Slurm job state
 
-### sacct
+### `sacct`
 
 `sacct` command is used to read data from accounting database. This particular command will search for jobs of user `jose`, in past month:
 
@@ -17,7 +17,7 @@ sacct -u jose --format=jobid,user,jobname%22,partition,state%20,NodeList,Start,E
 
 (note the `%` symbol used to enhance correct table formatting - eg. `%22` reserves 22 characters )
 
-#### sacct example
+#### `sacct` example
 
 In example we see the job `1410269` was `CANCELLED`:
 
@@ -31,7 +31,7 @@ JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
 $ 
 ```
 
-### Understanding job state
+### Understanding the job state
 
 Possible job states are:
 
@@ -45,7 +45,7 @@ Possible job states are:
 
 * `PENDING`: Indicates that the job is waiting for available resources in the queue.
 
-## Get slurm job stdout and stderr
+## Get the Slurm job stdout and stderr
 
 `stdout` and `stderr` can provide valuable diagnostic information when debugging. 
 

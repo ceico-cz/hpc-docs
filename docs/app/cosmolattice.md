@@ -1,9 +1,9 @@
 ---
-title: "How to run Cosmolattice at Phoebe HPC system"
+title: "Running CosmoLattice on Phoebe"
 wikijs_updated: 2026-03-16
 ---
 
-# How to run Cosmolattice at Phoebe HPC system
+# Running CosmoLattice on Phoebe
 
 ## CosmoLattice on Phoebe
 
@@ -92,7 +92,7 @@ Each run also writes `REPRODUCE.md` into the output directory, including:
 - `scontrol show job` output
 - the exact `sbatch.sh` content used for that run
 
-### Buffered vs unbuffered
+### Buffered vs. unbuffered
 
 The current wrapper supports `SLURM_UNBUFFEREDIO` through the submit
 environment.
@@ -117,7 +117,7 @@ ssh jose@phoebe.fzu.cz '
 '
 ```
 
-### Hyperthreading vs no hyperthreading
+### Hyperthreading vs. no hyperthreading
 
 Phoebe CPU nodes expose `128` logical CPUs per node. To compare with and without
 hyperthreading:

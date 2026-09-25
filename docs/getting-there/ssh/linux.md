@@ -1,14 +1,14 @@
 ---
-title: "Acessing Phoebe system using SSH from Linux"
+title: "Accessing Phoebe using SSH from Linux"
 wikijs_updated: 2023-11-16
 ---
 
-# Acessing Phoebe system using SSH from Linux
+# Accessing Phoebe using SSH from Linux
 
 !!! info "Note"
     Before first login, initial [activating Phoebe account](../getting-a-user-account.md) is necessary.
 
-## Accessing SSH front-end node
+## Access the SSH front-end node
 
 One can use Secure Shell protocol (SSH) to access front-end nodes of Phoebe HPC system.
 
@@ -24,7 +24,7 @@ where `<username>` is your FZU "Kerberos" account.
 
 To access system, we use exclusively Public Key Authentication.
 
-## making ssh login more comfortable
+## Make SSH login more comfortable
 
 To make ssh connection faster, you might decide to create `~/.ssh/config` file with an Phoebe entry. Make sure to replace `<username>`template with your FZU/Phoebe username.
 

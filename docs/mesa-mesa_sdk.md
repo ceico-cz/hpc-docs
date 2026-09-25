@@ -1,13 +1,13 @@
 ---
-title: "Running Mesa star with Mesa SDK"
+title: "Running MESA star with the MESA SDK"
 wikijs_updated: 2023-11-16
 ---
 
-# Running Mesa star with Mesa SDK
+# Running MESA star with the MESA SDK
 
 This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (MESA), an open-source 1D stellar evolution code at Phoebe cluster.
 
-## Configure shell environment for SDK
+## Configure the shell environment for the SDK
 
 As the current Mesa SDK is already unpacked in the Phoebe shared filesystem, it is essential to configure the relevant environment variables:
 
@@ -16,7 +16,7 @@ export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1
 source $MESASDK_ROOT/bin/mesasdk_init.sh
 ```
 
-## Download, unpack MESA star and configure enviroment
+## Download and unpack MESA star, and configure the environment
 
 Create a suitable directory in your homedir, navigate to it using the 'cd' command, download the Mesa Star zip file, and ununpack it in that directory
 
@@ -65,7 +65,7 @@ Installation script can take some time as it performs checks if code is working 
 
 Once the installation is done, message `MESA installation was successful` will be shown.
 
-## Permanent shell environment configuration of Mesa SDK + MESAStar in ~/.bashrc
+## Configure MESA SDK and MESA star permanently in `~/.bashrc`
 
 To avoid the need to export again environment variables as it was done above, one can modify own `~/.bashrc` file .
 

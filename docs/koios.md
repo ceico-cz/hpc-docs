@@ -32,11 +32,11 @@ The nodes are equipped with MT4115 ConnectX-4 1x100Gb Infiniband EDR cards, ensu
 
 ## Storage
 
-### user Home dirs
+### User home directories
 
 User homedirs are located at Beegfs[^more_info^](https://www.beegfs.io/c/) cluster filesystem shared with Phoebe.
 
-### Local temporary fast NVME storage
+### Local fast temporary NVMe storage
 
 Each node features a ~2TB Intel NVME, mounted as /tmp and accessible as `$TMPDIR`. It's important to note that this storage is non-persistent and undergoes periodic cleaning during node image updates.
 

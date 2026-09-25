@@ -1,44 +1,44 @@
 ---
-title: "Acessing Phoebe system using SSH from Windows"
+title: "Accessing Phoebe using SSH from Windows"
 wikijs_updated: 2023-11-15
 ---
 
-# Acessing Phoebe system using SSH from Windows
+# Accessing Phoebe using SSH from Windows
 
 !!! info "Note"
     Before first login, initial [activating Phoebe account](../getting-a-user-account.md) is necessary.
 
 
-## Installing ssh client
+## Install an SSH client
 
 We recommend to use Mobatec ssh client, which is available to download [here](https://mobaxterm.mobatek.net/download.html). 
 
 MobaXterm is a popular terminal software that includes an embedded X server and various network tools, including an SSH client. 
 
-## Creating keypair in MobaXterm
+## Create a key pair in MobaXterm
 
 ### Open MobaXterm
 
 - Launch MobaXterm on your computer.
 
-### Open the "MobaKeyGen" Utility
+### Open the MobaKeyGen utility
 
 - In the MobaXterm main window, click on the "Tools" button
 - select MobaKeyGen utility
 
-### Configure Key Generation
+### Configure key generation
   
 - Choose the key type (EdDSA provides decent security)
 
-### Consider private key encryption
+### Consider encrypting the private key
 
 - Type-in `Key passphrase` protecting newly generated key from potential misuse.
 
-### Generate the Key Pair
+### Generate the key pair
 
 - Click the "Generate" button to create the key pair. Move the mouse around in the blank area to generate randomness.
 
-### Save the Key Pair
+### Save the key pair
 
 - Once the key pair is generated, you can save it to your local machine.
 - Click on the "Save private key" button to save the private key. This private key file will typically have a `.ppk` (Putty private key) extension. Select the directory and clisk on `Save` button.
@@ -53,7 +53,7 @@ MobaXterm is a popular terminal software that includes an embedded X server and 
 
 ![screenshot_20231115_171211.png](../../screenshots/screenshot_20231115_171211.png)
 
-## Configuring Phoebe profile at MobaXterm terminal
+## Configure a Phoebe profile in the MobaXterm terminal
 
 1. click on <kbd>Session</kbd> and then <kbd>SSH</kbd>
 1. fill-in remote host as `phoebe.fzu.cz`
@@ -62,6 +62,6 @@ MobaXterm is a popular terminal software that includes an embedded X server and 
 1. tick <kbd>Use private key</kbd> and select the private part of your key
 1. click on <kbd>OK</kbd>
 
-## Connecting to Phoebe using the profile created above
+## Connect to Phoebe using the profile
 
 In the left column, click on profile created in previous step. Console window should appear.

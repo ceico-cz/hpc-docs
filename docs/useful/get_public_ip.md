@@ -1,9 +1,9 @@
 ---
-title: "Detect public IP using curl"
+title: "Detect your public IP using curl"
 wikijs_updated: 2023-11-23
 ---
 
-# Detect public IP using curl
+# Detect your public IP using curl
 
 ```
 curl ifconfig.me

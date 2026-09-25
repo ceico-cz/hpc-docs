@@ -1,5 +1,5 @@
 ---
-title: "Pyoperon in conda at Phoebe"
+title: "Pyoperon in conda on Phoebe"
 wikijs_updated: 2025-08-12
 description: "This guide details how to set up and install pyoperon on Phoebe using a clean Conda environment."
 tags:
@@ -9,7 +9,7 @@ tags:
   - "pyoperon"
 ---
 
-# Pyoperon in conda at Phoebe
+# Pyoperon in conda on Phoebe
 
 !!! info "Note"
     **Note:** This guide expects a **clean shell environment. Do not run it inside Jupyter Notebooks or environments enriched with preloaded modules or dependencies.**
@@ -19,16 +19,16 @@ Tested on: August 6, 2025
 
 ## Build pyoperon and its dependencies
 
-### 1.1 Clone pyoperon from the Upstream Repository
+### Clone pyoperon from the upstream repository
 
 ```
 git clone https://github.com/heal-research/pyoperon.git
 cd pyoperon
 ```
 
-### 1.2 Activate Conda and Create Environment
+### Activate conda and create the environment
 
-##### Optional tweaks to `environment.yml`:
+#### Optional tweaks to `environment.yml`
 
 - Use a stable version: `clangxx==19.1.7` instead of a cutting-edge version.
 - To prepare for openMPI later, you may add:
@@ -49,14 +49,14 @@ conda env create -f environment.yml
 conda activate pyoperon
 ```
 
-### 1.3 Configure Clang as the Compiler
+### Configure Clang as the compiler
 
 ```
 export CC=${CONDA_PREFIX}/bin/clang
 export CXX=${CONDA_PREFIX}/bin/clang++
 ```
 
-### 1.4 Download Site-Specific Dependency Script and Run It
+### Download and run the site-specific dependency script
 
 ```
 wget https://gist.githubusercontent.com/jose-d/9db74a1283eba9fbadf73d2d029ad505/raw/4aaa3044909779675c57135f41cd6b35101522bb/dependencies.sh --output-document=./script/dependencies.sh
@@ -66,13 +66,13 @@ chmod +x ./script/dependencies.sh
 
 ✅ This step might take some time. Warnings are expected, but no critical errors should occur.
 
-### 1.5 Install pyoperon
+### Install pyoperon
 
 ```
 pip install .
 ```
 
-### 1.6 Test the Installation
+### Test the installation
 
 Because the local directory shares a name with the module, avoid testing from within the project folder:
 
@@ -91,9 +91,9 @@ then test inside Python
 ```
 If no errors appear, the installation was successful!
 
-## 2 🚀 (Optional) Install and Run with OpenMPI
+## Optional: install and run with OpenMPI
 
-### 2.1 install openmpi from source
+### Install OpenMPI from source
 
 🛠️ To ensure compatibility, you'll build **OpenMPI** and **mpi4py** within the Conda environment you created earlier.
 
@@ -106,7 +106,7 @@ chmod +x ./install_ompi.sh
 ./install_ompi.sh
 ```
 
-### 2.2 install mpi4py from source
+### Install mpi4py from source
 
 Once OpenMPI is built and available in your environment:
 
@@ -117,7 +117,7 @@ python -m pip install --no-binary=mpi4py mpi4py
 This ensures mpi4py is compiled against your custom OpenMPI build.
 
 
-## 3 Example batch job using software built above
+## Example batch job using the software built above
 
 ```
 #!/bin/bash

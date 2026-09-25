@@ -1,14 +1,14 @@
 ---
-title: "Using UV package manager with Python at Phoebe"
+title: "Using the uv package manager with Python on Phoebe"
 wikijs_updated: 2024-11-25
 description: "TBF"
 ---
 
-# Using UV package manager with Python at Phoebe
+# Using the uv package manager with Python on Phoebe
 
-## Using UV python package manager
+## Using the uv Python package manager
 
-### howto 
+### Install uv
 
 Load modules providing MPI, gcc and friends, and our Python we selected arbitrarly
 ```
@@ -30,7 +30,7 @@ python -m pip install uv
 
 that's it :)
 
-### run python within created uv _project_
+### Run Python in a uv _project_
 
 ```
 [jose@login1 example]$ uv run python
@@ -50,7 +50,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 [jose@login1 example]$
 ```
 
-### Install package inside of env
+### Install a package into the environment
 
 ```
 [jose@login1 example2]$ uv add pyyaml

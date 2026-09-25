@@ -9,7 +9,7 @@ description: "Phoebe supercomputer consists from many components..."
 Phoebe supercomputer is placed in datacenter of Institute of Physics and infrastructure is managed with cooperation with [Computing centre (CC) of FZU.](https://www.farm.particle.cz/en/o-nas/).
 
 
-## Compute nodes ( 20x, n[1-20] )
+## Compute nodes (20×, n[1-20])
 
 * Server/platform: Gigabyte H262-Z63 / Motherboard: MZ62-HD0-00 ([vendor link](https://www.gigabyte.com/Enterprise/High-Density-Server/H262-Z63-rev-100))
 * CPU: 64 cores - 2x AMD EPYC 7543 ([vendor link](https://www.amd.com/en/products/cpu/amd-epyc-7543))
@@ -21,7 +21,7 @@ Phoebe supercomputer is placed in datacenter of Institute of Physics and infrast
 
 ![compute_node_block_diagram.png](phoebe_hw_diagrams/compute_node_block_diagram.png)
 
-## GPU-accelerated compute nodes ( 2x, gpu[1-2] )
+## GPU-accelerated compute nodes (2×, gpu[1-2])
 
 * Server/platform: HPE ProLiant XL675d Gen10 Plus
 * CPU: 64 cores - 2x AMD EPYC 7543 ([vendor link](https://www.amd.com/en/products/cpu/amd-epyc-7543))
@@ -33,7 +33,7 @@ Phoebe supercomputer is placed in datacenter of Institute of Physics and infrast
 * p~max~ = 3.5 kW / node
 
 
-## Fast sequential cpu node ( 2x, hv[1-2] aka. ssh:phoebe.fzu.cz )
+## Fast sequential CPU nodes (2×, hv[1-2], a.k.a. ssh:phoebe.fzu.cz)
 
 * Server/platform: Asus RS700A-E11-RS12U
 * CPU: 32 cores up to 4GHz - 2x AMD EPYC 73F3 16-Core CPU ([vendor link](https://www.amd.com/en/products/cpu/amd-epyc-73f3))
@@ -54,4 +54,4 @@ Phoebe supercomputer is placed in datacenter of Institute of Physics and infrast
 
 ## Storage infrastructure
 
-## Electricity/power management
+## Power management

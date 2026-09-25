@@ -1,11 +1,11 @@
 ---
-title: "Mount sshfs on MacOs"
+title: "Mount sshfs on macOS"
 wikijs_updated: 2023-11-15
 ---
 
-# Mount sshfs on MacOs
+# Mount sshfs on macOS
 
-## Create mount alias in `~/.zshrc`
+## Create a mount alias in `~/.zshrc`
 
 Open file `~/.zshrc` in your favorite editor (or create it when missing) and insert this snippet:
 
