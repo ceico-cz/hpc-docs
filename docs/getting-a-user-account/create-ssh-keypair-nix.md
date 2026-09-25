@@ -5,41 +5,49 @@ wikijs_updated: 2022-09-06
 
 # Create an SSH key pair on Linux / macOS
 
-At both Linux or Mac machines, if you do not have existing key/pair, run command `ssh-keygen -t ed25519`.
+If you do not have an SSH key pair yet, open a terminal and run:
 
-You'll be asked:
-
-<kbd>Enter file in which to save the key (/home/testuser/.ssh/id_ed25519)</kbd> → just press Enter.
-
-<kbd>Enter passphrase (empty for no passphrase)</kbd> : If you do not have hard-drive encryption, use secure enough passphrase[^1] to protect your key. If your laptop is encrypted, you might decide to do not set ssh key encryption, and just press Enter.
-
-[^1]: https://en.wikipedia.org/wiki/Passphrase
-
-
-
-Example:
+```bash
+ssh-keygen -t ed25519
 ```
-testuser@hostname:~$ ssh-keygen -t ed25519
-Generating public/private ed25519 key pair.
-Enter file in which to save the key (/home/testuser/.ssh/id_ed25519): 
-Created directory '/home/testuser/.ssh'.
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /home/testuser/.ssh/id_ed25519
-Your public key has been saved in /home/testuser/.ssh/id_ed25519.pub
-The key fingerprint is:
-SHA256:SLKcljiOmsdTubEGeG+6QP+nDs0NoLciBA71guz8BXQ testuser@hostname
-The key's randomart image is:
-+--[ED25519 256]--+
-|  .. E           |
-|.o...            |
-|+..oo .          |
-|* .+o* .         |
-| Oo.*+. S        |
-|+o*oO o          |
-|++.O * .         |
-|oo= O  .         |
-|o.o*.+o          |
-+----[SHA256]-----+
-testuser@hostname:~$
+
+`ssh-keygen` then asks two questions:
+
+1. **Enter file in which to save the key** – press <kbd>Enter</kbd> to accept the default location (`~/.ssh/id_ed25519`).
+2. **Enter passphrase** – type a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) and repeat it.
+   If your disk is encrypted, you may leave it empty and just press <kbd>Enter</kbd> twice.
+
+??? example "Example output"
+
+    ```text
+    Generating public/private ed25519 key pair.
+    Enter file in which to save the key (/home/testuser/.ssh/id_ed25519):
+    Created directory '/home/testuser/.ssh'.
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /home/testuser/.ssh/id_ed25519
+    Your public key has been saved in /home/testuser/.ssh/id_ed25519.pub
+    The key fingerprint is:
+    SHA256:SLKcljiOmsdTubEGeG+6QP+nDs0NoLciBA71guz8BXQ testuser@hostname
+    The key's randomart image is:
+    +--[ED25519 256]--+
+    |  .. E           |
+    |.o...            |
+    |+..oo .          |
+    |* .+o* .         |
+    | Oo.*+. S        |
+    |+o*oO o          |
+    |++.O * .         |
+    |oo= O  .         |
+    |o.o*.+o          |
+    +----[SHA256]-----+
+    ```
+
+Print your **public** key and send it to the Phoebe admin:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
 ```
+
+!!! warning
+    Never share the private key `~/.ssh/id_ed25519` (the file without `.pub`).

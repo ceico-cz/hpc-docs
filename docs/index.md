@@ -7,10 +7,11 @@ hide:
 
 <div class="hero" markdown>
 
-# Phoebe HPC cluster
+# CEICO HPC Services
 
-Phoebe is the high-performance computing cluster of CEICO at the Institute of Physics (FZU) of the
-Czech Academy of Sciences. This site explains how to get an account, connect, and run your work.
+High-performance computing for members of the CEICO project at the Institute of Physics (FZU) of the
+Czech Academy of Sciences, provided mainly by the Phoebe cluster. This site explains how to get an
+account, connect, and run your work.
 
 [Get an account](getting-there/getting-a-user-account.md){ .md-button .md-button--primary }
 [Connect with SSH](getting-there/ssh.md){ .md-button }
