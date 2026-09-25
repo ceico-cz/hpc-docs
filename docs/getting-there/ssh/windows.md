@@ -1,10 +1,11 @@
 ---
 title: "Acessing Phoebe system using SSH from Windows"
+wikijs_updated: 2023-11-15
 ---
 
 # Acessing Phoebe system using SSH from Windows
 
-!!! info ""
+!!! info "Note"
     Before first login, initial [activating Phoebe account](../getting-a-user-account.md) is necessary.
 
 

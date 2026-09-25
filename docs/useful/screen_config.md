@@ -1,5 +1,6 @@
 ---
 title: "Configuring screen to have nice tabbed view"
+wikijs_updated: 2024-07-19
 ---
 
 # Configuring screen to have nice tabbed view

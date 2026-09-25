@@ -1,5 +1,6 @@
 ---
 title: "Mount remote directories using sshfs at Linux laptop/workstation"
+wikijs_updated: 2023-11-15
 ---
 
 # Mount remote directories using sshfs at Linux laptop/workstation

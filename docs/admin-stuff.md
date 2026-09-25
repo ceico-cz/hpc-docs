@@ -1,5 +1,6 @@
 ---
 title: "Other"
+wikijs_updated: 2024-04-08
 description: "things which do not fit anywhere else"
 ---
 

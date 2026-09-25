@@ -1,5 +1,6 @@
 ---
 title: "Install Bitwarden in Firefox"
+wikijs_updated: 2026-07-20
 ---
 
 # Install Bitwarden in Firefox

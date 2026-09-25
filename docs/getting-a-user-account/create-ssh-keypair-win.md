@@ -1,5 +1,6 @@
 ---
 title: "Create ssh keypair in MobaXterm console"
+wikijs_updated: 2022-09-06
 ---
 
 # Create ssh keypair in MobaXterm console

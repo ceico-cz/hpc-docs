@@ -1,5 +1,6 @@
 ---
 title: "VScode remote tunnel at Phoebe"
+wikijs_updated: 2023-12-22
 ---
 
 # VScode remote tunnel at Phoebe

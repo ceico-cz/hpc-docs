@@ -1,5 +1,6 @@
 ---
 title: "Interactive Slurm CLI session"
+wikijs_updated: 2025-09-05
 description: "HOW to run your commands at compute node"
 tags:
   - "cli, ssh, slurm"

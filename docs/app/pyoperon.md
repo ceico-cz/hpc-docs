@@ -1,5 +1,6 @@
 ---
 title: "Pyoperon in conda at Phoebe"
+wikijs_updated: 2025-08-12
 description: "This guide details how to set up and install pyoperon on Phoebe using a clean Conda environment."
 tags:
   - "app-specific"
@@ -10,7 +11,7 @@ tags:
 
 # Pyoperon in conda at Phoebe
 
-!!! info ""
+!!! info "Note"
     **Note:** This guide expects a **clean shell environment. Do not run it inside Jupyter Notebooks or environments enriched with preloaded modules or dependencies.**
 
 Tested on: August 6, 2025

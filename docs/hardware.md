@@ -1,5 +1,6 @@
 ---
 title: "Phoebe hardware"
+wikijs_updated: 2024-01-22
 description: "Phoebe supercomputer consists from many components..."
 ---
 

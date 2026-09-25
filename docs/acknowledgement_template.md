@@ -1,5 +1,6 @@
 ---
 title: "Acknowledgment template"
+wikijs_updated: 2023-04-03
 ---
 
 # Acknowledgment template

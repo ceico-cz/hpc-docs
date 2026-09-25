@@ -1,5 +1,6 @@
 ---
 title: "Koios hardware"
+wikijs_updated: 2023-11-10
 description: "List of Koios hardware"
 ---
 

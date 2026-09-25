@@ -1,5 +1,6 @@
 ---
 title: "Slurm"
+wikijs_updated: 2023-11-16
 ---
 
 # Slurm

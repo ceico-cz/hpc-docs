@@ -1,5 +1,6 @@
 ---
 title: "Using remote desktop at Phoebe"
+wikijs_updated: 2023-11-15
 ---
 
 # Using remote desktop at Phoebe
@@ -19,7 +20,7 @@ In first chapter we describe starting new session, in the second one how to conn
 
 ## 1 How-to: starting new session
 
-!!! warning ""
+!!! warning "Important"
     most of Phoebe services are available from Institute networks or VPN only
 
 ### 1.1 Ondemand portal log-in

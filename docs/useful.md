@@ -1,5 +1,6 @@
 ---
 title: "Useful hints, tips and tricks for seasoned HPC user"
+wikijs_updated: 2024-01-28
 ---
 
 # Useful hints, tips and tricks for seasoned HPC user

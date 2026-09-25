@@ -1,10 +1,11 @@
 ---
 title: "Acessing Phoebe system using SSH from Mac"
+wikijs_updated: 2022-09-06
 ---
 
 # Acessing Phoebe system using SSH from Mac
 
-!!! info ""
+!!! info "Note"
     Before first login, initial [activating Phoebe account](../getting-a-user-account.md) is necessary.
 
 ## Accessing SSH front-end node

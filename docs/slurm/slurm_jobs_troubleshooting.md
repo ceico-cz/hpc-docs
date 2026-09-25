@@ -1,5 +1,6 @@
 ---
 title: "Slurm jobs troubleshooting"
+wikijs_updated: 2023-11-16
 ---
 
 # Slurm jobs troubleshooting
@@ -48,5 +49,5 @@ Possible job states are:
 
 `stdout` and `stderr` can provide valuable diagnostic information when debugging. 
 
-!!! info ""
+!!! info "Note"
     `stdout` stands for standard output, and it is one of the three standard data streams in a computer, along with standard input (`stdin`) and standard error (`stderr`). These streams are fundamental communication channels between a program and its environment.

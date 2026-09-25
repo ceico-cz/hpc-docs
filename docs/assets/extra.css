@@ -1,9 +1,106 @@
+/* ---- Brand colours: Wiki.js theme blue (#1976d2) ---------------------- */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #1976d2;
+  --md-primary-fg-color--light: #42a5f5;
+  --md-primary-fg-color--dark: #0d47a1;
+  --md-accent-fg-color: #1565c0;
+  --md-typeset-a-color: #1565c0;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1565c0;
+  --md-primary-fg-color--dark: #0d47a1;
+  --md-accent-fg-color: #64b5f6;
+  --md-typeset-a-color: #64b5f6;
+}
+
+/* ---- Layout ------------------------------------------------------------ */
+/* wider content area, so tables and diagrams are not cut off */
+.md-grid { max-width: 1380px; }
+
+/* ---- Typography ---------------------------------------------------------- */
+.md-typeset h1 {
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8em;
+}
+.md-typeset h2 { font-weight: 600; letter-spacing: -0.005em; }
+.md-typeset h3 { font-weight: 600; }
+.md-typeset table:not([class]) { font-size: 0.72rem; }
+.md-typeset table:not([class]) th { white-space: nowrap; }
+
 /* Wiki.js {.align-center} on images */
 .md-typeset img.align-center { display: block; margin-left: auto; margin-right: auto; }
-/* callouts converted from Wiki.js have no title */
-.md-typeset .admonition > p:first-child:empty { display: none; }
-/* tinted callouts, closer to Wiki.js {.is-info} / {.is-warning} */
-.md-typeset .admonition.info    { background-color: color-mix(in srgb, #00b8d4 8%, transparent); }
-.md-typeset .admonition.warning { background-color: color-mix(in srgb, #ff9100 8%, transparent); }
-.md-typeset .admonition.success { background-color: color-mix(in srgb, #00c853 8%, transparent); }
-.md-typeset .admonition.danger  { background-color: color-mix(in srgb, #ff1744 8%, transparent); }
+
+/* ---- Callouts: tinted like Wiki.js {.is-info} / {.is-warning} ------------ */
+.md-typeset .admonition.info    { background-color: color-mix(in srgb, #00b8d4 7%, transparent); }
+.md-typeset .admonition.warning { background-color: color-mix(in srgb, #ff9100 7%, transparent); }
+.md-typeset .admonition.success { background-color: color-mix(in srgb, #00c853 7%, transparent); }
+.md-typeset .admonition.danger  { background-color: color-mix(in srgb, #ff1744 7%, transparent); }
+.md-typeset .admonition { font-size: 0.72rem; }
+
+/* ---- Cards --------------------------------------------------------------- */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.4rem;
+  transition: border-color 125ms, box-shadow 125ms, transform 125ms;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-1px);
+}
+.md-typeset .grid.cards .lg { font-size: 1.6em; vertical-align: -0.2em; margin-right: 0.2em;
+  color: var(--md-primary-fg-color); }
+/* link cards: make the whole title line look like a heading */
+.md-typeset .grid.cards > ul > li > p:first-child > a > strong { font-weight: 600; }
+.md-typeset .grid.cards > ul > li > p:first-child > a .twemoji { color: var(--md-primary-fg-color); margin-right: 0.3em; }
+
+/* ---- Home page ------------------------------------------------------------- */
+.md-typeset .hero {
+  margin: 0 0 1.6rem;
+  padding: 2rem 2rem 1.6rem;
+  border-radius: 0.6rem;
+  color: #fff;
+  background: linear-gradient(135deg, #0d47a1 0%, #1976d2 55%, #42a5f5 100%);
+}
+.md-typeset .hero h1 { color: #fff; margin: 0 0 0.4em; font-size: 2.2em; }
+.md-typeset .hero p { font-size: 0.95rem; max-width: 46rem; line-height: 1.55; }
+.md-typeset .hero .md-button {
+  color: #fff; border-color: rgba(255, 255, 255, 0.85); margin: 0.4em 0.5em 0 0;
+}
+.md-typeset .hero .md-button--primary {
+  background: #fff; color: #0d47a1; border-color: #fff;
+}
+.md-typeset .hero .md-button:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+.md-typeset .hero .md-button--primary:hover { background: #e3f2fd; color: #0d47a1; }
+
+.md-typeset .stats > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+}
+.md-typeset .stats > ul > li {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+.md-typeset .stats > ul > li strong {
+  display: block;
+  font-size: 1.35rem;
+  color: var(--md-default-fg-color);
+}
+
+/* no edit button over the hero */
+.md-content:has(.hero) .md-content__button { display: none; }
+.md-content:has(.hero) .md-content__inner { padding-top: 0.4rem; }
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .hero { padding: 1.4rem 1.2rem 1.2rem; margin: -0.4rem -0.8rem 1.4rem; border-radius: 0; }
+  .md-typeset .hero h1 { font-size: 1.7em; }
+}

@@ -1,5 +1,6 @@
 ---
 title: "Koios system description"
+wikijs_updated: 2023-11-10
 description: "Description of CEICO legacy cluster"
 ---
 

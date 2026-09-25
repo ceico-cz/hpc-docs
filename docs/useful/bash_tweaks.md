@@ -1,5 +1,6 @@
 ---
 title: "Bash terminal tweaks"
+wikijs_updated: 2023-11-15
 ---
 
 # Bash terminal tweaks

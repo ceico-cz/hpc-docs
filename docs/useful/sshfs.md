@@ -1,5 +1,6 @@
 ---
 title: "Mount storage over ssh using sshfs"
+wikijs_updated: 2023-11-15
 ---
 
 # Mount storage over ssh using sshfs

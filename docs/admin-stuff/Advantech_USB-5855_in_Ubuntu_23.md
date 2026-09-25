@@ -1,5 +1,6 @@
 ---
 title: "Advantech USB-5855 IO board control in recent Ubuntu"
+wikijs_updated: 2024-02-14
 description: "How to make Advantech USB-5855 input/output board working under recent Ubuntu 23.10"
 tags:
   - "experimental_equipment"

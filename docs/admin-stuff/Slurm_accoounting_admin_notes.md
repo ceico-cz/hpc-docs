@@ -1,5 +1,6 @@
 ---
 title: "Slurm accounting admin notes"
+wikijs_updated: 2025-09-11
 description: "experience gained when operating slurm"
 tags:
   - "admin"

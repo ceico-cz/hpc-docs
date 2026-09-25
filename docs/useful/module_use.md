@@ -1,5 +1,6 @@
 ---
 title: "Lmod software module usage"
+wikijs_updated: 2023-11-15
 ---
 
 # Lmod software module usage

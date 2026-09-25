@@ -1,10 +1,11 @@
 ---
 title: "Acessing Phoebe system using SSH from Linux"
+wikijs_updated: 2023-11-16
 ---
 
 # Acessing Phoebe system using SSH from Linux
 
-!!! info ""
+!!! info "Note"
     Before first login, initial [activating Phoebe account](../getting-a-user-account.md) is necessary.
 
 ## Accessing SSH front-end node

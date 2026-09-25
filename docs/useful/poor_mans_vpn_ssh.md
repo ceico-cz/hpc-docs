@@ -1,5 +1,6 @@
 ---
 title: "Poor man's VPN Over SSH"
+wikijs_updated: 2023-11-15
 ---
 
 # Poor man's VPN Over SSH

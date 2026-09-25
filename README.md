@@ -9,13 +9,19 @@ Pages are Markdown files under `docs/`; the URL follows the file path
 (`docs/getting-there/ssh.md` → `/getting-there/ssh/`). Images live next to the pages
 (e.g. `docs/phoebe_pictures/`) and are linked relatively.
 
-The sidebar is defined in `nav.yml`. Pages not listed there are still built and reachable
-through links, like in the old Wiki.js.
+The navigation is defined in `nav.yml`: top-level entries are the tabs in the header, nested
+entries the sidebar. Add every new page there.
+
+Each page shows a "Last updated" date: its last git commit, or for pages not touched since
+the import, the Wiki.js edit date from the `wikijs_updated` front-matter field
+(`hooks/last_updated.py`).
+
+The home page (`docs/index.md`) is hand-designed; its styles are in `docs/assets/extra.css`.
 
 Useful syntax:
 
 ```markdown
-!!! info ""
+!!! info "Note"
     Callout box (also: warning, success, danger).
 
 === "Tab one"
@@ -55,4 +61,5 @@ Old Wiki.js URLs (`/en/<path>`, `/home`) redirect to the new pages (`hooks/wikij
 SQLite database plus its disk-storage asset export. It converts Wiki.js-specific markup
 (callouts, tabsets, link lists, image sizes, absolute links) and the two CKEditor HTML pages.
 It is kept for reference and for a final re-sync before the switch-over; after that, edit
-`docs/` directly.
+`docs/` directly. A re-sync keeps the hand-designed home page and `nav.yml`
+(`--write-nav` regenerates the Wiki.js navigation).

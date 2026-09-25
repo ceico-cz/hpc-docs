@@ -1,5 +1,6 @@
 ---
 title: "Create conda environment with cupy"
+wikijs_updated: 2023-10-27
 description: "Cupy is CUDA-aware numpy and scipy implementation"
 tags:
   - "conda"

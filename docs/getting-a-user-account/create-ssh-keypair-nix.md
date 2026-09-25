@@ -1,5 +1,6 @@
 ---
 title: "Create ssh keypair at Linux / Mac OS"
+wikijs_updated: 2022-09-06
 ---
 
 # Create ssh keypair at Linux / Mac OS

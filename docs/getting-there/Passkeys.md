@@ -1,5 +1,6 @@
 ---
 title: "Set up a passkey for the Phoebe portal"
+wikijs_updated: 2026-07-20
 ---
 
 # Set up a passkey for the Phoebe portal

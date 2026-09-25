@@ -23,16 +23,18 @@ theme:
       toggle: { icon: material/brightness-auto, name: Switch to light mode }
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: blue
+      primary: custom
+      accent: custom
       toggle: { icon: material/brightness-7, name: Switch to dark mode }
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: blue
+      primary: custom
+      accent: custom
       toggle: { icon: material/brightness-4, name: Switch to system preference }
   features:
+    - navigation.tabs
     - navigation.sections
+    - navigation.path
     - navigation.top
     - navigation.footer
     - navigation.instant
@@ -41,6 +43,7 @@ theme:
     - content.code.copy
     - content.tabs.link
     - content.action.edit
+    - content.tooltips
     - toc.follow
 
 plugins:
@@ -51,13 +54,10 @@ plugins:
 
 hooks:
   - hooks/wikijs_redirects.py
+  - hooks/last_updated.py
 
 extra_css:
   - assets/extra.css
-
-# Pages reachable by links but not listed in the sidebar, like in Wiki.js
-not_in_nav: |
-  /**/*.md
 
 markdown_extensions:
   - abbr

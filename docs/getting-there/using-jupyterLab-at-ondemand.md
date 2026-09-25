@@ -1,12 +1,13 @@
 ---
 title: "Using JupyterLab via Ondemand Portal at Phoebe system"
+wikijs_updated: 2024-09-11
 ---
 
 # Using JupyterLab via Ondemand Portal at Phoebe system
 
 OnDemand is portal offering interactive work with Phoebe supercomputer. It's easy to use from any enviroment - Linux, Mac, or even Windows. Interactive session, once started, runs at the cluster, even if a browser is closed and user disconnected.
 
-!!! warning ""
+!!! warning "Important"
     most of Phoebe services are available from Institute networks or VPN only
 
 ## 1.1 Ondemand portal log-in

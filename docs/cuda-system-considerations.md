@@ -1,5 +1,6 @@
 ---
 title: "CUDA system admin notes"
+wikijs_updated: 2024-01-29
 tags:
   - "admin"
   - "cuda"

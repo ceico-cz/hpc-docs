@@ -1,5 +1,6 @@
 ---
 title: "Using UV package manager with Python at Phoebe"
+wikijs_updated: 2024-11-25
 description: "TBF"
 ---
 

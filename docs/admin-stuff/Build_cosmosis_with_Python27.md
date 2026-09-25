@@ -1,5 +1,6 @@
 ---
 title: "Build cosmosis with python 2.7 in conda"
+wikijs_updated: 2024-02-27
 tags:
   - "app-specific cosmosis"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Accessing Phoebe using SSH (command line interface)"
+wikijs_updated: 2025-10-13
 ---
 
 # Accessing Phoebe using SSH (command line interface)

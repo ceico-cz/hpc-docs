@@ -1,5 +1,6 @@
 ---
 title: "Admin slurm snippets and scriptlets"
+wikijs_updated: 2024-06-11
 description: "snippets from daily slurm driving"
 tags:
   - "admin"

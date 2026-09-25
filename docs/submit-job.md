@@ -1,5 +1,6 @@
 ---
 title: "Submit batch job"
+wikijs_updated: 2023-11-16
 description: "How to submit non-interactive batch job to cluster scheduler."
 ---
 

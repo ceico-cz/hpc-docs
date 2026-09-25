@@ -1,5 +1,6 @@
 ---
 title: "How to run Cosmolattice at Phoebe HPC system"
+wikijs_updated: 2026-03-16
 ---
 
 # How to run Cosmolattice at Phoebe HPC system

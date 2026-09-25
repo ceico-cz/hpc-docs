@@ -1,5 +1,6 @@
 ---
 title: "Wolfram Mathematica at Phoebe cluster"
+wikijs_updated: 2024-04-17
 tags:
   - "wolfram mathematica"
 ---

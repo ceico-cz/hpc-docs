@@ -1,5 +1,6 @@
 ---
 title: "Mount sshfs on MacOs"
+wikijs_updated: 2023-11-15
 ---
 
 # Mount sshfs on MacOs

@@ -1,5 +1,6 @@
 ---
 title: "Xeon Gold 6130"
+wikijs_updated: 2023-11-10
 description: "CPU used at koios compute nodes"
 ---
 
