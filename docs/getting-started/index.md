@@ -5,8 +5,8 @@ description: "From a new account to your first job on Phoebe and Koios"
 
 # Getting started
 
-Phoebe and Koios share user accounts, SSH keys and home directories, so one account works on
-both clusters.
+Phoebe and Koios share user accounts and SSH keys, so one account works on both clusters. Each
+cluster has its own home directory.
 
 !!! warning "Institute network or VPN required"
     Most Phoebe and Koios web services, including the internal Open OnDemand portal, are

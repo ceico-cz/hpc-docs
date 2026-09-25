@@ -21,7 +21,7 @@ to CEICO users.
 | Account | CEICO account, SSH key | separate MetaCentrum account and password |
 | Authentication | SSH key | password or Kerberos ticket (realm `META`) |
 | Workload manager | Slurm (`sbatch`, `squeue`) | PBS Pro (`qsub`, `qstat`) |
-| Storage | shared BeeGFS home directories | separate storage per site, under `/storage/<site>/` |
+| Storage | BeeGFS home directories (one per cluster) and project space | separate storage per site, under `/storage/<site>/` |
 
 ## Get an account
 
