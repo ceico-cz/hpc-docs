@@ -19,24 +19,21 @@ nav:
               - Passwordless SSH with Kerberos: systems/metacentrum/kerberos.md
               - Multi-cluster jobs with HyperQueue: metacentrum/hq_at_metacentrum.md
   - Getting started:
+      - Overview: getting-started/index.md
       - Account:
-          - Get an account: getting-there/getting-a-user-account.md
-          - SSH key on Linux / macOS: getting-a-user-account/create-ssh-keypair-nix.md
-          - SSH key on Windows: getting-a-user-account/create-ssh-keypair-win.md
-          - Portal passkey: getting-there/Passkeys.md
-          - Install Bitwarden: getting-there/passkeys/bitwarden.md
+          - Get an account: getting-started/account.md
+          - Create an SSH key: getting-started/ssh-key.md
+          - Portal passkey: getting-started/passkey.md
       - Connect:
-          - SSH:
-              - Overview: getting-there/ssh.md
-              - From Linux: getting-there/ssh/linux.md
-              - From macOS: getting-there/ssh/mac.md
-              - From Windows: getting-there/ssh/windows.md
-          - JupyterLab: getting-there/using-jupyterLab-at-ondemand.md
-          - Remote desktop: getting-there/desktop.md
-          - VS Code remote tunnel: interactive_cli_job.md
-          - Access the FZU network (SOCKS proxy): getting-there/socks-proxy.md
+          - SSH: getting-started/ssh.md
+          - Open OnDemand:
+              - Log in and manage sessions: getting-started/ondemand/index.md
+              - JupyterLab: getting-started/ondemand/jupyterlab.md
+              - Remote desktop: getting-started/ondemand/desktop.md
+          - VS Code remote tunnel: getting-started/vscode-tunnel.md
+          - From outside the FZU network (SOCKS proxy): getting-started/socks-proxy.md
       - Transfer data:
-          - Mount storage with sshfs: getting-there/sshfs.md
+          - Mount storage with sshfs: getting-started/sshfs.md
   - Running jobs:
       - Overview: slurm/index.md
       - Batch jobs: slurm/batch-jobs.md

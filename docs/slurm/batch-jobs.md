@@ -46,7 +46,7 @@ All options of jobscript are described here: [https://slurm.schedmd.com/sbatch.h
 
 ## Submit the job
 
-[Log in to the cluster front-end node](../getting-there/ssh.md), copy content of example jobscript from above into e.g. file `jobscript.sh` into your home directory and submit it using sbatch command:
+[Log in to the cluster front-end node](../getting-started/ssh.md), copy content of example jobscript from above into e.g. file `jobscript.sh` into your home directory and submit it using sbatch command:
 
 ```shell
 $ sbatch jobscript.sh  

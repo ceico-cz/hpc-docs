@@ -13,7 +13,7 @@ High-performance computing for members of the CEICO project at the Institute of 
 the Czech Academy of Sciences. This site explains how to get an account, connect to our
 clusters and third-party systems, and run your work.
 
-[Get an account](getting-there/getting-a-user-account.md){ .md-button .md-button--primary }
+[Get an account](getting-started/account.md){ .md-button .md-button--primary }
 [Browse systems](systems/index.md){ .md-button }
 
 </div>
@@ -58,7 +58,7 @@ clusters and third-party systems, and run your work.
 
     Create an SSH key pair, then contact the CEICO HPC administrator to set up your account.
 
-    [:octicons-arrow-right-24: Account setup](getting-there/getting-a-user-account.md)
+    [:octicons-arrow-right-24: Account setup](getting-started/account.md)
 
 -   :material-console:{ .lg } **Command line (SSH)**
 
@@ -66,7 +66,7 @@ clusters and third-party systems, and run your work.
 
     Log in to `phoebe.fzu.cz` or `koios1.fzu.cz` from Linux, macOS or Windows.
 
-    [:octicons-arrow-right-24: Connect with SSH](getting-there/ssh.md)
+    [:octicons-arrow-right-24: Connect with SSH](getting-started/ssh.md)
 
 -   :material-language-python:{ .lg } **JupyterLab in the browser**
 
@@ -74,7 +74,7 @@ clusters and third-party systems, and run your work.
 
     Run Python notebooks on Phoebe through the Open OnDemand portal.
 
-    [:octicons-arrow-right-24: Start JupyterLab](getting-there/using-jupyterLab-at-ondemand.md)
+    [:octicons-arrow-right-24: Start JupyterLab](getting-started/ondemand/jupyterlab.md)
 
 -   :material-monitor:{ .lg } **Remote desktop**
 
@@ -82,7 +82,7 @@ clusters and third-party systems, and run your work.
 
     Use graphical applications such as Wolfram Mathematica in a desktop session.
 
-    [:octicons-arrow-right-24: Open a desktop](getting-there/desktop.md)
+    [:octicons-arrow-right-24: Open a desktop](getting-started/ondemand/desktop.md)
 
 </div>
 
