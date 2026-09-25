@@ -12,6 +12,7 @@ import subprocess
 BULK_COMMITS = {
     "f02778ea9dc8df77689966ec7199cfbf4390c891",  # initial import from Wiki.js
     "27bd6cf",                                   # redesign: callout titles, wikijs_updated field
+    "3c093a8",                                   # copy-edit of titles and headings
 }
 
 
