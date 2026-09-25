@@ -9,12 +9,14 @@ hide:
 
 # CEICO HPC Services
 
-High-performance computing for members of the CEICO project at the Institute of Physics (FZU) of
-the Czech Academy of Sciences. This site explains how to get an account, connect to our
-clusters and third-party systems, and run your work.
+High-performance computing for members of the CEICO project at the Institute of Physics (FZU)
+of the Czech Academy of Sciences.
 
-[Get an account](getting-started/account.md){ .md-button .md-button--primary }
+[Get started](getting-started/index.md){ .md-button .md-button--primary }
 [Browse systems](systems/index.md){ .md-button }
+
+FZU network or VPN required. From elsewhere, use the
+[SOCKS proxy](getting-started/socks-proxy.md).
 
 </div>
 
@@ -34,7 +36,8 @@ clusters and third-party systems, and run your work.
 
     ---
 
-    The previous-generation CEICO cluster, sharing accounts and home directories with Phoebe.
+    The previous-generation CEICO cluster: 864 CPU cores, sharing accounts and home directories
+    with Phoebe.
 
     [:octicons-arrow-right-24: About Koios](systems/koios/index.md)
 
@@ -86,9 +89,6 @@ clusters and third-party systems, and run your work.
 
 </div>
 
-!!! warning "Network access"
-    Most Phoebe and Koios services are available only from Institute networks or over VPN.
-
 ## Run your work
 
 <div class="grid cards" markdown>
@@ -96,6 +96,10 @@ clusters and third-party systems, and run your work.
 -   [:material-tray-arrow-up: **Submit a batch job**](slurm/batch-jobs.md)
 
     Write a Slurm job script and queue it.
+
+-   [:material-expansion-card: **GPU jobs**](slurm/gpu-jobs.md)
+
+    Request NVIDIA A100 GPUs on Phoebe.
 
 -   [:material-timer-play-outline: **Interactive session**](slurm/interactive.md)
 
@@ -105,8 +109,34 @@ clusters and third-party systems, and run your work.
 
     Find out why a job failed or is still waiting.
 
--   [:material-package-variant: **Software modules**](software/modules.md)
+</div>
 
-    Load compilers, libraries and applications with Lmod.
+## Help and more
+
+<div class="grid cards" markdown>
+
+-   [:material-lifebuoy: **Get help**](getting-started/account.md)
+
+    Contact the CEICO HPC administrator.
+
+-   [:material-package-variant: **Software**](software/index.md)
+
+    Software modules, conda, uv and guides for specific applications.
+
+-   [:material-folder-outline: **Storage**](systems/storage.md)
+
+    Where your files live: home directories, local scratch and the archive.
+
+-   [:material-format-quote-close: **Acknowledge Phoebe**](systems/phoebe/acknowledgement.md)
+
+    Text to include in your publications.
 
 </div>
+
+!!! warning "TODO"
+    - Give "Get help" a real support contact (e-mail address, Slack or ticket system); it
+      currently points to the account page.
+    - Add where planned maintenance is announced (mailing list, Slack channel or status page).
+    - Use one full name for CEICO: the footer says "Central European Institute for Cosmology and
+      Fundamental Physics", the acknowledgement template "Central European Institute of
+      Cosmology".
