@@ -24,6 +24,19 @@ Systems are listed on `docs/systems/index.md` and have their own section under t
 or third-party systems), and add a section to `nav.yml`. Add a card to "Our systems" on the
 home page only for systems most users need.
 
+### Releasing the MetaCentrum helper script
+
+The Kerberos guide (`docs/systems/metacentrum/kerberos.md`) tells users to download
+`docs/systems/metacentrum/metacentrum-kinit` from a git tag, not from `main`, so an
+unreviewed change on `main` never reaches anyone's machine. After changing the script:
+
+```bash
+git tag -a metacentrum-kinit-vX.Y.Z -m "metacentrum-kinit X.Y.Z"
+git push origin metacentrum-kinit-vX.Y.Z
+```
+
+then replace the old tag in both URLs in the guide (the `curl` command and the link above it).
+
 The home page (`docs/index.md`) is hand-designed; its styles are in `docs/assets/extra.css`.
 
 Useful syntax:

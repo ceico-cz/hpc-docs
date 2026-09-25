@@ -120,13 +120,14 @@ ssh metacentrum klist -f          # shows a delegated LOGIN@META ticket
 
 ## 4. Install the helper script
 
-The helper script is kept in the [site repository](https://github.com/ceico-cz/hpc-docs/blob/main/docs/systems/metacentrum/metacentrum-kinit).
+The helper script is kept in the site repository; this guide uses release
+[`metacentrum-kinit-v1.0.0`](https://github.com/ceico-cz/hpc-docs/blob/metacentrum-kinit-v1.0.0/docs/systems/metacentrum/metacentrum-kinit).
 Download it, set your MetaCentrum username in it, and make it executable:
 
 ```bash
 mkdir -p ~/.local/bin
 curl -fsSL -o ~/.local/bin/metacentrum-kinit \
-  https://raw.githubusercontent.com/ceico-cz/hpc-docs/main/docs/systems/metacentrum/metacentrum-kinit
+  https://raw.githubusercontent.com/ceico-cz/hpc-docs/metacentrum-kinit-v1.0.0/docs/systems/metacentrum/metacentrum-kinit
 sed -i 's/^LOGIN = "LOGIN"/LOGIN = "your-login"/' ~/.local/bin/metacentrum-kinit   # your MetaCentrum username
 chmod 0755 ~/.local/bin/metacentrum-kinit
 ```
