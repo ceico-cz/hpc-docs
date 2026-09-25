@@ -12,7 +12,7 @@ description: "Find past jobs with sacct, understand job states, and see why a jo
 shows jobs that have finished. This command lists your jobs from the past month:
 
 ```
-sacct --me --format=jobid,user,jobname%22,partition,state%20,NodeList,Start,End,Elapsed --starttime=$(date --date='-1 month' +%Y-%m-%d)
+sacct --user=$USER --format=jobid,user,jobname%22,partition,state%20,NodeList,Start,End,Elapsed --starttime=$(date --date='-1 month' +%Y-%m-%d)
 ```
 
 The `%` sets a column width: `jobname%22` reserves 22 characters, so long names are not cut.

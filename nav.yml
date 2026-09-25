@@ -54,8 +54,7 @@ nav:
   - Tips & tricks:
       - Overview: tips/index.md
       - Bash tweaks: tips/bash-tweaks.md
-      - Tabbed screen sessions: tips/screen.md
-      - Shell one-liners: tips/one-liners.md
+      - Screen sessions: tips/screen.md
   - Administration:
       - Overview: admin/index.md
       - Reference:
