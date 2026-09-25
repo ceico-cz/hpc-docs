@@ -6,7 +6,7 @@ and published by GitHub Pages.
 ## Editing
 
 Pages are Markdown files under `docs/`; the URL follows the file path
-(`docs/getting-there/ssh.md` → `/getting-there/ssh/`). Images live next to the pages
+(`docs/getting-started/ssh.md` → `/getting-started/ssh/`). Images live next to the pages
 (e.g. `docs/phoebe_pictures/`) and are linked relatively.
 
 The navigation is defined in `nav.yml`: top-level entries are the tabs in the header, nested

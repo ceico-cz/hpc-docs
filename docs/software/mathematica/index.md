@@ -14,7 +14,7 @@ Our Wolfram license server is available from FZU neworks at `license.ceico.cz` -
 
 ## Interactive (Desktop) use
 
-Follow the [procedure outlined here](../../getting-there/desktop.md) and effortlessly launch Wolfram Mathematica using the desktop icon. Yes, it's that straightforward.
+Follow the [procedure outlined here](../../getting-started/ondemand/desktop.md) and effortlessly launch Wolfram Mathematica using the desktop icon. Yes, it's that straightforward.
 
 ## Batch (non-interactive) use
 

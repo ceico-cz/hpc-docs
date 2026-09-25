@@ -12,7 +12,7 @@ Optional tweaks to make working on our clusters more comfortable.
 * [Shell one-liners](one-liners.md) - small commands worth remembering
 
 Looking for something else? Copying files and reaching the institute network are in
-[Getting started](../getting-there/sshfs.md), and software modules are in
+[Getting started](../getting-started/sshfs.md), and software modules are in
 [Software](../software/modules.md).
 
 Just for fun: [play an outreach game hosted at our cluster](https://game.ceico.cz/).

@@ -12,9 +12,8 @@ same files.
 
 ## Prerequisites
 
-* configured [key-based authentication](../getting-a-user-account/create-ssh-keypair-nix.md)
-* a `phoebe` host entry in `~/.ssh/config`, as described in [SSH from Linux](ssh/linux.md)
-  or [SSH from macOS](ssh/mac.md):
+* configured [key-based authentication](ssh-key.md)
+* a `phoebe` host entry in `~/.ssh/config`, as described in [SSH](ssh.md):
 
 ```
 Host phoebe

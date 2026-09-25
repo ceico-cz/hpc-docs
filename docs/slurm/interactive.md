@@ -26,7 +26,7 @@ Use the interactive partitions. Jobs there start with higher priority than batch
 
 ## Start a screen session
 
-An interactive session ends when you disconnect. [Log in to the front-end node](../getting-there/ssh.md)
+An interactive session ends when you disconnect. [Log in to the front-end node](../getting-started/ssh.md)
 and start a `screen` session first, so the session survives a dropped connection. Here we
 name it "session007":
 
