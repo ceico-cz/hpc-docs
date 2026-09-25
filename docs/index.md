@@ -1,5 +1,4 @@
 ---
-title: "Phoebe compute system wiki"
 wikijs_updated: 2024-01-22
 hide:
   - navigation
@@ -8,9 +7,9 @@ hide:
 
 <div class="hero" markdown>
 
-# Phoebe compute system
+# Phoebe HPC cluster
 
-Phoebe is the high-performance computing cluster of CEICO at the Institute of Physics of the
+Phoebe is the high-performance computing cluster of CEICO at the Institute of Physics (FZU) of the
 Czech Academy of Sciences. This site explains how to get an account, connect, and run your work.
 
 [Get an account](getting-there/getting-a-user-account.md){ .md-button .md-button--primary }
@@ -21,10 +20,10 @@ Czech Academy of Sciences. This site explains how to get an account, connect, an
 <div class="stats" markdown>
 
 -   **1344** CPU cores
--   **16×** NVIDIA A100 GPUs
--   **2 TB** RAM on GPU nodes
+-   **16** NVIDIA A100 GPUs
+-   **2 TB** RAM per GPU node
 -   **218 TB** shared storage
--   **100 Gbit** InfiniBand
+-   **100 Gb/s** InfiniBand
 
 </div>
 
@@ -111,25 +110,33 @@ More detail: [Phoebe hardware](hardware.md).
 
 ### Pictures from the datacenter
 
-=== "Indicators in the dark server room"
+<div class="photo-grid" markdown>
 
-    ![Phoebe indicators blinking in the dark server room](phoebe_pictures/phoebe_realistic_001_small.jpg)
+![Status LEDs of the compute nodes glowing in the dark server room](phoebe_pictures/phoebe_realistic_001_small.jpg)
+/// caption
+Status LEDs in the dark server room
+///
 
-=== "Disk shelves and storage servers"
+![Disk shelves with the storage servers below](phoebe_pictures/20220526_201547.jpg)
+/// caption
+Disk shelves and storage servers
+///
 
-    ![Phoebe disk shelves with storage servers below](phoebe_pictures/20220526_201547.jpg){ style="width:35%" }
+![Back of the rack with power, Ethernet and InfiniBand cabling](phoebe_pictures/20220526_201437.jpg)
+/// caption
+Power, Ethernet and InfiniBand cabling
+///
 
-=== "Compute node wiring"
+![Front view of the compute nodes](phoebe_pictures/20230308_130306_2.jpg)
+/// caption
+Compute nodes, front view
+///
 
-    ![Compute nodes with power, Ethernet and InfiniBand wiring](phoebe_pictures/20220526_201437.jpg){ style="width:35%" }
-
-=== "Compute nodes, front view"
-
-    ![Front view of the compute nodes](phoebe_pictures/20230308_130306_2.jpg)
+</div>
 
 ### About the name
 
-![Phoebe illustration](phoebe_pictures/gj6uq8gm.jpeg){ align=right width=160 }
+![Line drawing of a server](phoebe_pictures/gj6uq8gm.jpeg){ .plain .off-glb align=right width=140 }
 
 In Greek mythology, Phoebe (*ˈfiːbi*), sister of Κοῖος (Koios), was one of the first
 generation of Titans, the sons and daughters of Uranus and Gaia.[^wiki_Phoebe]

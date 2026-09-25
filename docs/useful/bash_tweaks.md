@@ -32,7 +32,7 @@ Perhaps the default prompt is not fancy enough for you. This one is better - it 
 PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 ```
 
-![koios_prompt.png](../screenshots/koios_prompt.png)
+![Coloured bash prompt showing user, host and working directory](../screenshots/koios_prompt.png)
 
 ## Slurm shorthands
 

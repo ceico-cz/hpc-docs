@@ -1,77 +1,178 @@
-/* ---- Brand colours: Wiki.js theme blue (#1976d2) ---------------------- */
-:root,
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #1976d2;
-  --md-primary-fg-color--light: #42a5f5;
-  --md-primary-fg-color--dark: #0d47a1;
-  --md-accent-fg-color: #1565c0;
-  --md-typeset-a-color: #1565c0;
-}
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #1565c0;
-  --md-primary-fg-color--dark: #0d47a1;
-  --md-accent-fg-color: #64b5f6;
-  --md-typeset-a-color: #64b5f6;
+/* ---- CEICO visual identity (logo manual 2025) ----------------------------
+   Navy Blue #0b243d (primary), Amber Orange #f17a08 and Bright Cyan #0cb7d1
+   (accents), Gray 50 #9e9e9e, Gray 30 #c6c6c6. Amber and cyan fail contrast
+   as text on white, so light mode uses darkened tints for links and hover. */
+:root {
+  --ceico-navy: #0b243d;
+  --ceico-navy-light: #1a3a5c;
+  --ceico-amber: #f17a08;
+  --ceico-amber-dark: #b35600;   /* 4.9:1 on white */
+  --ceico-cyan: #0cb7d1;
+  --ceico-cyan-dark: #0a7d8f;    /* 4.8:1 on white */
+  --ceico-gray-50: #9e9e9e;
+  --ceico-gray-30: #c6c6c6;
+  --ceico-display: "Wix Madefor Display", "Wix Madefor Text", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 
-/* ---- Layout ------------------------------------------------------------ */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--ceico-navy);
+  --md-primary-fg-color--light: var(--ceico-navy-light);
+  --md-primary-fg-color--dark: #06172a;
+  --md-accent-fg-color: var(--ceico-amber-dark);
+  --md-accent-fg-color--transparent: rgb(241 122 8 / 0.1);
+  --md-typeset-a-color: var(--ceico-cyan-dark);
+  --md-typeset-color: var(--ceico-navy);
+  --ceico-heading: var(--ceico-navy);
+  --ceico-icon: var(--ceico-navy);
+}
+
+/* dark mode: tint Material's slate toward the brand navy */
+[data-md-color-scheme="slate"] {
+  --md-hue: 210;
+  --md-primary-fg-color: var(--ceico-navy);
+  --md-primary-fg-color--light: var(--ceico-navy-light);
+  --md-primary-fg-color--dark: #06172a;
+  --md-accent-fg-color: var(--ceico-amber);
+  --md-accent-fg-color--transparent: rgb(241 122 8 / 0.12);
+  --md-typeset-a-color: var(--ceico-cyan);
+  --ceico-heading: #fff;
+  --ceico-icon: var(--ceico-cyan);
+}
+
+/* ---- Header and tabs ------------------------------------------------------ */
+.md-header__button.md-logo { padding: 0.3rem 0.4rem; }
+.md-header__button.md-logo img { height: 1.5rem; width: auto; }   /* ~110 px, above the 60 px minimum */
+.md-header__topic:first-child { font-family: var(--ceico-display); font-weight: 600; }
+.md-tabs__link { font-weight: 500; opacity: 0.8; }
+.md-tabs__item--active .md-tabs__link {
+  opacity: 1;
+  box-shadow: inset 0 -2px 0 var(--ceico-amber);
+}
+.md-tabs__link:hover { color: var(--ceico-amber); }
+
+/* ---- Layout ----------------------------------------------------------------- */
 /* wider content area, so tables and diagrams are not cut off */
 .md-grid { max-width: 1380px; }
 
-/* ---- Typography ---------------------------------------------------------- */
-.md-typeset h1 {
-  font-weight: 700;
-  color: var(--md-default-fg-color);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.8em;
+/* ---- Typography --------------------------------------------------------------- */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--ceico-display);
+  color: var(--ceico-heading);
 }
-.md-typeset h2 { font-weight: 600; letter-spacing: -0.005em; }
+.md-typeset h1 { font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.8em; }
+.md-typeset h2 { font-weight: 600; }
 .md-typeset h3 { font-weight: 600; }
 .md-typeset table:not([class]) { font-size: 0.72rem; }
 .md-typeset table:not([class]) th { white-space: nowrap; }
 
-/* Wiki.js {.align-center} on images */
-.md-typeset img.align-center { display: block; margin-left: auto; margin-right: auto; }
-
-/* ---- Callouts: tinted like Wiki.js {.is-info} / {.is-warning} ------------ */
+/* ---- Callouts ---------------------------------------------------------------- */
 .md-typeset .admonition.info    { background-color: color-mix(in srgb, #00b8d4 7%, transparent); }
 .md-typeset .admonition.warning { background-color: color-mix(in srgb, #ff9100 7%, transparent); }
 .md-typeset .admonition.success { background-color: color-mix(in srgb, #00c853 7%, transparent); }
 .md-typeset .admonition.danger  { background-color: color-mix(in srgb, #ff1744 7%, transparent); }
 .md-typeset .admonition { font-size: 0.72rem; }
 
-/* ---- Cards --------------------------------------------------------------- */
+/* ---- Images, figures and video -------------------------------------------------- */
+/* one consistent frame for every screenshot, photo and diagram instead of the
+   per-image sizes and alignment classes inherited from Wiki.js */
+.md-typeset p:has(> img:only-child),
+.md-typeset p:has(> a.glightbox:only-child) { text-align: center; }
+.md-typeset img:not(.plain):not(.twemoji):not([src$=".svg"]) {
+  max-height: 26rem;   /* click opens the full image in the lightbox */
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  box-shadow: 0 0.1rem 0.6rem rgb(0 0 0 / 0.06);
+}
+.md-typeset a.glightbox { display: inline-block; cursor: zoom-in; }
+.md-typeset figure { margin: 1.4em auto; }
+.md-typeset figcaption {
+  max-width: 36rem;
+  margin-top: 0.6em;
+  font-size: 0.68rem;
+  font-style: normal;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset video {
+  display: block;
+  width: 100%;
+  max-width: 40rem;
+  margin: 1.4em auto;
+  border-radius: 0.3rem;
+  background: #000;
+}
+
+/* home page photo gallery: uniform crops, full photo in the lightbox */
+.md-typeset .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.8rem;
+  margin: 1em 0 1.6em;
+}
+.md-typeset .photo-grid figure { margin: 0; width: 100%; }
+.md-typeset .photo-grid a.glightbox { display: block; }
+.md-typeset .photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  max-height: none;
+  transition: transform 150ms, box-shadow 150ms;
+}
+.md-typeset .photo-grid a:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 0.15);
+}
+.md-typeset .photo-grid figcaption { margin-top: 0.4em; text-align: left; }
+.md-typeset img.plain { border: 0; box-shadow: none; }
+
+/* ---- Cards ------------------------------------------------------------------ */
 .md-typeset .grid.cards > ul > li {
   border-radius: 0.4rem;
   transition: border-color 125ms, box-shadow 125ms, transform 125ms;
 }
-.md-typeset .grid.cards > ul > li:hover {
-  transform: translateY(-1px);
-}
+.md-typeset .grid.cards > ul > li:hover { transform: translateY(-1px); }
 .md-typeset .grid.cards .lg { font-size: 1.6em; vertical-align: -0.2em; margin-right: 0.2em;
-  color: var(--md-primary-fg-color); }
-/* link cards: make the whole title line look like a heading */
-.md-typeset .grid.cards > ul > li > p:first-child > a > strong { font-weight: 600; }
-.md-typeset .grid.cards > ul > li > p:first-child > a .twemoji { color: var(--md-primary-fg-color); margin-right: 0.3em; }
+  color: var(--ceico-icon); }
+.md-typeset .grid.cards > ul > li > p:first-child > strong,
+.md-typeset .grid.cards > ul > li > p:first-child > a > strong {
+  font-family: var(--ceico-display); font-weight: 600;
+}
+.md-typeset .grid.cards > ul > li > p:first-child > a .twemoji { color: var(--ceico-icon); margin-right: 0.3em; }
 
-/* ---- Home page ------------------------------------------------------------- */
+/* ---- Home page ---------------------------------------------------------------- */
 .md-typeset .hero {
+  position: relative;
   margin: 0 0 1.6rem;
-  padding: 2rem 2rem 1.6rem;
+  padding: 2.2rem 2rem 1.8rem;
   border-radius: 0.6rem;
   color: #fff;
-  background: linear-gradient(135deg, #0d47a1 0%, #1976d2 55%, #42a5f5 100%);
+  background-color: var(--ceico-navy);
+  overflow: hidden;
+}
+/* the logo's Feynman-diagram chevrons, as a quiet motif on wide screens */
+@media screen and (min-width: 60em) {
+  .md-typeset .hero {
+    padding-right: 16rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cg fill='none' stroke='%23f17a08' stroke-width='3'%3E%3Cpath d='M20 10l50 50-50 50M180 10l-50 50 50 50'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 2.5rem center;
+    background-size: 11rem auto;
+  }
 }
 .md-typeset .hero h1 { color: #fff; margin: 0 0 0.4em; font-size: 2.2em; }
 .md-typeset .hero p { font-size: 0.95rem; max-width: 46rem; line-height: 1.55; }
 .md-typeset .hero .md-button {
-  color: #fff; border-color: rgba(255, 255, 255, 0.85); margin: 0.4em 0.5em 0 0;
+  color: #fff; border-color: rgb(255 255 255 / 0.85); margin: 0.4em 0.5em 0 0;
 }
+/* amber button with navy text: 5.6:1 (white text on amber would be 2.8:1) */
 .md-typeset .hero .md-button--primary {
-  background: #fff; color: #0d47a1; border-color: #fff;
+  background: var(--ceico-amber); color: var(--ceico-navy); border-color: var(--ceico-amber);
 }
-.md-typeset .hero .md-button:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
-.md-typeset .hero .md-button--primary:hover { background: #e3f2fd; color: #0d47a1; }
+.md-typeset .hero .md-button:hover { background: rgb(255 255 255 / 0.12); color: #fff; border-color: #fff; }
+.md-typeset .hero .md-button--primary:hover { background: #ff9530; color: var(--ceico-navy); border-color: #ff9530; }
 
 .md-typeset .stats > ul {
   display: grid;
@@ -85,6 +186,7 @@
   margin: 0;
   padding: 0.7rem 0.9rem;
   border: 1px solid var(--md-default-fg-color--lightest);
+  border-top: 2px solid var(--ceico-amber);
   border-radius: 0.4rem;
   color: var(--md-default-fg-color--light);
   font-size: 0.7rem;
@@ -92,8 +194,10 @@
 }
 .md-typeset .stats > ul > li strong {
   display: block;
+  font-family: var(--ceico-display);
   font-size: 1.35rem;
-  color: var(--md-default-fg-color);
+  font-weight: 700;
+  color: var(--ceico-heading);
 }
 
 /* no edit button over the hero */
@@ -104,3 +208,7 @@
   .md-typeset .hero { padding: 1.4rem 1.2rem 1.2rem; margin: -0.4rem -0.8rem 1.4rem; border-radius: 0; }
   .md-typeset .hero h1 { font-size: 1.7em; }
 }
+
+/* ---- Footer ------------------------------------------------------------------- */
+.md-footer-meta { background-color: #06172a; }
+.md-footer-meta .md-copyright a { color: var(--ceico-amber); }

@@ -84,13 +84,12 @@ To grant access to the server, please log into https://github.com/login/device a
 
 visit the URL offered by script - typically device login page <https://github.com/login/device>, and type-in security code.
 
-![screenshot_2023-12-22_at_13-58-06_build_software_better_together.png](screenshots/screenshot_2023-12-22_at_13-58-06_build_software_better_together.png)
+![GitHub page asking to authorize GitHub for VS Code](screenshots/screenshot_2023-12-22_at_13-58-06_build_software_better_together.png)
 
 ## Connect from your local VS Code
 
 Once you've authorized vscode app, you can connect from your local vscode to registered tunnel:
 
-[
-
-Your browser does not support the video webm tag.
-](screenshots/untitled.webm)
+<video controls preload="metadata">
+  <source src="../screenshots/untitled.webm" type="video/webm">
+</video>

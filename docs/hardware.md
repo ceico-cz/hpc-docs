@@ -19,7 +19,10 @@ Phoebe supercomputer is placed in datacenter of Institute of Physics and infrast
 * 1,92TB NVMe KINGSTON SEDC1500M1920G
 * p~max~ = 360W / node
 
-![compute_node_block_diagram.png](phoebe_hw_diagrams/compute_node_block_diagram.png)
+![Block diagram of the Gigabyte H262-Z63 compute node with two AMD EPYC CPUs](phoebe_hw_diagrams/compute_node_block_diagram.png)
+/// caption
+Block diagram of a compute node (Gigabyte H262-Z63)
+///
 
 ## GPU-accelerated compute nodes (2×, gpu[1-2])
 

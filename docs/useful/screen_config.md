@@ -29,4 +29,4 @@ hardstatus string "%{.kW}%-w%{.bW}%t [%n]%{-}%+w %=%{..G} %H %{..Y} %Y/%m/%d %c"
 
 In resulting look, you can see the status line containing open tabs, hostname and current time.
 
-![screenshot_20240115_154445.png](../screenshots/screenshot_20240115_154445.png)
+![GNU screen status line with open tabs, hostname and time](../screenshots/screenshot_20240115_154445.png)

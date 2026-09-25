@@ -1,12 +1,13 @@
 INHERIT: nav.yml
 
-site_name: PHOEBE compute system wiki
+site_name: Phoebe HPC
 site_url: https://hpc.ceico.cz/
-site_description: User documentation for the Phoebe HPC system at CEICO, Institute of Physics of the Czech Academy of Sciences
-site_author: CEICO | Institute of Physics ASCR
-copyright: CEICO | Institute of Physics ASCR · content licensed CC0
+site_description: User documentation for the Phoebe HPC cluster at CEICO, Institute of Physics (FZU) of the Czech Academy of Sciences
+site_author: CEICO, Institute of Physics (FZU) of the Czech Academy of Sciences
+copyright: >-
+  <a href="https://www.fzu.cz/ceico">CEICO</a> – Central European Institute for Cosmology and Fundamental Physics,
+  Institute of Physics (FZU) of the Czech Academy of Sciences · content licensed CC0
 
-# Placeholder until the GitHub repository exists
 repo_url: https://github.com/ceico-cz/hpc-docs
 repo_name: ceico-cz/hpc-docs
 edit_uri: edit/main/docs/
@@ -14,8 +15,11 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/ceico-logo.png
-  favicon: assets/ceico-logo.png
+  logo: assets/ceico-logo-negative.svg
+  favicon: assets/ceico-icon.svg
+  font:
+    text: Wix Madefor Text
+    code: Roboto Mono
   icon:
     repo: fontawesome/brands/github
   palette:
@@ -48,6 +52,11 @@ theme:
 
 plugins:
   - search
+  - privacy          # self-host Google Fonts and other external assets
+  - glightbox:
+      skip_classes: [off-glb]
+      zoomable: true
+      draggable: false
   - tags
   - redirects:
       redirect_maps: {}   # filled by hooks/wikijs_redirects.py
@@ -69,6 +78,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+  - pymdownx.blocks.caption
   - pymdownx.caret        # ^superscript^
   - pymdownx.tilde        # ~subscript~ and ~~strike~~
   - pymdownx.details

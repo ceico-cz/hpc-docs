@@ -24,7 +24,7 @@ Follow the [procedure outlined here](../getting-there/desktop.md) and effortless
 
 1. Choose the cells within the Mathematica Notebook, and proceed by following the instructions, clicking on `Cell` > `Cell Properties` > `Initialization Cell`. This will allow you to configure the selected cells to be included in the package.
 
-![screenshot_20231110_145603.png](screenshot_20231110_145603.png)
+![Mathematica menu Cell > Cell Properties > Initialization Cell](screenshot_20231110_145603.png)
 
 2. To generate the batch file, follow these steps: click on `File` > `Save As`> `Wolfram Mathematica Package (*.m)` in the menu bar.
 

@@ -9,7 +9,7 @@ tags:
 
 # Advantech USB-5855 I/O board control in recent Ubuntu
 
-![20240213_145029.jpg](../screenshots/20240213_145029.jpg){.align-center}
+![Advantech USB-5855 isolated digital I/O module](../screenshots/20240213_145029.jpg)
 
 Advantech USB-5855 IO card is 
 
@@ -28,7 +28,7 @@ $ sudo ./DAQ_Linux_4.0.10.0_64bit.run
 ```
 Installer window shows.
 
-![screenshot_20240214_100745.png](../screenshots/screenshot_20240214_100745.png){.align-center}
+![DAQNavi Linux installer start screen](../screenshots/screenshot_20240214_100745.png)
 
 in installer window, click on "Install...", default install path (`/opt/advantech`) is fine. In driver selection, keep only:
 * DAQNavi Linux SDK
@@ -37,7 +37,7 @@ in installer window, click on "Install...", default install path (`/opt/advantec
 
 click next. Most likely, compilation of base driver library, and specific device driver will fail with X sign:
 
-![screenshot_20240214_101335.png](../screenshots/screenshot_20240214_101335.png){.align-center}
+![DAQNavi installer showing failed driver builds marked with a red X](../screenshots/screenshot_20240214_101335.png)
 
 this is hint that we need to look better at kernel module compilation.
 
@@ -157,19 +157,14 @@ DO output completed!
 
 if first LED is on, as at picture below, everything went correctly and we're done.
 
-![20240214_105325.jpg](../other-pictures/20240214_105325.jpg){.align-center}
+![USB-5855 with the first output LED lit](../other-pictures/20240214_105325.jpg)
 
 Because of how integers are internally represented, interesting value to test is `-1`. The python script is very transparent, and it can be easily patched to use CLI command arguments instead of interactive dialog:
 
 
-<p>
-  <center>
-<video controls autoplay width="600">
-  <source src="/other-videos/advantech-usb-5855.webm" type="video/webm" >
-  Your browser does not support the video webm tag.
-</video> 
-  </center>
-</p>
+<video controls preload="metadata">
+  <source src="../../other-videos/advantech-usb-5855.webm" type="video/webm">
+</video>
 
 ### Notes
 

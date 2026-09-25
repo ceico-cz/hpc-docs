@@ -22,4 +22,7 @@ wikijs_updated: 2025-10-13
 
 </div>
 
-![internet_phoebe_access.png](../internet_phoebe_access.png)
+![Users reach the phoebe.fzu.cz front-end node over the internet; compute and GPU nodes and shared storage sit behind it on the cluster network](../internet_phoebe_access.png)
+/// caption
+How you reach Phoebe: everything goes through the front-end node `phoebe.fzu.cz`.
+///

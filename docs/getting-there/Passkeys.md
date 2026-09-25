@@ -23,7 +23,7 @@ After your first login, open your account information. In the **Passkeys** secti
 
 Bitwarden should open a pop-up asking to save the passkey. Confirm the prompt to continue.
 
-![Bitwarden passkey prompt](../passkeys/bitwarden-save-prompt.png){ style="width:41.15%" }
+![Bitwarden passkey prompt](../passkeys/bitwarden-save-prompt.png)
 
 *Bitwarden passkey prompt*
 
@@ -32,8 +32,9 @@ Bitwarden should open a pop-up asking to save the passkey. Confirm the prompt to
 You may give the passkey a recognizable name. The default name is "Bitwarden Passkey". Confirm the creation and check that the new passkey appears in your account settings.
 
 ![Naming a Bitwarden passkey](../passkeys/name-passkey.png)
-
-*Naming the passkey*
+/// caption
+Naming the passkey
+///
 
 ![Saved passkey in the Phoebe account settings](../passkeys/passkey-created.png)
 

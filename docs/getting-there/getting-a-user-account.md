@@ -16,4 +16,3 @@ First create fresh ssh keypair.
 
 ..and then just visit/message [Josef](https://www.fzu.cz/lide/ing-josef-dvoracek) and he'll do all the necessary steps with you. 
 
-![xlgfyf0h.jpeg](../phoebe_pictures/xlgfyf0h.jpeg)

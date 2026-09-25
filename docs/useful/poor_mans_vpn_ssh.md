@@ -55,8 +55,8 @@ Open Firefox and follow these steps:
 
 ## Screenshot: Firefox
 
-![socks5_firefox.png](../screenshots/socks5_firefox.png)
+![Firefox connection settings with a manual SOCKS5 proxy on localhost](../screenshots/socks5_firefox.png)
 
 ## System-wide configuration on macOS
 
-![screenshot_mac.png](../screenshots/screenshot_mac.png)
+![macOS network proxy settings with a SOCKS proxy on 127.0.0.1](../screenshots/screenshot_mac.png)

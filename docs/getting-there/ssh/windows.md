@@ -51,7 +51,7 @@ MobaXterm is a popular terminal software that includes an embedded X server and 
 
 ### MobaKeyGen screenshot
 
-![screenshot_20231115_171211.png](../../screenshots/screenshot_20231115_171211.png)
+![MobaXterm SSH key generator with an Ed25519 key](../../screenshots/screenshot_20231115_171211.png)
 
 ## Configure a Phoebe profile in the MobaXterm terminal
 
