@@ -11,12 +11,13 @@ third-party systems operated by other providers.
 ## CEICO clusters
 
 Phoebe and Koios share user accounts, SSH keys and home directories, so one account works on
-both. Both use the [Slurm](../slurm/index.md) workload manager.
+both. Both use the [Slurm](../slurm/index.md) workload manager. See
+[storage and software](storage.md) for where your files live.
 
 | System | Status | Login node | CPU cores | GPUs | Details |
 | --- | --- | --- | --- | --- | --- |
-| **Phoebe** | current | `phoebe.fzu.cz` | 1408 (AMD EPYC 7543) | 16× NVIDIA A100 | [Overview](phoebe.md) · [Hardware](../hardware.md) |
-| **Koios** | legacy | `koios1.fzu.cz` | 864 (Intel Xeon Gold 6130) | 4× NVIDIA Tesla P100 (currently dedicated to a project) | [Overview](../koios.md) · [Hardware](../koios/hw.md) |
+| **Phoebe** | current | `phoebe.fzu.cz` | 1408 (AMD EPYC 7543) | 16× NVIDIA A100 | [Overview](phoebe/index.md) · [Hardware](phoebe/hardware.md) |
+| **Koios** | legacy | `koios1.fzu.cz` | 864 (Intel Xeon Gold 6130) | 4× NVIDIA Tesla P100 (currently dedicated to a project) | [Overview](koios/index.md) · [Hardware](koios/hardware.md) |
 
 ## Third-party systems
 
@@ -25,4 +26,4 @@ documentation; the pages here cover only what is specific to CEICO users.
 
 | System | Operator | Pages on this site |
 | --- | --- | --- |
-| **MetaCentrum** | CESNET, Czech national grid infrastructure | [Overview](metacentrum/index.md) · [Kerberos SSH](metacentrum/kerberos.md) · [HyperQueue](../metacentrum/hq_at_metacentrum.md) |
+| **MetaCentrum** | CESNET, Czech national grid infrastructure | [Overview](metacentrum/index.md) · [Kerberos SSH](metacentrum/kerberos.md) · [HyperQueue](metacentrum/hyperqueue.md) |

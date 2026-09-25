@@ -7,7 +7,7 @@ and published by GitHub Pages.
 
 Pages are Markdown files under `docs/`; the URL follows the file path
 (`docs/getting-started/ssh.md` → `/getting-started/ssh/`). Images live next to the pages
-(e.g. `docs/phoebe_pictures/`) and are linked relatively.
+(e.g. `docs/systems/phoebe/pictures/`) and are linked relatively.
 
 The navigation is defined in `nav.yml`: top-level entries are the tabs in the header, nested
 entries the sidebar. Add every new page there.
@@ -53,7 +53,7 @@ Useful syntax:
 
     Content of the second tab.
 
-![Alt text](../phoebe_pictures/photo.jpg){ style="width:35%" }
+![Alt text](pictures/photo.jpg){ style="width:35%" }
 ```
 
 On GitHub every page has an edit button; changes go through a pull request, which is

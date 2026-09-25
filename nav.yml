@@ -3,21 +3,19 @@ nav:
   - Home: index.md
   - Systems:
       - Overview: systems/index.md
+      - Storage and software: systems/storage.md
       - Phoebe:
-          - Overview: systems/phoebe.md
-          - Hardware: hardware.md
-          - Acknowledging Phoebe: acknowledgement_template.md
+          - Overview: systems/phoebe/index.md
+          - Hardware: systems/phoebe/hardware.md
+          - Acknowledging Phoebe: systems/phoebe/acknowledgement.md
       - Koios (legacy):
-          - Overview: koios.md
-          - Hardware:
-              - Overview: koios/hw.md
-              - Nvidia Tesla P100: koios/hw/p100.md
-              - Xeon Gold 6130: koios/hw/Xeon_Gold_6130.md
+          - Overview: systems/koios/index.md
+          - Hardware: systems/koios/hardware.md
       - Third-party systems:
           - MetaCentrum:
               - Overview: systems/metacentrum/index.md
               - Passwordless SSH with Kerberos: systems/metacentrum/kerberos.md
-              - Multi-cluster jobs with HyperQueue: metacentrum/hq_at_metacentrum.md
+              - Multi-cluster jobs with HyperQueue: systems/metacentrum/hyperqueue.md
   - Getting started:
       - Overview: getting-started/index.md
       - Account:

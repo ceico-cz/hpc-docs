@@ -28,7 +28,7 @@ clusters and third-party systems, and run your work.
 
     The current CEICO cluster: 1408 CPU cores and 16 NVIDIA A100 GPUs on 100 Gb/s InfiniBand.
 
-    [:octicons-arrow-right-24: About Phoebe](systems/phoebe.md)
+    [:octicons-arrow-right-24: About Phoebe](systems/phoebe/index.md)
 
 -   :material-server:{ .lg } **Koios**
 
@@ -36,7 +36,7 @@ clusters and third-party systems, and run your work.
 
     The previous-generation CEICO cluster, sharing accounts and home directories with Phoebe.
 
-    [:octicons-arrow-right-24: About Koios](koios.md)
+    [:octicons-arrow-right-24: About Koios](systems/koios/index.md)
 
 -   :material-earth:{ .lg } **Third-party systems**
 
