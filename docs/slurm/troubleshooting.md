@@ -12,7 +12,7 @@ description: "Find past jobs with sacct, understand job states, and see why a jo
 shows jobs that have finished. This command lists your jobs from the past month:
 
 ```
-sacct --me --format=jobid,user,jobname%22,partition,state%20,NodeList,Start,End,Elapsed --starttime=$(date --date='-1 month' +%Y-%m-%d)
+sacct --user=$USER --format=jobid,user,jobname%22,partition,state%20,NodeList,Start,End,Elapsed --starttime=$(date --date='-1 month' +%Y-%m-%d)
 ```
 
 The `%` sets a column width: `jobname%22` reserves 22 characters, so long names are not cut.
@@ -68,6 +68,7 @@ $ squeue --me
 | `AssocGrpGRES`, `AssocGrpCpuLimit` | Your account or project has reached its limit. |
 | `ReqNodeNotAvail, Reserved for maintenance` | Planned maintenance is coming. The job would not finish before it starts, so it waits. A shorter `--time` may let it run before the maintenance. |
 
+All reasons are explained in Slurm's list of [job reason codes](https://slurm.schedmd.com/job_reason_codes.html).
 `scontrol show job <jobid>` shows the full details, including `StartTime`: Slurm's estimate of
 when a pending job will start.
 

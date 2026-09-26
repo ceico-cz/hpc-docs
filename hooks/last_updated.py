@@ -9,11 +9,7 @@ Add the hash of any future bulk commit (e.g. a final re-sync from Wiki.js) to BU
 import datetime
 import subprocess
 
-BULK_COMMITS = {
-    "f02778ea9dc8df77689966ec7199cfbf4390c891",  # initial import from Wiki.js
-    "27bd6cf",                                   # redesign: callout titles, wikijs_updated field
-    "3c093a8",                                   # copy-edit of titles and headings
-}
+BULK_COMMITS = set()   # history was squashed to one commit per day; no bulk commits remain
 
 
 def _is_bulk(sha):

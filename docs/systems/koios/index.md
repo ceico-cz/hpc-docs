@@ -8,11 +8,7 @@ description: "Koios, the previous-generation CEICO cluster"
 
 Koios is the previous-generation CEICO cluster. It has 27 compute nodes, each with two 16-core
 Intel Xeon Skylake CPUs ([Xeon Gold 6130](hardware.md#intel-xeon-gold-6130)) and 384 GB of RAM.
-All nodes run Rocky Linux 9.
-
-!!! warning "TODO"
-    Check the operating system: the Slurm partition `rocky10` on `n12` suggests a move to
-    Rocky Linux 10 is under way.
+All nodes run Rocky Linux 9.8.
 
 !!! info "GPU node temporarily unavailable"
     The GPU node with four [NVIDIA Tesla P100](hardware.md#nvidia-tesla-p100) cards is currently
@@ -22,8 +18,8 @@ All nodes run Rocky Linux 9.
 ## Accessing Koios
 
 Log in through the front-end node `koios1.fzu.cz` (see [SSH](../../getting-started/ssh.md)).
-Koios shares accounts, SSH keys and home directories with Phoebe, so the same username and key
-work on both.
+Koios shares accounts and SSH keys with Phoebe, so the same username and key work on both. Its
+home directories are separate from Phoebe's.
 
 ## Slurm partitions
 
@@ -56,5 +52,6 @@ low-latency network for communication between nodes. More detail: [Koios hardwar
 
 ## Storage and software
 
-Koios and Phoebe share home directories and the software tree; see
-[storage and software](../storage.md).
+Koios has its own home directories, software tree (`/cvmfs/c9.phoebe.lan`) and shared scratch
+(`/mnt/shared-scratch`); the project space `/mnt/proj` is the same as on Phoebe. Each job gets a
+private `/tmp` on the node's NVMe disk. See [storage and software](../storage.md).

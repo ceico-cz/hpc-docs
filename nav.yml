@@ -42,11 +42,10 @@ nav:
       - Overview: software/index.md
       - Environments:
           - Software modules (Lmod): software/modules.md
-          - Conda on Phoebe: software/conda.md
+          - Conda: software/conda.md
           - Python with uv: software/python-uv.md
           - Unpack an RPM without root: software/unpack-rpm.md
       - Applications:
-          - CosmoLattice: software/cosmolattice.md
           - CosmoSIS with Python 2.7: software/cosmosis-py27.md
           - CuPy on GPUs: software/cupy.md
           - MESA stellar evolution: software/mesa.md
@@ -55,8 +54,7 @@ nav:
   - Tips & tricks:
       - Overview: tips/index.md
       - Bash tweaks: tips/bash-tweaks.md
-      - Tabbed screen sessions: tips/screen.md
-      - Shell one-liners: tips/one-liners.md
+      - Screen sessions: tips/screen.md
   - Administration:
       - Overview: admin/index.md
       - Reference:

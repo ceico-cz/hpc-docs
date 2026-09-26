@@ -62,6 +62,10 @@ See [interactive sessions](interactive.md) for how to keep the session alive wit
 
 ## Software
 
-GPU-enabled software is available as modules, for example `CUDA`, `PyTorch`, `TensorFlow` and
-`CuPy` (see [software modules](../software/modules.md)). To install your own GPU stack, see
-[CuPy on GPUs](../software/cupy.md).
+CUDA is available as modules on every node, from `CUDA/11.4.1` to `CUDA/13.3.0`. The GPU
+nodes' driver runs all of them.
+
+GPU frameworks such as PyTorch, TensorFlow and CuPy are not provided as modules. Install them
+yourself with [conda](../software/conda.md) or [uv](../software/python-uv.md); see
+[CuPy on GPUs](../software/cupy.md) for an example. See also
+[software modules](../software/modules.md).

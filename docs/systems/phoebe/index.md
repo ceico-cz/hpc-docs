@@ -56,6 +56,9 @@ Jobs go to the `cpu` partition unless you ask for another one with `--partition`
 | `small_int` | `s[1-3]` | 8 cores, 64 GB | 7 days 7 h | light interactive work |
 | `preempt` | `n[1-20]` | 64 cores (128 threads), 512 GB | 5 days | jobs that may be preempted |
 
+`sinfo` also lists the partitions `debug` and `project001`. They are reserved; don't submit jobs
+to them.
+
 Limits change from time to time; `sinfo` on the login node shows the current values.
 
 ## Pictures from the datacenter
@@ -92,7 +95,7 @@ In Greek mythology, Phoebe (*ˈfiːbi*), sister of Κοῖος (Koios), was one 
 generation of Titans, the sons and daughters of Uranus and Gaia.[^wiki_Phoebe]
 Koios is also the name of our [previous cluster](../koios/index.md).
 
-[^amd_7543]: [AMD EPYC™ 7543, vendor product page](https://www.amd.com/en/products/cpu/amd-epyc-7543)
+[^amd_7543]: [AMD EPYC™ 7543, vendor product page](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543.html)
 [^wiki_NVME]: [Wikipedia: NVMe](https://en.wikipedia.org/wiki/NVM_Express)
 [^nvidia_A100]: [NVIDIA A100, vendor product page](https://www.nvidia.com/en-us/data-center/a100/)
 [^wiki_Phoebe]: [Wikipedia: Phoebe (Titaness)](https://en.wikipedia.org/wiki/Phoebe_(Titaness))

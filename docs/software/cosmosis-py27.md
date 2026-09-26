@@ -85,7 +85,8 @@ make
 cd $HOME/projects/cosmosis_EMU
 
 # activate conda:
-source /etc/profile.d/conda.sh
+module load Miniforge3
+source ${EBROOTMINIFORGE3}/etc/profile.d/conda.sh
 conda activate cosmosis_py27_gcc95_v2
 
 # test if we see right gcc

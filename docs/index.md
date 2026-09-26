@@ -9,13 +9,14 @@ hide:
 
 # CEICO HPC Services
 
-High-performance computing for members of the CEICO project at the Institute of Physics (FZU)
+High-performance computing for members of the [CEICO project](https://ceico.cz/) at the Institute of Physics (FZU)
 of the Czech Academy of Sciences.
 
 [Get started](getting-started/index.md){ .md-button .md-button--primary }
-[Browse systems](systems/index.md){ .md-button }
+[Log in to Open OnDemand](https://ood.phoebe.ceico.cz){ .md-button }
 
-FZU network or VPN required. From elsewhere, use the
+Web portals need the FZU network or VPN. From elsewhere, use the
+[external portal](getting-started/ondemand/index.md#two-portals) or the
 [SOCKS proxy](getting-started/socks-proxy.md).
 
 </div>
@@ -36,8 +37,7 @@ FZU network or VPN required. From elsewhere, use the
 
     ---
 
-    The previous-generation CEICO cluster: 864 CPU cores, sharing accounts and home directories
-    with Phoebe.
+    The previous-generation CEICO cluster: 864 CPU cores, sharing accounts with Phoebe.
 
     [:octicons-arrow-right-24: About Koios](systems/koios/index.md)
 
@@ -125,7 +125,7 @@ FZU network or VPN required. From elsewhere, use the
 
 -   [:material-folder-outline: **Storage**](systems/storage.md)
 
-    Where your files live: home directories, local scratch and the archive.
+    Where your files live: home directories, project space and local scratch.
 
 -   [:material-format-quote-close: **Acknowledge Phoebe**](systems/phoebe/acknowledgement.md)
 

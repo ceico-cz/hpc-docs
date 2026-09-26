@@ -5,14 +5,25 @@ wikijs_updated: 2023-11-16
 
 # Running MESA star with the MESA SDK
 
-This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (MESA), an open-source 1D stellar evolution code at Phoebe cluster.
+This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (MESA), an open-source 1D stellar evolution code, on Phoebe and Koios.
 
-## Configure the shell environment for the SDK
+## Download the MESA SDK into your home directory
 
-As the current Mesa SDK is already unpacked in the Phoebe shared filesystem, it is essential to configure the relevant environment variables:
+The MESA SDK (compilers and libraries for MESA) is not installed centrally. Download it into your
+home directory; it needs no root access. Pick the SDK version that your MESA release asks for
+(see [installing MESA](https://docs.mesastar.org/en/22.05.1/installation.html));
+for MESA r22.05.1 it is 22.6.1:
 
 ```shell
-export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1
+cd ~
+wget http://user.astro.wisc.edu/~townsend/resource/download/mesasdk/mesasdk-x86_64-linux-22.6.1.tar.gz
+tar xzf mesasdk-x86_64-linux-22.6.1.tar.gz
+```
+
+This creates `~/mesasdk`. Configure the environment variables for the MESA SDK:
+
+```shell
+export MESASDK_ROOT=$HOME/mesasdk
 source $MESASDK_ROOT/bin/mesasdk_init.sh
 ```
 
@@ -23,7 +34,7 @@ Create a suitable directory in your homedir, navigate to it using the 'cd' comma
 ```shell
 mkdir -p ~/projects/mesaStar
 cd ~/projects/mesaStar
-wget https://zenodo.org/record/6547951/files/mesa-r22.05.1.zip
+wget https://zenodo.org/records/6547951/files/mesa-r22.05.1.zip
 unzip ./mesa-r22.05.1.zip
 ```
 
@@ -78,7 +89,7 @@ nano ~/.bashrc
 and **append** (do not forget to modify the MESA\_DIR to reflect your mesa star installation directory! )
 
 ```shell
-export MESASDK_ROOT=/sw/phoebe/standalone/bh/mesasdk-22.6.1 
+export MESASDK_ROOT=$HOME/mesasdk
 source $MESASDK_ROOT/bin/mesasdk_init.sh 
 export MESA_DIR=$HOME/projects/mesaStar/mesa-r22.05.1
 ```
@@ -87,6 +98,6 @@ in all **new** shells, since now, mesa and mesaSDK will be activated automatical
 
 ## Further reading
 
--   Installing MESA - [https://docs.mesastar.org/en/release-r22.05.1/installation.html](https://docs.mesastar.org/en/release-r22.05.1/installation.html)
--   Modules for Experiments in Stellar Astrophysics (MESA) - [https://zenodo.org/record/6547951](https://zenodo.org/record/6547951)
+-   Installing MESA - [https://docs.mesastar.org/en/22.05.1/installation.html](https://docs.mesastar.org/en/22.05.1/installation.html)
+-   Modules for Experiments in Stellar Astrophysics (MESA) - [https://zenodo.org/records/6547951](https://zenodo.org/records/6547951)
 -   MESA SDK - [http://user.astro.wisc.edu/~townsend/static.php?ref=mesasdk](http://user.astro.wisc.edu/~townsend/static.php?ref=mesasdk)

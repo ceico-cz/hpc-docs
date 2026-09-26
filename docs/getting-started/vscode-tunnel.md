@@ -57,7 +57,7 @@ them; see [GPU jobs](../slurm/gpu-jobs.md).
 srun --partition=gpu_int --job-name "code_tunnel" --gres=gpu:a100:1 --cpus-per-task=8 --mem=64G --time=08:00:00 --pty ./code tunnel --name "Phoebe" --accept-server-license-terms
 ```
 
-Detach from the screen session with ++ctrl+a++ ++d++; the tunnel keeps running. Reattach later
+Detach from the screen session with ++ctrl+a++, then `d` (see [screen sessions](../tips/screen.md)); the tunnel keeps running. Reattach later
 with `screen -r tunnel`.
 
 ## Log in with GitHub
