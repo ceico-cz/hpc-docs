@@ -7,9 +7,12 @@ wikijs_updated: 2023-11-15
 
 Lmod (Lua-based Modules) sets up your environment (paths and variables) for the software you
 choose. Most compilers, libraries and applications on Phoebe are installed centrally and
-loaded as modules.
+loaded as modules. Phoebe and Koios have different module trees: see
+[Phoebe](#phoebe) and [Koios](#koios) below.
 
 ## Where modules come from
+
+### Phoebe
 
 Modules are grouped into stacks. Each numbered stack is built with one
 [EasyBuild](https://docs.easybuild.io/) toolchain generation; `foss/2024a`, for example, is GCC
@@ -24,9 +27,25 @@ one `foss` toolchain and modules built with it.
 | `2023a` | `/cvmfs/2023a.phoebe.lan` | `foss/2023a` (GCC 12.3) |
 | `system` | `/cvmfs/system.phoebe.lan` | none: CUDA, Miniforge3, Mathematica, MATLAB, Julia, VTune |
 
-All stacks are available on the login node and on every compute node.
+On Phoebe, all stacks are available on the login node and on every compute node.
 
 For new work, use the newest stack that has what you need.
+
+### Koios
+
+Koios has one smaller tree, `/cvmfs/c9.phoebe.lan` (`MODULEPATH=/cvmfs/c9.phoebe.lan/modules/all`),
+on the login node `koios1.fzu.cz` and the compute nodes. It has:
+
+| Kind | Modules |
+| --- | --- |
+| Toolchains | `foss/2022a`, `foss/2023a`, `foss/2024a`, `foss/2025a` |
+| Python | `Python/3.10.4-GCCcore-11.3.0-bare`, `3.11.3-GCCcore-12.3.0`, `3.12.3-GCCcore-13.3.0`, `3.13.1-GCCcore-14.2.0` |
+| HDF5 | `1.12.2` and `1.13.1` (`gompi-2022a`), `1.14.0` (`gompi-2023a`), `1.14.6` (`gompi-2025a`) |
+| Other | `CFITSIO`, `Clang`, `GSL`, `HEALPix`, `PFFT`, `Rust`, `Szip` |
+
+Koios has **no** `system` stack: no CUDA, Miniforge3 or Mathematica modules. For conda, install
+Miniforge3 into your home directory (see [conda on Koios](conda.md#on-koios)); for other
+software, install it into your home directory too.
 
 ## Search for available modules
 

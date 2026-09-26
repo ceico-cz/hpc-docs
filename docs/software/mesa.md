@@ -5,18 +5,25 @@ wikijs_updated: 2023-11-16
 
 # Running MESA star with the MESA SDK
 
-This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (MESA), an open-source 1D stellar evolution code at Phoebe cluster.
+This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (MESA), an open-source 1D stellar evolution code, on Phoebe and Koios.
 
-## Configure the shell environment for the SDK
+## Download the MESA SDK into your home directory
 
-!!! warning "TODO"
-    The MESA SDK needs a supported location, for example the `system` software stack. Replace
-    `<MESA SDK directory>` below with it.
-
-Configure the environment variables for the MESA SDK:
+The MESA SDK (compilers and libraries for MESA) is not installed centrally. Download it into your
+home directory; it needs no root access. Pick the SDK version that your MESA release asks for
+(see [installing MESA](https://docs.mesastar.org/en/release-r22.05.1/installation.html));
+for MESA r22.05.1 it is 22.6.1:
 
 ```shell
-export MESASDK_ROOT="<MESA SDK directory>"
+cd ~
+wget http://user.astro.wisc.edu/~townsend/resource/download/mesasdk/mesasdk-x86_64-linux-22.6.1.tar.gz
+tar xzf mesasdk-x86_64-linux-22.6.1.tar.gz
+```
+
+This creates `~/mesasdk`. Configure the environment variables for the MESA SDK:
+
+```shell
+export MESASDK_ROOT=$HOME/mesasdk
 source $MESASDK_ROOT/bin/mesasdk_init.sh
 ```
 
@@ -82,7 +89,7 @@ nano ~/.bashrc
 and **append** (do not forget to modify the MESA\_DIR to reflect your mesa star installation directory! )
 
 ```shell
-export MESASDK_ROOT="<MESA SDK directory>" 
+export MESASDK_ROOT=$HOME/mesasdk
 source $MESASDK_ROOT/bin/mesasdk_init.sh 
 export MESA_DIR=$HOME/projects/mesaStar/mesa-r22.05.1
 ```

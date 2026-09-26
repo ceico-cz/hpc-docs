@@ -42,7 +42,7 @@ nav:
       - Overview: software/index.md
       - Environments:
           - Software modules (Lmod): software/modules.md
-          - Conda on Phoebe: software/conda.md
+          - Conda: software/conda.md
           - Python with uv: software/python-uv.md
           - Unpack an RPM without root: software/unpack-rpm.md
       - Applications:

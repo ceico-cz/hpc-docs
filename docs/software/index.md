@@ -10,15 +10,15 @@ description: "How software is provided on the CEICO clusters, and guides for spe
 * **Software modules**: most compilers, libraries and scientific packages are installed
   centrally and loaded with Lmod. See [Software modules (Lmod)](modules.md).
 * **Conda**: for Python stacks that are not available as modules, create your own conda
-  environment. See [Conda on Phoebe](conda.md).
+  environment. See [Conda on Phoebe and Koios](conda.md).
 * **uv**: a fast Python package and project manager, used on top of a Python module. See
   [Python with uv](python-uv.md).
 * **Without root**: you can still extract binaries from an RPM package into your home
   directory. See [Unpack an RPM without root](unpack-rpm.md).
 
-Modules come in stacks, one per toolchain generation: `2023a` to `2026a` under `/cvmfs`, and a
-`system` stack with CUDA, Miniforge3 and commercial software. See
-[where modules come from](modules.md#where-modules-come-from).
+On Phoebe, modules come in stacks, one per toolchain generation: `2023a` to `2026a` under
+`/cvmfs`, and a `system` stack with CUDA, Miniforge3 and commercial software. Koios has one smaller
+tree, `c9`, with no `system` stack. See [where modules come from](modules.md#where-modules-come-from).
 
 ## Requesting software
 

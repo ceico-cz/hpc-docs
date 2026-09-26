@@ -12,7 +12,7 @@ tags:
 
 # Create a conda environment with CuPy
 
-For getting conda itself, see [Conda on Phoebe](conda.md).
+For getting conda itself, see [Conda on Phoebe and Koios](conda.md).
 
 ## Get an interactive shell on a GPU node
 
