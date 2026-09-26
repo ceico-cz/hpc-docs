@@ -9,7 +9,7 @@ hide:
 
 # CEICO HPC Services
 
-High-performance computing for members of the CEICO project at the Institute of Physics (FZU)
+High-performance computing for members of the [CEICO project](https://ceico.cz/) at the Institute of Physics (FZU)
 of the Czech Academy of Sciences.
 
 [Get started](getting-started/index.md){ .md-button .md-button--primary }
