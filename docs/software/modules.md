@@ -139,4 +139,4 @@ the modules you need for your current task.
 
 * [Jeff Layton: Environment Modules – A Great Tool for Clusters](https://www.admin-magazine.com/HPC/Articles/Environment-Modules) (Admin magazine)
 * [Lmod: A New Environment Module System](https://lmod.readthedocs.io/en/latest/) (Project documentation)
-* [Managing software with Lmod](https://arc.umich.edu/document/managing-software-with-lmod/) (Advanced research computing, University of Michigan)
+* [Using installed software (Lmod modules)](https://docs.support.arc.umich.edu/modules/) (Advanced research computing, University of Michigan)

@@ -95,7 +95,7 @@ In Greek mythology, Phoebe (*ˈfiːbi*), sister of Κοῖος (Koios), was one 
 generation of Titans, the sons and daughters of Uranus and Gaia.[^wiki_Phoebe]
 Koios is also the name of our [previous cluster](../koios/index.md).
 
-[^amd_7543]: [AMD EPYC™ 7543, vendor product page](https://www.amd.com/en/products/cpu/amd-epyc-7543)
+[^amd_7543]: [AMD EPYC™ 7543, vendor product page](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543.html)
 [^wiki_NVME]: [Wikipedia: NVMe](https://en.wikipedia.org/wiki/NVM_Express)
 [^nvidia_A100]: [NVIDIA A100, vendor product page](https://www.nvidia.com/en-us/data-center/a100/)
 [^wiki_Phoebe]: [Wikipedia: Phoebe (Titaness)](https://en.wikipedia.org/wiki/Phoebe_(Titaness))

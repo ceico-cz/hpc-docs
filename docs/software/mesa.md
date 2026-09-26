@@ -11,7 +11,7 @@ This how-to discuss usage of Modules for Experiments in Stellar Astrophysics (ME
 
 The MESA SDK (compilers and libraries for MESA) is not installed centrally. Download it into your
 home directory; it needs no root access. Pick the SDK version that your MESA release asks for
-(see [installing MESA](https://docs.mesastar.org/en/release-r22.05.1/installation.html));
+(see [installing MESA](https://docs.mesastar.org/en/22.05.1/installation.html));
 for MESA r22.05.1 it is 22.6.1:
 
 ```shell
@@ -34,7 +34,7 @@ Create a suitable directory in your homedir, navigate to it using the 'cd' comma
 ```shell
 mkdir -p ~/projects/mesaStar
 cd ~/projects/mesaStar
-wget https://zenodo.org/record/6547951/files/mesa-r22.05.1.zip
+wget https://zenodo.org/records/6547951/files/mesa-r22.05.1.zip
 unzip ./mesa-r22.05.1.zip
 ```
 
@@ -98,6 +98,6 @@ in all **new** shells, since now, mesa and mesaSDK will be activated automatical
 
 ## Further reading
 
--   Installing MESA - [https://docs.mesastar.org/en/release-r22.05.1/installation.html](https://docs.mesastar.org/en/release-r22.05.1/installation.html)
--   Modules for Experiments in Stellar Astrophysics (MESA) - [https://zenodo.org/record/6547951](https://zenodo.org/record/6547951)
+-   Installing MESA - [https://docs.mesastar.org/en/22.05.1/installation.html](https://docs.mesastar.org/en/22.05.1/installation.html)
+-   Modules for Experiments in Stellar Astrophysics (MESA) - [https://zenodo.org/records/6547951](https://zenodo.org/records/6547951)
 -   MESA SDK - [http://user.astro.wisc.edu/~townsend/static.php?ref=mesasdk](http://user.astro.wisc.edu/~townsend/static.php?ref=mesasdk)
