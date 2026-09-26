@@ -10,7 +10,13 @@ description: "Install uv and manage Python projects with it on Phoebe"
 
 ### Install uv
 
-Load modules providing MPI, gcc and friends, and our Python we selected arbitrarly
+Load modules providing MPI, gcc and friends, and a Python module. Newer
+releases (2025a, 2026a, or Koios `c9`) carry newer Python modules such as
+`Python/3.13.1-GCCcore-14.2.0` or `Python/3.14.2-GCCcore-15.2.0`. Any
+`Python` module works with uv; list the available ones with
+`module -t avail 2>&1 | grep -i '^python/'`. The example below uses
+`foss/2024a` and `Python/3.12.3-GCCcore-13.3.0`:
+
 ```
 module load foss/2024a
 module load Python/3.12.3-GCCcore-13.3.0
