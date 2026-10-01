@@ -6,8 +6,9 @@ slug: koios-per-job-tmp
 
 # Koios: private per-job /tmp on the local NVMe
 
-Since 30 July 2026 every job on the Koios compute nodes gets its own `/tmp`, on the node's NVMe
-disk, that no other job can see and that is removed when the job ends.
+Since 10 August 2026 every job on the Koios compute nodes gets its own `/tmp`, on the node's
+NVMe disk, that no other job can see and that is removed when the job ends. The rollout started
+on 30 July.
 
 <!-- more -->
 
@@ -53,5 +54,11 @@ NVMe partition shared by all jobs, and the only cleanup is the standard `systemd
 rule that deletes files not used for 10 days. Users are told to use `/tmp/$USER/$SLURM_JOB_ID`
 and remove it themselves; see [storage and software](../../../systems/storage.md).
 
-!!! warning "TODO"
-    Say whether Phoebe should get the same setup, and why it was introduced on Koios first.
+Koios is the test bed for this setup. Once it has proven itself there, Phoebe will get the
+same configuration.
+
+On Koios the plugin was first enabled on one canary node, `n10`, on 30 July. Then `shared: true`
+was added so that CVMFS mounts made by autofs reach running jobs. After that the remaining
+nodes were added one at a time, from `n1` on 31 July to `n27` on 10 August. Phoebe can follow
+the same order, and its nodes already have a separate NVMe volume `vg0-tmp` mounted at `/tmp`
+(1.7 TB on the CPU nodes, 3.2 TB on the GPU nodes).
