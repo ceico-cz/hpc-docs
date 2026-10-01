@@ -13,10 +13,6 @@ description: "Home directories, project space, local scratch and the software tr
 | Shared scratch | `/mnt/shared-scratch` | - | yes |
 | Software | `/cvmfs/...` | `2023a` to `2026a` and `system` stacks | its own stack, `c9` |
 
-!!! warning "TODO"
-    Add home directory quotas and how users can check their usage, whether anything is backed
-    up, how to get project space, and what `/mnt/shared-scratch` on Koios is for.
-
 ## Home directories
 
 Both clusters keep home directories on the same [BeeGFS](https://www.beegfs.io/c/) storage
@@ -26,6 +22,14 @@ example with `rsync` over SSH.
 
 Your account and SSH key are the same on both clusters.
 
+There is no default quota on home directories. The storage is shared by everyone, so please
+discuss it with the cluster administrator before storing large amounts of data. To see how much
+space your home directory uses:
+
+```shell
+du -sh ~
+```
+
 ## Project space
 
 `/mnt/proj` holds one directory per project, named `pNNN_<name>`, on both clusters. A project
@@ -34,6 +38,15 @@ files and directories inside it get the project group automatically, so the whol
 use them.
 
 The project space is 1 TB in total and is shared by all projects.
+
+To get a project directory, ask the cluster administrator. Include the project name, its
+members and how much space you expect to need.
+
+## Backups
+
+Data on the clusters is **not backed up by default**. Backups are set up only for individual
+cases and to a limited extent; ask the cluster administrator if you need one. Keep copies of
+important data elsewhere.
 
 ## Local temporary storage
 
@@ -61,6 +74,12 @@ space before your job ends.
 
     Each job gets its own private `/tmp` on the node's NVMe disk (1.7 TB per node, shared by the
     jobs on the node). Other jobs don't see it, and it is deleted when the job ends.
+
+## Shared scratch on Koios
+
+`/mnt/shared-scratch` is for temporary data that has to be visible on several nodes, for
+example from all nodes of a multi-node job, or passed from one job to the next. Files there are
+not removed automatically and are not backed up: delete your files when you no longer need them.
 
 ## Software tree
 
