@@ -68,9 +68,10 @@ them twice the default memory per CPU.
 | Phoebe | at most 16 A100 GPUs and 3000 running jobs per user |
 | Koios | none below the size of the cluster |
 
-Some users and projects have their own limits. If your job waits with a reason starting with
-`QOS` or `Assoc`, you have reached one; see
-[why is my job pending?](troubleshooting.md#why-is-my-job-pending).
+If a project needs more than this, or a user's jobs take an excessive share of the cluster, a
+different QOS with its own limits may be applied. This is agreed individually with the cluster
+administrator. If your job waits with a reason starting with `QOS` or `Assoc`, you have reached
+such a limit; see [why is my job pending?](troubleshooting.md#why-is-my-job-pending).
 
 ### Priority and fair share
 

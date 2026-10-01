@@ -46,10 +46,6 @@ Two associations in `fzu_a_29` have their own group GPU limits: `GrpTRES=gres/gp
 | one per-user QOS (named after its user) | 0 | 128 CPUs | - | 0 |
 | `gpu_max2` | 0 | 3 GPUs | 16 CPUs, 3 GPUs, 504 GB | 2 |
 
-!!! note "Names don't match the limits"
-    `max400cpu` allows 3000 CPUs, `max500cpu` allows 1 CPU (deliberately) and `gpu_max2`
-    allows 3 GPUs. Check the limit, not the name.
-
 In the last 90 days, 20 042 jobs ran with `normal`, 64 with `max400cpu` and 10 with `gpu_max2`.
 
 ## Add a user
