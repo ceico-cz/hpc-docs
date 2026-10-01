@@ -21,6 +21,9 @@ The GPUs of the Koios GPU node, four cards (currently dedicated to a project).
 * SXM2 module (not a PCIe card)
 * 16 GB HBM2 memory, 732 GB/s
 * 5.3 TFLOPS double precision, 10.6 TFLOPS single precision
+* NVLink between all four GPUs: each GPU has four links of 20 GB/s per direction, two to one
+  partner GPU (0–3, 1–2) and one to each of the other two (`nvidia-smi topo -m` on the node
+  shows the layout)
 * CUDA compute capability 6.0 ([list of CUDA GPUs](https://developer.nvidia.com/cuda/gpus))
 * [Vendor datasheet](https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf)
 
