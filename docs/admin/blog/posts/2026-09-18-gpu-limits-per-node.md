@@ -1,7 +1,7 @@
 ---
 title: "Phoebe: limiting GPUs per user per node"
 date: 2026-09-18
-slug: gpu-qos-removed
+slug: gpu-limits-per-node
 ---
 
 # Phoebe: limiting GPUs per user per node
