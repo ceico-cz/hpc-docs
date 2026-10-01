@@ -12,7 +12,7 @@ The CPU of the Koios compute nodes, two per node.
 * 16 cores, or 32 SMT virtual cores
 * 14 nm technology
 * 2.10 GHz base frequency
-* [Vendor page](https://www.intel.com/content/www/us/en/products/sku/120492/intel-xeon-gold-6130-processor-22m-cache-2-10-ghz/specifications.html){target="_blank" rel="noopener"}
+* [Vendor page](https://www.intel.com/content/www/us/en/products/sku/120492/intel-xeon-gold-6130-processor-22m-cache-2-10-ghz/specifications.html)
 
 ## NVIDIA Tesla P100
 
@@ -24,8 +24,8 @@ The GPUs of the Koios GPU node, four cards (currently dedicated to a project).
 * NVLink between all four GPUs: each GPU has four links of 20 GB/s per direction, two to one
   partner GPU (0–3, 1–2) and one to each of the other two (`nvidia-smi topo -m` on the node
   shows the layout)
-* CUDA compute capability 6.0 ([list of CUDA GPUs](https://developer.nvidia.com/cuda/gpus){target="_blank" rel="noopener"})
-* [Vendor datasheet](https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf){target="_blank" rel="noopener"}
+* CUDA compute capability 6.0 ([list of CUDA GPUs](https://developer.nvidia.com/cuda/gpus))
+* [Vendor datasheet](https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf)
 
 ## Interconnect
 

@@ -76,6 +76,7 @@ plugins:
 hooks:
   - hooks/wikijs_redirects.py
   - hooks/last_updated.py
+  - hooks/external_links.py
 
 extra_css:
   - assets/extra.css

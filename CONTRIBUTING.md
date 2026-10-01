@@ -16,6 +16,9 @@ Each page shows a "Last updated" date: its last git commit, or for pages not tou
 the import, the Wiki.js edit date from the `wikijs_updated` front-matter field
 (`hooks/last_updated.py`).
 
+Links to other sites open in a new browser tab (`hooks/external_links.py`); write them as
+plain Markdown links, without `{target=...}`.
+
 ### Adding a system
 
 Systems are listed on `docs/systems/index.md` and have their own section under the
