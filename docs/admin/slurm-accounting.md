@@ -17,18 +17,18 @@ The state of the Phoebe accounting database in September 2026. Check the current
 All accounts hang directly under `root` with a fair-share weight of 1, and default to the
 `normal` QOS.
 
-| Account | Users |
-| --- | --- |
-| `fzu_a_16` | 8 |
-| `fzu_a_29` | 13 |
-| `fzu_a_39` | 32 |
-| `ext_ceico` | 8 |
-| `ext_fzu` | 3 |
-| `fzu_project001` | 1 |
+| Account | Who | Users |
+| --- | --- | --- |
+| `fzu_a_16` | FZU division 16 | 8 |
+| `fzu_a_29` | FZU division 29 | 13 |
+| `fzu_a_39` | FZU division 39 | 32 |
+| `ext_ceico` | external collaborators of CEICO | 8 |
+| `ext_fzu` | external collaborators of FZU | 3 |
+| `fzu_project001` | one special project | 1 |
 
-!!! warning "TODO"
-    Say what each account stands for (FZU divisions? external collaborators of CEICO and of
-    FZU?) and which one a new user goes into.
+The accounts are only for internal accounting. The admin picks the account when adding a new
+user: the user's FZU division, or `ext_ceico` / `ext_fzu` for people from outside FZU. Users
+don't need to know their account or pass `--account` to their jobs.
 
 Two associations in `fzu_a_29` have their own group GPU limits: `GrpTRES=gres/gpu=8` and
 `GrpTRES=gres/gpu=4`.
