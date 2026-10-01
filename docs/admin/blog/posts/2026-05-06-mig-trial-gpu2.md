@@ -38,12 +38,6 @@ test was over. It was never meant as a permanent configuration.
 On 13–14 May gpu2 went back to `Gres=gpu:a100:8`, with the original one-line `gres.conf`
 entry. MIG is disabled on all eight cards today.
 
-!!! note "Typo introduced by the rollback"
-    The restored `gres.conf` line read `Nodename=gpu2Type=a100 ...` (no space before `Type`).
-    It was fixed to `Nodename=gpu2 Type=a100 ...` on 1 October 2026 (backup:
-    `gres.conf.bak-20261001-gpu2-typo`). The cluster is configless, so gpu2 picks up the fix at
-    the next `scontrol reconfigure` or Slurm restart.
-
 ## How it was set up
 
 Nothing was scripted and no systemd unit recreates the instances at boot, so MIG did not
