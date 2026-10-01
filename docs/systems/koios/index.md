@@ -31,12 +31,11 @@ you ask for another one with `--partition`.
 | `cpu` (default) | `n[1-9,11-27]` | 32 cores (64 threads), 384 GB | 9 days 1 h | batch jobs |
 | `cpu_int` | `n[11-12]` | 32 cores (64 threads), 384 GB | 9 days 1 h | interactive work |
 | `preempt` | `n8` | 32 cores (64 threads), 384 GB | 9 days 1 h | jobs that may be preempted |
-| `small_int` | `s1` | 8 cores, 24 GB | 7 days 7 h | light interactive work |
+| `small_int` | `s1` (virtual machine) | 8 cores, 23 GB | 7 days 7 h | jobs that need only a small node |
 | `rocky10` | `n12` | 32 cores (64 threads), 384 GB | 9 days 1 h | testing Rocky Linux 10 |
 
 !!! warning "TODO"
-    Confirm that `small_int` and `rocky10` are meant for users. `s1` is currently reported as
-    invalid by Slurm.
+    Confirm that `rocky10` is meant for users.
 
 Limits change from time to time; `sinfo` on the login node shows the current values.
 
