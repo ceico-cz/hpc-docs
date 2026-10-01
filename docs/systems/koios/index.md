@@ -45,7 +45,11 @@ Limits change from time to time; `sinfo` on the login node shows the current val
 | Node type | Amount | Hostnames | Processors | GPUs | Cores (logical CPUs) | Main memory | NVMe |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | compute | 27 | `n[1-27]` | 2× [Xeon Gold 6130](hardware.md#intel-xeon-gold-6130) | - | 32 (64) | 384 GB | 1× 2 TB |
-| GPU | 1 | TODO | TODO | 4× [Tesla P100](hardware.md#nvidia-tesla-p100) | TODO | TODO | TODO |
+| GPU | 1 | `gpu2` | 2× [Xeon Gold 6130](hardware.md#intel-xeon-gold-6130) | 4× [Tesla P100](hardware.md#nvidia-tesla-p100) SXM2 16 GB | 32 (virtual) | 293 GB | - |
+
+The GPU node is a virtual machine. It uses 32 of the 64 logical CPUs of its physical server,
+and the four GPUs are passed through to it directly. It is currently dedicated to a project
+(see the note at the top of this page).
 
 The nodes are connected by 100 Gb/s InfiniBand EDR (Mellanox MT4115 ConnectX-4 cards), a
 low-latency network for communication between nodes. More detail: [Koios hardware](hardware.md).

@@ -61,20 +61,32 @@ Block diagram of a compute node (Gigabyte H262-Z63)
 
 ## Ethernet network equipment
 
+* Main switch: Alcatel-Lucent OmniSwitch OS6900-T48C6 (48× 10GBASE-T, 6× 100G QSFP28)
+* every server is connected to it at 10 Gbit/s
+* 100 Gbit link to a second OS6900-T48C6 in the Koios rack, which connects both clusters to the
+  FZU computing centre network over two aggregated 10 Gbit links
+* out-of-band management (IPMI): Cisco CBS350-24T-4G, 1 Gbit
 * p~max~ = 132 W
-
-!!! warning "TODO"
-    Add the Ethernet switch model and uplink speed.
 
 ## Storage infrastructure
 
 218 TB of hybrid storage built from solid state and rotational drives holds software, user and
 project data. See [storage](../storage.md) for how it is organised for users.
 
-!!! warning "TODO"
-    Describe the storage hardware (servers, disk shelves, BeeGFS layout), or remove this section.
+* Disk array: Infortrend EonStor DS3016RUE with dual RAID controllers and two JB 3016R
+  expansion shelves (16 drive bays each)
+* two storage servers `st1` and `st2`: Supermicro H12SSW-NT, 1× AMD EPYC 7302 (16 cores),
+  128 GB RAM, ConnectX-6 HDR InfiniBand, 10 Gbit Ethernet
+* both servers are attached to the array over 12 Gbit SAS and run as a Pacemaker high-availability
+  pair
+* [BeeGFS](https://www.beegfs.io/c/) parallel file system:
+    * four storage targets of 55 TB each (XFS), two on each server
+    * a metadata service on each server, on its own volume on the array
+    * the management and monitoring services run on `st2`
 
 ## Power management
 
-!!! warning "TODO"
-    Describe power management (PDUs, UPS, power capping), or remove this section.
+* five Raritan PX3 rack PDUs, managed over the network
+* supplied by six single-phase 230 V / 32 A feeds (7.36 kW each), split into an A side and a
+  B side
+* servers with two power supplies take one from each side
