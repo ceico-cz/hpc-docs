@@ -73,6 +73,7 @@ plugins:
   - redirects:
       redirect_maps:      # extended by hooks/wikijs_redirects.py
         admin/blog/2026/09/18/gpu-qos-removed.md: admin/blog/posts/2026-09-18-gpu-limits-per-node.md
+        admin/blog/2026/09/21/gpu-time-limits.md: admin/blog/index.md
 
 hooks:
   - hooks/wikijs_redirects.py
