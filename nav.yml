@@ -6,11 +6,11 @@ nav:
       - Storage and software: systems/storage.md
       - Phoebe:
           - Overview: systems/phoebe/index.md
-          - Hardware: systems/phoebe/hardware.md
+          - Infrastructure: systems/phoebe/infrastructure.md
           - Acknowledging Phoebe: systems/phoebe/acknowledgement.md
       - Koios (legacy):
           - Overview: systems/koios/index.md
-          - Hardware: systems/koios/hardware.md
+          - Infrastructure: systems/koios/infrastructure.md
       - Third-party systems:
           - MetaCentrum:
               - Overview: systems/metacentrum/index.md

@@ -7,11 +7,11 @@ description: "Koios, the previous-generation CEICO cluster"
 # Koios
 
 Koios is the previous-generation CEICO cluster. It has 27 compute nodes, each with two 16-core
-Intel Xeon Skylake CPUs ([Xeon Gold 6130](hardware.md#intel-xeon-gold-6130)) and 384 GB of RAM.
+Intel Xeon Skylake CPUs ([Xeon Gold 6130](infrastructure.md#intel-xeon-gold-6130)) and 384 GB of RAM.
 All nodes run Rocky Linux 9.8.
 
 !!! info "GPU node temporarily unavailable"
-    The GPU node with four [NVIDIA Tesla P100](hardware.md#nvidia-tesla-p100) cards is currently
+    The GPU node with four [NVIDIA Tesla P100](infrastructure.md#nvidia-tesla-p100) cards is currently
     dedicated to a project and is not available through Slurm. It will return to general use
     later. Until then, use the A100 nodes on [Phoebe](../phoebe/index.md) for GPU work.
 
@@ -44,15 +44,15 @@ Limits change from time to time; `sinfo` on the login node shows the current val
 
 | Node type | Amount | Hostnames | Processors | GPUs | Cores (logical CPUs) | Main memory | NVMe |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| compute | 27 | `n[1-27]` | 2× [Xeon Gold 6130](hardware.md#intel-xeon-gold-6130) | - | 32 (64) | 384 GB | 1× 2 TB |
-| GPU | 1 | `gpu2` | 2× [Xeon Gold 6130](hardware.md#intel-xeon-gold-6130) | 4× [Tesla P100](hardware.md#nvidia-tesla-p100) SXM2 16 GB | 32 (virtual) | 293 GB | - |
+| compute | 27 | `n[1-27]` | 2× [Xeon Gold 6130](infrastructure.md#intel-xeon-gold-6130) | - | 32 (64) | 384 GB | 1× 2 TB |
+| GPU | 1 | `gpu2` | 2× [Xeon Gold 6130](infrastructure.md#intel-xeon-gold-6130) | 4× [Tesla P100](infrastructure.md#nvidia-tesla-p100) SXM2 16 GB | 32 (virtual) | 293 GB | - |
 
 The GPU node is a virtual machine. It uses 32 of the 64 logical CPUs of its physical server,
 and the four GPUs are passed through to it directly. It is currently dedicated to a project
 (see the note at the top of this page).
 
 The nodes are connected by 100 Gb/s InfiniBand EDR (Mellanox MT4115 ConnectX-4 cards), a
-low-latency network for communication between nodes. More detail: [Koios hardware](hardware.md).
+low-latency network for communication between nodes. More detail: [Koios infrastructure](infrastructure.md).
 
 ## Storage and software
 

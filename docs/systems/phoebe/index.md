@@ -39,7 +39,7 @@ your data.
 | 3   | `s[1-3]` | small nodes for light interactive work | 8 | - | - | 64 GB | - | `small_int` partition |
 | 1   | `phoebe.fzu.cz` | login front-end node (virtual machine) | 24 vCPU | 3.5 GHz | 4.0 GHz | 384 GB | -  | AMD EPYC 73F3 host |
 
-More detail: [Phoebe hardware](hardware.md). If Phoebe helped your research, please
+More detail: [Phoebe infrastructure](infrastructure.md). If Phoebe helped your research, please
 [acknowledge it](acknowledgement.md) in your publications.
 
 ## Slurm partitions

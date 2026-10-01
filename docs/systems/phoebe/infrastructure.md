@@ -1,10 +1,10 @@
 ---
-title: "Phoebe hardware"
+title: "Phoebe infrastructure"
 wikijs_updated: 2024-01-22
 description: "Phoebe supercomputer consists from many components..."
 ---
 
-# Phoebe hardware
+# Phoebe infrastructure
 
 Phoebe supercomputer is placed in datacenter of Institute of Physics and infrastructure is managed with cooperation with [Computing centre (CC) of FZU.](https://www.farm.particle.cz/about/).
 

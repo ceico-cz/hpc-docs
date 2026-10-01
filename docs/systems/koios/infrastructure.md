@@ -1,9 +1,9 @@
 ---
-title: "Koios hardware"
+title: "Koios infrastructure"
 wikijs_updated: 2023-11-10
 ---
 
-# Koios hardware
+# Koios infrastructure
 
 ## Intel Xeon Gold 6130
 
