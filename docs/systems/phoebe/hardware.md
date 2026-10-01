@@ -42,15 +42,17 @@ Block diagram of a compute node (Gigabyte H262-Z63)
 * CPU: 32 cores up to 4GHz - 2x AMD EPYC 73F3 16-Core CPU ([vendor link](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-73f3.html))
 * Memory: 512GB - 16ks 32GB SK Hynix DDR4  3200 MT/s ECC HMA84GR7DJR4N-XN
 * p~max~ = 696 W
+* also the hypervisors for the small nodes below
 
 
 ## Small nodes (3×, s[1-3])
 
-* Platform: KVM virtual machines
+* Platform: KVM virtual machines on the hv nodes
 * CPU: 8 virtual cores of an AMD EPYC 73F3 ([vendor link](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-73f3.html))
 * Memory: 64 GB
 * No InfiniBand; local disk about 1 TB
-* used by the `small_int` partition for light interactive work
+* used by the `small_int` partition for light interactive work, and for software that runs
+  better on a small machine than on a large SMP node, such as some legacy codes
 
 ## High speed interconnect network
 

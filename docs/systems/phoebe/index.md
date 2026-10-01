@@ -23,7 +23,9 @@ for new work. Log in through the front-end node `phoebe.fzu.cz`.
 Phoebe consists of 20 compute nodes, each with 64 CPU cores (2× AMD EPYC 7543[^amd_7543]),
 512 GB of RAM and 1.7 TB of fast local NVMe[^wiki_NVME] disk. Two additional *"fat"* GPU nodes
 each carry 8 NVIDIA A100[^nvidia_A100] cards, 2 TB of RAM and 3.4 TB of local NVMe storage.
-Three small nodes with 8 cores and 64 GB of RAM each serve light interactive work.
+Three small nodes with 8 cores and 64 GB of RAM each serve light interactive work. They are
+virtual machines, also useful for software that runs better on a small machine than on a large
+SMP node, such as some legacy codes.
 
 Software, user and project data are stored on 218 TB of hybrid storage built from both solid
 state and rotational drives. All components are connected by a low-latency 100 Gbit
