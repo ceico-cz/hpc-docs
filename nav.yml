@@ -60,6 +60,5 @@ nav:
       - Reference:
           - Accounts, QOS and limits: admin/slurm-accounting.md
           - Slurm admin snippets: admin/slurm-snippets.md
-          - CUDA driver and toolkit: admin/cuda.md
       - Admin blog:
           - admin/blog/index.md

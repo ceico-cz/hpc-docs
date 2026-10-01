@@ -14,7 +14,6 @@ root or Slurm administrator rights; as a user, see [Running jobs](../slurm/index
 
 * [Accounts, QOS and limits](slurm-accounting.md) - the accounts and QOS on Phoebe, adding users and limits
 * [Slurm admin snippets](slurm-snippets.md) - suspended jobs, draining nodes, maintenance reservations, reloading the configuration
-* [CUDA driver and toolkit](cuda.md) - the driver and CUDA versions on the GPU nodes, and how to update them
 
 ## Admin blog
 
