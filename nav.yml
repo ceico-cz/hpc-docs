@@ -36,6 +36,7 @@ nav:
       - Overview: slurm/index.md
       - Batch jobs: slurm/batch-jobs.md
       - GPU jobs: slurm/gpu-jobs.md
+      - GPU profiling with Nsight: slurm/gpu-profiling.md
       - Interactive sessions: slurm/interactive.md
       - Job history and troubleshooting: slurm/troubleshooting.md
   - Software:
