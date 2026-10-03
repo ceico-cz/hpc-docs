@@ -15,12 +15,12 @@ cores and 2 TB of RAM. Koios has no GPUs available through Slurm.
 
 | Partition | Nodes | Time limit | Use |
 | --- | --- | --- | --- |
-| `gpu` | `gpu[1-2]` | 18 days 8 h | batch GPU jobs; never paused |
-| `gpu1`, `gpu2` | one node | 14 days 4 h | pin a batch job to one node; can be paused while an interactive GPU job needs the node |
-| `gpu_int` | `gpu[1-2]` | 20 days 10 h | [interactive](interactive.md) GPU work |
+| `rocky10` | `gpu[1-2]` | 14 days 4 h | batch and [interactive](interactive.md) GPU work; never paused |
 
-For most batch jobs, use `gpu`. See [preemption](index.md#preemption-when-a-job-can-be-paused-or-stopped)
-for what "paused" means.
+The GPU nodes run Rocky Linux 10. The former GPU partitions `gpu`, `gpu1`, `gpu2` and
+`gpu_int` no longer have nodes; jobs sent there do not start. To use one node only, add
+`--nodelist=gpu1` or `--nodelist=gpu2`. Programs built on the Rocky 8 nodes may need to be
+rebuilt for the GPU nodes.
 
 ## Request GPUs
 
@@ -38,7 +38,7 @@ You can use at most 16 GPUs at a time, across all your jobs.
 ```shell
 #!/bin/bash
 #SBATCH --job-name=gpu-test
-#SBATCH --partition=gpu
+#SBATCH --partition=rocky10
 #SBATCH --time=02:00:00
 #SBATCH --gres=gpu:a100:1
 #SBATCH --ntasks=1
@@ -55,7 +55,7 @@ Submit it with `sbatch` as described in [batch jobs](batch-jobs.md).
 ## Interactive example
 
 ```shell
-srun --partition=gpu_int --gres=gpu:a100:1 --cpus-per-task=8 --time=04:00:00 --pty bash
+srun --partition=rocky10 --gres=gpu:a100:1 --cpus-per-task=8 --time=04:00:00 --pty bash
 ```
 
 See [interactive sessions](interactive.md) for how to keep the session alive with `screen`.
@@ -72,8 +72,15 @@ To find out why a kernel is slow, see [GPU profiling with Nsight](gpu-profiling.
 
 ## Software
 
-CUDA is available as modules on every node, from `CUDA/11.4.1` to `CUDA/13.3.0`. The GPU
-nodes' driver runs all of them.
+The GPU nodes have CUDA 13.4 installed in `/usr/local/cuda` (add `/usr/local/cuda/bin` to your
+`PATH`), and the NVIDIA HPC SDK compilers with HPC-X MPI as modules:
+
+```shell
+module use /opt/nvidia/hpc_sdk/modulefiles
+module load nvhpc-hpcx-cuda13
+```
+
+The `CUDA/...` modules of the other nodes are not available on the GPU nodes yet.
 
 GPU frameworks such as PyTorch, TensorFlow and CuPy are not provided as modules. Install them
 yourself with [conda](../software/conda.md) or [uv](../software/python-uv.md); see

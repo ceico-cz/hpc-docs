@@ -20,7 +20,7 @@ Use the interactive partitions. Jobs there start with higher priority than batch
 | Cluster | Partition | Nodes | Time limit | Use |
 | --- | --- | --- | --- | --- |
 | Phoebe | `cpu_int` | `n[1-20]` | 20 days 10 h | CPU work |
-| Phoebe | `gpu_int` | `gpu[1-2]` | 20 days 10 h | GPU work |
+| Phoebe | `rocky10` | `gpu[1-2]` | 14 days 4 h | GPU work (shared with batch jobs, normal priority) |
 | Phoebe | `small_int` | `s[1-3]` | 7 days 7 h | light work (8 cores, 64 GB per node) |
 | Koios | `cpu_int` | `n[11-12]` | 9 days 1 h | CPU work |
 
@@ -56,7 +56,7 @@ The prompt changed from `user@login1` to `user@n11`: you are now on compute node
 ### Example 2: 2 GPUs and 16 CPUs on a GPU node
 
 ```
-srun --partition=gpu_int --job-name "interactive" --gres=gpu:a100:2 --cpus-per-task=16 --mem=128G --time=24:00:00 --pty /bin/bash
+srun --partition=rocky10 --job-name "interactive" --gres=gpu:a100:2 --cpus-per-task=16 --mem=128G --time=24:00:00 --pty /bin/bash
 ```
 
 See [GPU jobs](gpu-jobs.md) for how many CPUs to request per GPU.

@@ -50,7 +50,7 @@ allocated CPU:
 | Cluster | Partitions | Default memory per CPU |
 | --- | --- | --- |
 | Phoebe | `cpu`, `cpu_int`, `preempt` | 2 GB |
-| Phoebe | `gpu`, `gpu1`, `gpu2`, `gpu_int` | 16 GB |
+| Phoebe | `rocky10` (GPU nodes) | 16 GB |
 | Phoebe | `small_int` | 3.5 GB |
 | Koios | all partitions | 3 GB |
 
@@ -100,10 +100,9 @@ jobs, and `sshare` your usage.
 Some partitions rank higher than others. When a job in a higher-ranked partition needs nodes,
 Slurm can pause or stop jobs from lower-ranked partitions on the same nodes:
 
-* **Suspended**: on Phoebe, jobs in the interactive partitions `cpu_int` and `gpu_int` rank
-  above the batch partitions. A job in `cpu`, `gpu1` or `gpu2` can be paused while an
-  interactive job needs its node, and continues afterwards. Jobs in `gpu` and `gpu_int` are
-  never paused.
+* **Suspended**: on Phoebe, jobs in the interactive partition `cpu_int` rank above the batch
+  partitions. A job in `cpu` can be paused while an interactive job needs its node, and
+  continues afterwards. Jobs on the GPU nodes (`rocky10`) are never paused.
 * **Requeued**: jobs in the `preempt` partition (on Phoebe and Koios) are stopped and put back
   in the queue when a job from one of the regular partitions needs the node. Use it only for
   jobs that can restart from the beginning or from a checkpoint. In return it lets you use

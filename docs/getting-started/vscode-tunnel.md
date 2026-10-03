@@ -54,7 +54,7 @@ To use a GPU from VS Code, ask for one on a GPU node instead. Request GPUs only 
 them; see [GPU jobs](../slurm/gpu-jobs.md).
 
 ```text
-srun --partition=gpu_int --job-name "code_tunnel" --gres=gpu:a100:1 --cpus-per-task=8 --mem=64G --time=08:00:00 --pty ./code tunnel --name "Phoebe" --accept-server-license-terms
+srun --partition=rocky10 --job-name "code_tunnel" --gres=gpu:a100:1 --cpus-per-task=8 --mem=64G --time=08:00:00 --pty ./code tunnel --name "Phoebe" --accept-server-license-terms
 ```
 
 Detach from the screen session with ++ctrl+a++, then `d` (see [screen sessions](../tips/screen.md)); the tunnel keeps running. Reattach later
