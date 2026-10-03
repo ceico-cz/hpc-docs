@@ -52,14 +52,12 @@ Jobs go to the `cpu` partition unless you ask for another one with `--partition`
 | --- | --- | --- | --- | --- |
 | `cpu` (default) | `n[4-20]` | 64 cores (128 threads), 512 GB | 18 days 8 h | batch CPU jobs |
 | `cpu_int` | `n[1-20]` | 64 cores (128 threads), 512 GB | 20 days 10 h | interactive CPU work |
-| `gpu` | `gpu[1-2]` | 64 cores, 8× A100 80 GB, 2 TB | 18 days 8 h | batch GPU jobs |
-| `gpu1`, `gpu2` | `gpu1` or `gpu2` | as `gpu` | 14 days 4 h | pin a job to one GPU node |
-| `gpu_int` | `gpu[1-2]` | as `gpu` | 20 days 10 h | interactive GPU work |
+| `rocky10` | `gpu[1-2]` | 64 cores, 8× A100 80 GB, 2 TB | 14 days 4 h | batch and interactive GPU work (Rocky Linux 10) |
 | `small_int` | `s[1-3]` | 8 cores, 64 GB | 7 days 7 h | light interactive work |
 | `preempt` | `n[1-20]` | 64 cores (128 threads), 512 GB | 5 days | jobs that may be preempted |
 
 `sinfo` also lists the partitions `debug` and `project001`. They are reserved; don't submit jobs
-to them.
+to them. The former GPU partitions `gpu`, `gpu1`, `gpu2` and `gpu_int` have no nodes.
 
 Limits change from time to time; `sinfo` on the login node shows the current values.
 

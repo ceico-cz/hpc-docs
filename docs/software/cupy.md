@@ -18,13 +18,13 @@ For getting conda itself, see [Conda on Phoebe and Koios](conda.md).
 
 From Phoebe login node, request 16CPUs, some RAM and one NVIDIA A100:
 
-`srun --part=gpu_int --job-name "Conda build at GPU" --gres=gpu:a100:1 --cpus-per-task=16 --mem=128G --time=24:00:00 --pty bash`
+`srun --partition=rocky10 --job-name "Conda build at GPU" --gres=gpu:a100:1 --cpus-per-task=16 --mem=128G --time=24:00:00 --pty bash`
 
 
 **example**
 
 ```
-[user@login1 ~]$ srun --part=gpu_int --job-name "Conda build at GPU" --gres=gpu:a100:1 --cpus-per-task=16 --mem=128G --time=24:00:00 --pty bash
+[user@login1 ~]$ srun --partition=rocky10 --job-name "Conda build at GPU" --gres=gpu:a100:1 --cpus-per-task=16 --mem=128G --time=24:00:00 --pty bash
 srun: job 1401058 queued and waiting for resources
 srun: job 1401058 has been allocated resources
 [user@gpu2 ~]$
