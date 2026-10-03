@@ -60,6 +60,16 @@ srun --partition=gpu_int --gres=gpu:a100:1 --cpus-per-task=8 --time=04:00:00 --p
 
 See [interactive sessions](interactive.md) for how to keep the session alive with `screen`.
 
+## Check how your job uses its GPUs
+
+The [job portal](https://jobs.phoebe.fzu.cz) shows, on the page of each job that ran on
+`gpu1` or `gpu2`, how busy its GPUs were: SM activity (the share of time the GPU had work),
+memory bandwidth, FP64 and tensor core use, GPU memory, power and energy. If SM activity
+stays near zero, the job holds GPUs it does not use; ask for fewer GPUs, or check whether
+your program runs on the GPU at all.
+
+To find out why a kernel is slow, see [GPU profiling with Nsight](gpu-profiling.md).
+
 ## Software
 
 CUDA is available as modules on every node, from `CUDA/11.4.1` to `CUDA/13.3.0`. The GPU
