@@ -80,7 +80,17 @@ module use /opt/nvidia/hpc_sdk/modulefiles
 module load nvhpc-hpcx-cuda13
 ```
 
-The `CUDA/...` modules of the other nodes are not available on the GPU nodes yet.
+The `CUDA/...` modules of the Rocky Linux 8 nodes are not available on the GPU nodes. Instead,
+the [EESSI software stack](../software/eessi.md) has `CUDA` and `cuDNN` modules (CUDA 12.1 to
+13.3) and GPU builds of applications such as GROMACS and LAMMPS:
+
+```shell
+source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
+module avail CUDA cuDNN
+```
+
+This unloads modules you loaded before; see [EESSI](../software/eessi.md#keep-the-modules-you-already-loaded)
+to combine it with the HPC SDK modules.
 
 GPU frameworks such as PyTorch, TensorFlow and CuPy are not provided as modules. Install them
 yourself with [conda](../software/conda.md) or [uv](../software/python-uv.md); see
