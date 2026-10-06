@@ -8,7 +8,8 @@ wikijs_updated: 2023-11-15
 Lmod (Lua-based Modules) sets up your environment (paths and variables) for the software you
 choose. Most compilers, libraries and applications on Phoebe are installed centrally and
 loaded as modules. Phoebe and Koios have different module trees: see
-[Phoebe](#phoebe) and [Koios](#koios) below.
+[Phoebe](#phoebe) and [Koios](#koios) below. The Phoebe GPU nodes use
+[EESSI](eessi.md) instead.
 
 ## Where modules come from
 
@@ -27,7 +28,14 @@ one `foss` toolchain and modules built with it.
 | `2023a` | `/cvmfs/2023a.phoebe.lan` | `foss/2023a` (GCC 12.3) |
 | `system` | `/cvmfs/system.phoebe.lan` | none: CUDA, Miniforge3, Mathematica, MATLAB, Julia, VTune |
 
-On Phoebe, all stacks are available on the login node and on every compute node.
+On Phoebe, all stacks are available on the login node and on the Rocky Linux 8 compute nodes.
+
+### Phoebe GPU nodes (Rocky Linux 10)
+
+The GPU nodes `gpu1` and `gpu2` (partition `rocky10`) have none of the stacks above: no module
+tree is loaded there by default. Use the [EESSI software stack](eessi.md), which also has CUDA
+and cuDNN modules, or the NVIDIA HPC SDK modules described in
+[GPU jobs](../slurm/gpu-jobs.md#software).
 
 For new work, use the newest stack that has what you need.
 

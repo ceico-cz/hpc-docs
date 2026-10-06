@@ -9,6 +9,8 @@ description: "How software is provided on the CEICO clusters, and guides for spe
 
 * **Software modules**: most compilers, libraries and scientific packages are installed
   centrally and loaded with Lmod. See [Software modules (Lmod)](modules.md).
+* **EESSI**: on the Rocky Linux 10 GPU nodes, software modules, including CUDA and cuDNN,
+  come from the EESSI stack. See [EESSI software stack](eessi.md).
 * **Conda**: for Python stacks that are not available as modules, create your own conda
   environment. See [Conda on Phoebe and Koios](conda.md).
 * **uv**: a fast Python package and project manager, used on top of a Python module. See
