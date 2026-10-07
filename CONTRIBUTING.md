@@ -72,6 +72,20 @@ DISABLE_MKDOCS_2_WARNING=true .venv/bin/mkdocs serve     # http://127.0.0.1:8000
 
 `mkdocs build --strict` fails on broken internal links; CI runs the same check.
 
+## Theme overrides
+
+Two partials in `overrides/partials/` are copies of Material's templates with one change each:
+
+| File | Change |
+| --- | --- |
+| `search.html` | `aria-label` on the `role="dialog"` search container (accessibility audit) |
+| `source.html` | no `data-md-component="source"`, so pages do not query the GitHub API (`releases/latest` 404s, the repo has no releases) |
+
+They replace the theme's versions entirely. When bumping `mkdocs-material` in
+`requirements.txt`, diff each against the new upstream copy in
+`.venv/lib/python3.*/site-packages/material/templates/partials/`, carry over upstream
+changes, and drop an override once the theme fixes the issue itself.
+
 ## Deployment
 
 `.github/workflows/deploy.yml` builds on every push to `main` and deploys to GitHub Pages.
