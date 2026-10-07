@@ -229,4 +229,6 @@
 
 /* ---- Footer ------------------------------------------------------------------- */
 .md-footer-meta { background-color: #06172a; }
+/* Material's 45 % white gives 4.45:1 on the navy footer, short of WCAG AA (4.5:1). */
+.md-footer-meta .md-copyright { color: rgb(255 255 255 / 0.7); }
 .md-footer-meta .md-copyright a { color: var(--ceico-amber); }
