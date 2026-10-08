@@ -57,6 +57,7 @@ nav:
       - Overview: tips/index.md
       - Bash tweaks: tips/bash-tweaks.md
       - Screen sessions: tips/screen.md
+      - Vim and the mouse: tips/vim.md
   - Administration:
       - Overview: admin/index.md
       - Reference:
