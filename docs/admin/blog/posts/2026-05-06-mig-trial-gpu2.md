@@ -38,6 +38,28 @@ test was over. It was never meant as a permanent configuration.
 On 13–14 May gpu2 went back to `Gres=gpu:a100:8`, with the original one-line `gres.conf`
 entry. MIG is disabled on all eight cards today.
 
+## MIG profiles on the A100s
+
+All 16 cards in gpu1 and gpu2 are A100-SXM4-80GB and offer the same GPU instance profiles
+(`nvidia-smi mig -lgip` and `-lgipp`, driver 615.71.09, checked on 9 October 2026):
+
+| Profile | ID | Max per GPU | Memory | SMs | Copy engines | NVDEC / JPEG / OFA | Placements (start slices : size) |
+|---|---|---|---|---|---|---|---|
+| `1g.10gb` | 19 | 7 | 9.50 GiB | 14 | 1 | 0 / 0 / 0 | {0–6} : 1 |
+| `1g.10gb+me` | 20 | 1 | 9.50 GiB | 14 | 1 | 1 / 1 / 1 | {0–6} : 1 |
+| `1g.20gb` | 15 | 4 | 19.50 GiB | 14 | 1 | 1 / 0 / 0 | {0, 2, 4, 6} : 2 |
+| `2g.20gb` | 14 | 3 | 19.50 GiB | 28 | 2 | 1 / 0 / 0 | {0, 2, 4} : 2 |
+| `3g.40gb` | 9 | 2 | 39.25 GiB | 42 | 3 | 2 / 0 / 0 | {0, 4} : 4 |
+| `4g.40gb` | 5 | 1 | 39.25 GiB | 56 | 4 | 2 / 0 / 0 | {0} : 4 |
+| `7g.80gb` | 0 | 1 | 79.00 GiB | 98 | 7 | 5 / 1 / 1 | {0} : 8 |
+
+No profile supports P2P between instances. Each card has 7 compute slices and 8 memory slices
+of about 10 GB, and the placements decide which profiles fit together, for example
+7× `1g.10gb`, 3× `2g.20gb` + 1× `1g.10gb`, 2× `3g.40gb`, `4g.40gb` + `3g.40gb`, or
+`4g.40gb` + `2g.20gb` + `1g.10gb`. Four `1g.20gb` instances use all the memory but leave three
+compute slices idle. Only `1g.10gb+me` gets the JPEG and OFA engines, once per card. The
+trial on gpu2 used seven `1g.10gb` instances per card.
+
 ## How it was set up
 
 Nothing was scripted and no systemd unit recreates the instances at boot, so MIG did not
