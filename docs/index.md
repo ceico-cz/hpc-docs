@@ -137,6 +137,3 @@ Web portals need the FZU network or VPN. From elsewhere, use the
     - Give "Get help" a real support contact (e-mail address, Slack or ticket system); it
       currently points to the account page.
     - Add where planned maintenance is announced (mailing list, Slack channel or status page).
-    - Use one full name for CEICO: the footer says "Central European Institute for Cosmology and
-      Fundamental Physics", the acknowledgement template "Central European Institute of
-      Cosmology".
