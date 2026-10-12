@@ -61,14 +61,19 @@ space before your job ends.
     removed when a job ends; the system deletes files in `/tmp` that haven't been used for 10
     days. `$TMPDIR` is not set.
 
-    Use a directory of your own and remove it at the end of the job:
+    Create a private directory with `mktemp` at the start of the job and remove it at the end:
 
     ```shell
-    export TMPDIR=/tmp/$USER/$SLURM_JOB_ID
-    mkdir -p "$TMPDIR"
+    TMPDIR=$(mktemp -d "/tmp/${USER}.${SLURM_JOB_ID:?submit with sbatch}.XXXXXX")
+    export TMPDIR
+    trap 'rm -rf "$TMPDIR"' EXIT
     # ... your work ...
-    rm -rf "$TMPDIR"
     ```
+
+    `mktemp` gives the directory a random name that only you can open (mode `700`). Don't use a
+    fixed path such as `/tmp/$USER/$SLURM_JOB_ID`: another user could create it before your job
+    and read or replace your files. `${SLURM_JOB_ID:?...}` stops the script if you run it outside
+    a job, and the `trap` removes the directory even when the job fails.
 
 === "Koios"
 
