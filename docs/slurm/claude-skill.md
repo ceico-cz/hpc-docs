@@ -6,7 +6,7 @@ tags:
   - "ai"
 ---
 
-# Running jobs with Claude
+# Running HPC jobs at Phoebe or Koios with Claude skill
 
 The **Phoebe skill** teaches [Claude](https://claude.ai), Anthropic's AI assistant, how to
 use Phoebe. With it, Claude Code can take your code from your laptop to a finished Slurm job:
