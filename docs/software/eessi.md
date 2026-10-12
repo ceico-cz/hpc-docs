@@ -112,7 +112,7 @@ module load CUDA-Samples
 deviceQuery
 ```
 
-See [GPU jobs](../slurm/gpu-jobs.md) for requesting GPUs.
+See [GPU jobs](../compute/gpu-jobs.md) for requesting GPUs.
 
 ## Known issues
 

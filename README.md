@@ -12,7 +12,7 @@ Academy of Sciences.
   browser (JupyterLab and other web applications).
 - **Our systems**: the CEICO clusters Phoebe and Koios, and external systems available to
   CEICO members, such as MetaCentrum.
-- **Running jobs**: how to submit and monitor computations with the Slurm scheduler, and what to do when a job fails.
+- **Running jobs**: how to submit and monitor computations with the Slurm scheduler (and on MetaCentrum with PBS), using Claude skills if you like, and what to do when a job fails.
 - **Software**: available software, Python environments and guides for specific applications.
 - **Tips & tricks**: small things that make everyday work on the clusters easier.
 

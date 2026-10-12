@@ -35,8 +35,8 @@ Choose how you want to work:
 
 The login node is shared by everyone. Run your computations as jobs on the compute nodes:
 
-* [Submit a batch job](../slurm/batch-jobs.md)
-* [Start an interactive session](../slurm/interactive.md)
+* [Submit a batch job](../compute/batch-jobs.md)
+* [Start an interactive session](../compute/interactive.md)
 
 To copy data to and from the cluster, see [mount storage with sshfs](sshfs.md).
 

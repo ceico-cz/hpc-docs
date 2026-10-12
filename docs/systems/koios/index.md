@@ -23,7 +23,7 @@ home directories are separate from Phoebe's.
 
 ## Slurm partitions
 
-Jobs on Koios are managed by [Slurm](../../slurm/index.md). Jobs go to the `cpu` partition unless
+Jobs on Koios are managed by [Slurm](../../compute/index.md). Jobs go to the `cpu` partition unless
 you ask for another one with `--partition`.
 
 | Partition | Nodes | Per node | Time limit | Use |

@@ -75,6 +75,21 @@ plugins:
         admin/blog/2026/09/18/gpu-qos-removed.md: admin/blog/posts/2026-09-18-gpu-limits-per-node.md
         admin/blog/2026/09/21/gpu-time-limits.md: admin/blog/index.md
         admin/blog/2026/07/28/project001-exclusive-user.md: admin/blog/index.md
+        # the Running jobs section moved from slurm/ to compute/
+        slurm/index.md: compute/index.md
+        slurm/batch-jobs.md: compute/batch-jobs.md
+        slurm/gpu-jobs.md: compute/gpu-jobs.md
+        slurm/gpu-profiling.md: compute/gpu-profiling.md
+        slurm/interactive.md: compute/interactive.md
+        slurm/troubleshooting.md: compute/troubleshooting.md
+        slurm/claude-skill.md: compute/claude-skill.md
+        en/slurm/index.md: compute/index.md
+        en/slurm/batch-jobs.md: compute/batch-jobs.md
+        en/slurm/gpu-jobs.md: compute/gpu-jobs.md
+        en/slurm/gpu-profiling.md: compute/gpu-profiling.md
+        en/slurm/interactive.md: compute/interactive.md
+        en/slurm/troubleshooting.md: compute/troubleshooting.md
+        en/slurm/claude-skill.md: compute/claude-skill.md
 
 hooks:
   - hooks/wikijs_redirects.py
