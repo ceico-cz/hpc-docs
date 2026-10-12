@@ -93,19 +93,19 @@ Web portals need the FZU network or VPN. From elsewhere, use the
 
 <div class="grid cards" markdown>
 
--   [:material-tray-arrow-up: **Submit a batch job**](slurm/batch-jobs.md)
+-   [:material-tray-arrow-up: **Submit a batch job**](compute/batch-jobs.md)
 
     Write a Slurm job script and queue it.
 
--   [:material-expansion-card: **GPU jobs**](slurm/gpu-jobs.md)
+-   [:material-expansion-card: **GPU jobs**](compute/gpu-jobs.md)
 
     Request NVIDIA A100 GPUs on Phoebe.
 
--   [:material-timer-play-outline: **Interactive session**](slurm/interactive.md)
+-   [:material-timer-play-outline: **Interactive session**](compute/interactive.md)
 
     Get a shell on a compute node for testing and debugging.
 
--   [:material-bug-outline: **Troubleshoot a job**](slurm/troubleshooting.md)
+-   [:material-bug-outline: **Troubleshoot a job**](compute/troubleshooting.md)
 
     Find out why a job failed or is still waiting.
 

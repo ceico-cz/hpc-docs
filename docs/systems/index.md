@@ -11,7 +11,7 @@ third-party systems operated by other providers.
 ## CEICO clusters
 
 Phoebe and Koios share user accounts and SSH keys, so one account works on
-both. Both use the [Slurm](../slurm/index.md) workload manager. See
+both. Both use the [Slurm](../compute/index.md) workload manager. See
 [storage and software](storage.md) for where your files live.
 
 | System | Status | Login node | CPU cores | GPUs | Details |

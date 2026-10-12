@@ -50,7 +50,7 @@ alias si='sinfo -R -o "%25N %8u %21H %10t %E"'
 * `si`: nodes that are down or drained, with the reason.
 
 They are functions rather than aliases so that "the last month" is computed each time you run
-them, not once when the shell starts. See [job history and troubleshooting](../slurm/troubleshooting.md)
+them, not once when the shell starts. See [job history and troubleshooting](../compute/troubleshooting.md)
 for what the columns and job states mean.
 
 ## Show the compiler's include directories

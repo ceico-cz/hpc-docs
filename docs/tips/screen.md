@@ -7,7 +7,7 @@ wikijs_updated: 2024-07-19
 
 GNU `screen` keeps terminal sessions running on the login node after you disconnect, and lets
 you open several shells ("windows", shown as tabs below) in one SSH connection. It is how you
-keep an [interactive session](../slurm/interactive.md) or a
+keep an [interactive session](../compute/interactive.md) or a
 [VS Code tunnel](../getting-started/vscode-tunnel.md) alive. The login node has screen 4.6.
 
 ## Start, leave and come back

@@ -46,7 +46,7 @@ More detail: [Phoebe infrastructure](infrastructure.md). If Phoebe helped your r
 
 Jobs go to the `cpu` partition unless you ask for another one with `--partition`. The
 `*_int` partitions are meant for interactive work (see
-[interactive session](../../slurm/interactive.md)).
+[interactive session](../../compute/interactive.md)).
 
 | Partition | Nodes | Per node | Time limit | Use |
 | --- | --- | --- | --- | --- |

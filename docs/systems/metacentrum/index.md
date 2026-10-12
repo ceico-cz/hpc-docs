@@ -57,6 +57,10 @@ This asks for your MetaCentrum password every time. To log in without a password
 
     Run one set of tasks across MetaCentrum, Phoebe and Koios.
 
+-   [:material-robot-outline: **Using MetaCentrum with Claude**](../../compute/claude-metacentrum.md)
+
+    Let Claude Code set up your login, write PBS job scripts and find out why a job failed.
+
 </div>
 
 !!! info "Support"

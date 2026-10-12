@@ -23,7 +23,7 @@ On the portal, select **VENV-based JupyterLab** and fill in the form:
 
     !!! warning "GPU sessions currently unavailable"
         Since 2026-10-03 the GPU nodes are only in the partition `rocky10`, so sessions with
-        `gpu` do not start. For GPU work, use an [interactive session](../../slurm/interactive.md)
+        `gpu` do not start. For GPU work, use an [interactive session](../../compute/interactive.md)
         or a [VS Code tunnel](../vscode-tunnel.md) on `rocky10` until the portal is updated.
 * **Preloaded moduleset**: keep empty.
 * **Python version**: the version you need, typically the latest.

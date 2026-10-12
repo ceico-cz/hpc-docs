@@ -51,7 +51,7 @@ srun --partition=cpu_int --job-name "code_tunnel" --cpus-per-task=4 --mem=16G --
 ```
 
 To use a GPU from VS Code, ask for one on a GPU node instead. Request GPUs only while you use
-them; see [GPU jobs](../slurm/gpu-jobs.md).
+them; see [GPU jobs](../compute/gpu-jobs.md).
 
 ```text
 srun --partition=rocky10 --job-name "code_tunnel" --gres=gpu:a100:1 --cpus-per-task=8 --mem=64G --time=08:00:00 --pty ./code tunnel --name "Phoebe" --accept-server-license-terms

@@ -9,13 +9,15 @@ description: "How jobs run on Phoebe and Koios: Slurm commands, defaults, limits
 Phoebe and Koios both use the [Slurm](https://slurm.schedmd.com) workload manager. You log in
 to a front-end node and ask Slurm for resources; Slurm starts your work on compute nodes when
 the resources are free. Each cluster has its own Slurm, so a job submitted on Phoebe runs
-only on Phoebe.
+only on Phoebe. [MetaCentrum](../systems/metacentrum/index.md) uses PBS instead of Slurm;
+see its own documentation or the [metacentrum skill](claude-metacentrum.md).
 
 * [Batch jobs](batch-jobs.md): write a job script and submit it with `sbatch`
 * [GPU jobs](gpu-jobs.md): request A100 GPUs on Phoebe
 * [Interactive sessions](interactive.md): get a shell on a compute node with `srun`
 * [Job history and troubleshooting](troubleshooting.md): find out why a job failed or is still waiting
 * [Running jobs with Claude](claude-skill.md): let Claude Code write, submit and follow your jobs on Phoebe and Koios with the ceico-compute skill
+* [Using MetaCentrum with Claude](claude-metacentrum.md): the same for MetaCentrum with the metacentrum skill
 
 The partitions (groups of nodes with their own time limits) are listed on the system pages:
 [Phoebe partitions](../systems/phoebe/index.md#slurm-partitions) and

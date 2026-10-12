@@ -25,6 +25,7 @@ The skill knows the partitions, limits, storage and software described on these 
 checks the current state on the cluster itself (`sinfo`, `module spider`) before it relies
 on anything. Its source and releases are on GitHub:
 [ceico-cz/ceico-compute-skill](https://github.com/ceico-cz/ceico-compute-skill).
+For MetaCentrum, there is a separate [metacentrum skill](claude-metacentrum.md).
 
 ## What you need
 

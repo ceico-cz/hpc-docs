@@ -33,13 +33,15 @@ nav:
       - Transfer data:
           - Mount storage with sshfs: getting-started/sshfs.md
   - Running jobs:
-      - Overview: slurm/index.md
-      - Batch jobs: slurm/batch-jobs.md
-      - GPU jobs: slurm/gpu-jobs.md
-      - GPU profiling with Nsight: slurm/gpu-profiling.md
-      - Interactive sessions: slurm/interactive.md
-      - Job history and troubleshooting: slurm/troubleshooting.md
-      - Running jobs with Claude: slurm/claude-skill.md
+      - Overview: compute/index.md
+      - Batch jobs: compute/batch-jobs.md
+      - GPU jobs: compute/gpu-jobs.md
+      - GPU profiling with Nsight: compute/gpu-profiling.md
+      - Interactive sessions: compute/interactive.md
+      - Job history and troubleshooting: compute/troubleshooting.md
+      - Running jobs with Claude:
+          - Phoebe and Koios: compute/claude-skill.md
+          - MetaCentrum: compute/claude-metacentrum.md
   - Software:
       - Overview: software/index.md
       - Environments:
