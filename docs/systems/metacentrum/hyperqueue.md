@@ -12,10 +12,11 @@ run as jobs on different clusters: MetaCentrum (PBS Pro), Phoebe and Koios (Slur
 set of tasks can use all three clusters.
 
 ```text
-hq worker (PBS job, MetaCentrum)  ─┐
-hq worker (Slurm job, Phoebe)     ─┼─▶  hq server (PBS job in the oven queue, oven.grid.cesnet.cz)
-hq worker (Slurm job, Koios)      ─┤
-hq submit, hq job list (any login node) ─┘
+hq worker (PBS job, MetaCentrum)         --+
+hq worker (Slurm job, Phoebe)            --+
+hq worker (Slurm job, Koios)             --+--> hq server
+hq submit, hq job list (any login node)  --+    (PBS job in the oven queue,
+                                                 oven.grid.cesnet.cz)
 ```
 
 Workers and clients connect to the server, never the other way round. The Phoebe and Koios login
