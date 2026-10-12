@@ -30,8 +30,8 @@ on anything. Its source and releases are on GitHub:
 
 * An account on Phoebe and Koios with your SSH key, see [Get an account](../getting-started/account.md)
   and [SSH key](../getting-started/ssh-key.md). The skill does not create accounts.
-* A seat in the **CEICO-Cosmo** organization on claude.ai (ask the cluster administrator).
-  The ceico-compute skill is in the organization's skill library.
+* A seat in one of the CEICO organizations on claude.ai, **CEICO-Cosmo** or **CEICO-FZU**
+  (ask the cluster administrator). The ceico-compute skill is in the skill library of both.
 * [Claude Code](https://code.claude.com/docs) on your computer, signed in with that
   claude.ai account (`claude` in a terminal, or the Code tab of the Claude desktop app).
   Claude needs a shell with `ssh` to reach the clusters.
@@ -39,16 +39,16 @@ on anything. Its source and releases are on GitHub:
 In the claude.ai chat, without a terminal, the skill can still answer questions and write job
 scripts, but you copy them to the cluster and submit them yourself.
 
-Without a CEICO-Cosmo seat, you can install the skill yourself: download `ceico-compute.zip`
+Without a seat in either organization, you can install the skill yourself: download `ceico-compute.zip`
 from the [latest release](https://github.com/ceico-cz/ceico-compute-skill/releases/latest)
 and unzip it into `~/.claude/skills/`.
 
 ## Check that you have the skill
 
-The skill comes with your CEICO-Cosmo seat; you don't install anything. Type `/skills` in
+The skill comes with your CEICO-Cosmo or CEICO-FZU seat; you don't install anything. Type `/skills` in
 Claude Code to list your skills: **ceico-compute** should be among them. If it is missing, quit
 Claude Code and start it again so that it loads the organization's skills, and check that
-you are signed in with your CEICO-Cosmo account.
+you are signed in with that organization's account.
 
 You don't call the skill by name. Claude uses it whenever you mention Phoebe or Koios.
 
