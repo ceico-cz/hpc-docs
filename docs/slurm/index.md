@@ -15,6 +15,7 @@ only on Phoebe.
 * [GPU jobs](gpu-jobs.md): request A100 GPUs on Phoebe
 * [Interactive sessions](interactive.md): get a shell on a compute node with `srun`
 * [Job history and troubleshooting](troubleshooting.md): find out why a job failed or is still waiting
+* [Running jobs with Claude](claude-skill.md): let Claude Code write, submit and follow your jobs with the Phoebe skill
 
 The partitions (groups of nodes with their own time limits) are listed on the system pages:
 [Phoebe partitions](../systems/phoebe/index.md#slurm-partitions) and
