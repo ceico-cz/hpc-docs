@@ -39,9 +39,9 @@ nav:
       - GPU profiling with Nsight: compute/gpu-profiling.md
       - Interactive sessions: compute/interactive.md
       - Job history and troubleshooting: compute/troubleshooting.md
-      - Running jobs with Claude:
-          - Phoebe and Koios: compute/claude-skill.md
-          - MetaCentrum: compute/claude-metacentrum.md
+      - AI assistants:
+          - "Claude: Phoebe and Koios": compute/claude-skill.md
+          - "Claude: MetaCentrum": compute/claude-metacentrum.md
   - Software:
       - Overview: software/index.md
       - Environments:

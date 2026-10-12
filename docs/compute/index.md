@@ -16,8 +16,9 @@ see its own documentation or the [metacentrum skill](claude-metacentrum.md).
 * [GPU jobs](gpu-jobs.md): request A100 GPUs on Phoebe
 * [Interactive sessions](interactive.md): get a shell on a compute node with `srun`
 * [Job history and troubleshooting](troubleshooting.md): find out why a job failed or is still waiting
-* [Running jobs with Claude](claude-skill.md): let Claude Code write, submit and follow your jobs on Phoebe and Koios with the ceico-compute skill
-* [Using MetaCentrum with Claude](claude-metacentrum.md): the same for MetaCentrum with the metacentrum skill
+* AI assistants: let an AI coding assistant write, submit and follow your jobs
+    * [Claude on Phoebe and Koios](claude-skill.md) with the ceico-compute skill
+    * [Claude on MetaCentrum](claude-metacentrum.md) with the metacentrum skill
 
 The partitions (groups of nodes with their own time limits) are listed on the system pages:
 [Phoebe partitions](../systems/phoebe/index.md#slurm-partitions) and
