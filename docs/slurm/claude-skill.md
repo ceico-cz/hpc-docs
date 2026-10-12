@@ -35,12 +35,12 @@ on anything.
 In the claude.ai chat, without a terminal, the skill can still answer questions and write job
 scripts, but you copy them to Phoebe and submit them yourself.
 
-## Turn the skill on
+## Check that you have the skill
 
-Skills from the organization library appear in claude.ai under **Settings → Capabilities →
-Skills**. Make sure **phoebe** is switched on there. Claude Code signed in with the same
-account loads it on its next start; type `/skills` in Claude Code to check that `phoebe` is
-listed.
+The skill comes with your CEICO-Cosmo seat; you don't install anything. Type `/skills` in
+Claude Code to list your skills: **phoebe** should be among them. If it is missing, quit
+Claude Code and start it again so that it loads the organization's skills, and check that
+you are signed in with your CEICO-Cosmo account.
 
 You don't call the skill by name. Claude uses it whenever you mention Phoebe.
 
