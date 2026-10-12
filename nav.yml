@@ -39,6 +39,7 @@ nav:
       - GPU profiling with Nsight: slurm/gpu-profiling.md
       - Interactive sessions: slurm/interactive.md
       - Job history and troubleshooting: slurm/troubleshooting.md
+      - Running jobs with Claude: slurm/claude-skill.md
   - Software:
       - Overview: software/index.md
       - Environments:
