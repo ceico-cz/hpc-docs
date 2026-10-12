@@ -11,6 +11,8 @@ Optional tweaks to make working on our clusters more comfortable.
   and other small commands
 * [Screen sessions](screen.md) - keep shells running after you disconnect, with several windows
   shown as tabs
+* [Short SSH host aliases](ssh-config.md) - type `ssh phoebe` instead of the full host name,
+  with the right username even when it differs from the one on your laptop
 * [Vim and the mouse](vim.md) - stop Vim from grabbing mouse selections, so you can copy and
   paste with the mouse
 
