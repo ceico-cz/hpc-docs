@@ -26,8 +26,8 @@ on anything.
 
 * A Phoebe account with your SSH key, see [Get an account](../getting-started/account.md) and
   [SSH key](../getting-started/ssh-key.md). The skill does not create accounts.
-* A seat in the CEICO organization on claude.ai. The Phoebe skill is in the organization's
-  skill library.
+* A seat in the **CEICO-Cosmo** organization on claude.ai (ask the cluster administrator).
+  The Phoebe skill is in the organization's skill library.
 * [Claude Code](https://code.claude.com/docs) on your computer, signed in with that
   claude.ai account (`claude` in a terminal, or the Code tab of the Claude desktop app).
   Claude needs a shell with `ssh` to reach Phoebe.
