@@ -15,6 +15,7 @@ see its own documentation or the [metacentrum skill](claude-metacentrum.md).
 * [Batch jobs](batch-jobs.md): write a job script and submit it with `sbatch`
 * [GPU jobs](gpu-jobs.md): request A100 GPUs on Phoebe
 * [Interactive sessions](interactive.md): get a shell on a compute node with `srun`
+* [Google Colab on Phoebe](colab/index.md) (beta): run Colab notebooks in a Slurm job from Firefox
 * [Job history and troubleshooting](troubleshooting.md): find out why a job failed or is still waiting
 * AI assistants: let an AI coding assistant write, submit and follow your jobs
     * [Claude on Phoebe and Koios](claude-skill.md) with the ceico-compute skill

@@ -38,6 +38,7 @@ nav:
       - GPU jobs: compute/gpu-jobs.md
       - GPU profiling with Nsight: compute/gpu-profiling.md
       - Interactive sessions: compute/interactive.md
+      - Google Colab on Phoebe (beta): compute/colab/index.md
       - Job history and troubleshooting: compute/troubleshooting.md
       - AI assistants:
           - "Claude: Phoebe and Koios": compute/claude-skill.md
