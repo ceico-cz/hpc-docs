@@ -1,0 +1,13 @@
+{
+  "addons": {
+    "colab-ssh-bridge@hpc.ceico.cz": {
+      "updates": [
+        {
+          "version": "0.2.2",
+          "update_link": "https://hpc.ceico.cz/compute/colab/colab-ssh-bridge-0.2.2.xpi",
+          "update_hash": "sha256:06a4f91fefa8b99eac3518804edaf73cb5550aad67bc00bd448dbc969fc34f5f"
+        }
+      ]
+    }
+  }
+}
