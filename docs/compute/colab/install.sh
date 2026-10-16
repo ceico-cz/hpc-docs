@@ -4,7 +4,7 @@
 set -euo pipefail
 
 main() {
-  local version=089c3f3be064 sha256=d900d76fe552ac14155bee9f157c6c34fe5e4f71a3aafcc44cbe834a156ec5f1
+  local version=a0c0bd5e34f6 sha256=7cf84d61f9dea1a407ef2ddd916ba0f4fae66b2d52c07479684d54aaedec6855
   local url=https://hpc.ceico.cz/compute/colab/colab-ssh-bridge-companion-$version.tar.gz
   fail() { printf 'error: %s\n' "$1" >&2; exit 1; }
 

@@ -41,7 +41,7 @@ Colab then uses that port as a *local runtime*.
 
 | Download | What it is |
 | --- | --- |
-| [colab-ssh-bridge-0.2.2.xpi](colab-ssh-bridge-0.2.2.xpi) | the Firefox add-on (step 3) |
+| [colab-ssh-bridge-0.2.3.xpi](colab-ssh-bridge-0.2.3.xpi) | the Firefox add-on (step 3) |
 | [install.sh](install.sh) | installs the companion (step 2) |
 | [phoebe_cpu.yaml](phoebe_cpu.yaml){ download } | a ready Phoebe CPU profile to import (step 4) |
 | [uninstall.sh](uninstall.sh) | removes the companion again |
@@ -80,7 +80,7 @@ It checks Python, downloads the companion, verifies its SHA-256, installs it to
 
 ## 3. Install the add-on
 
-1. In Firefox, click [colab-ssh-bridge-0.2.2.xpi](colab-ssh-bridge-0.2.2.xpi).
+1. In Firefox, click [colab-ssh-bridge-0.2.3.xpi](colab-ssh-bridge-0.2.3.xpi).
 2. Firefox says it prevented the site from asking you to install software. Click
    **Continue to Installation**, then **Add**.
 3. The add-on icon appears in the toolbar. If it is hidden, find it under the puzzle-piece menu
