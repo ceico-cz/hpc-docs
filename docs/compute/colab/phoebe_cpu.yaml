@@ -1,0 +1,15 @@
+schema: "colab-ssh-bridge-profile/v1"
+id: "phoebe_cpu"
+name: "phoebe_cpu"
+backend: "slurm"
+ssh_target: "phoebe.fzu.cz"
+ssh_user: ""
+image_path: "/cvmfs/apptainer.phoebe.lan/colab/colab-cpu.sif"
+content_dir: "~/colab-content"
+partition: "cpu_int"
+account: ""
+cpus: 8
+memory: "16G"
+walltime: "08:00:00"
+gres_type: ""
+gres_count: 0
