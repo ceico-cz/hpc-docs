@@ -17,7 +17,7 @@ both. Both use the [Slurm](../compute/index.md) workload manager. See
 | System | Status | Login node | CPU cores | GPUs | Details |
 | --- | --- | --- | --- | --- | --- |
 | **Phoebe** | current | `phoebe.fzu.cz` | 1408 (AMD EPYC 7543) | 16× NVIDIA A100 | [Overview](phoebe/index.md) · [Infrastructure](phoebe/infrastructure.md) |
-| **Koios** | legacy | `koios1.fzu.cz` | 864 (Intel Xeon Gold 6130) | 4× NVIDIA Tesla P100 (currently dedicated to a project) | [Overview](koios/index.md) · [Infrastructure](koios/infrastructure.md) |
+| **Koios** | legacy | `koios1.fzu.cz` | 864 (Intel Xeon Gold 6130) | 4× NVIDIA Tesla P100 | [Overview](koios/index.md) · [Infrastructure](koios/infrastructure.md) |
 
 ## Third-party systems
 

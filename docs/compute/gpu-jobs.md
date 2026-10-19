@@ -1,6 +1,6 @@
 ---
 title: "GPU jobs"
-description: "Request NVIDIA A100 GPUs on Phoebe in batch jobs and interactive sessions"
+description: "Request NVIDIA A100 GPUs on Phoebe and Tesla P100 GPUs on Koios in batch jobs and interactive sessions"
 tags:
   - "slurm"
   - "gpu"
@@ -9,7 +9,9 @@ tags:
 # GPU jobs
 
 Phoebe has two GPU nodes, `gpu1` and `gpu2`, each with 8 NVIDIA A100 80 GB cards, 64 CPU
-cores and 2 TB of RAM. Koios has no GPUs available through Slurm.
+cores and 2 TB of RAM. Koios has two smaller GPU nodes, `gpu3` and `gpu4`, each with 2 NVIDIA
+Tesla P100 16 GB cards; see [Koios: Tesla P100](#koios-tesla-p100) at the end of this page. The
+sections before it are about Phoebe.
 
 ## Choose a partition
 
@@ -96,3 +98,67 @@ GPU frameworks such as PyTorch, TensorFlow and CuPy are not provided as modules.
 yourself with [conda](../software/conda.md) or [uv](../software/python-uv.md); see
 [CuPy on GPUs](../software/cupy.md) for an example. See also
 [software modules](../software/modules.md).
+
+## Koios: Tesla P100
+
+Koios has two GPU nodes, `gpu3` and `gpu4`, each with 2 NVIDIA
+[Tesla P100](../systems/koios/infrastructure.md#nvidia-tesla-p100) 16 GB cards, 32 CPU cores and
+125 GB of RAM. Submit jobs from the Koios login node `koios1.fzu.cz`; Koios has its own home
+directories (see [Koios](../systems/koios/index.md)).
+
+| Partition | Nodes | Time limit | Use |
+| --- | --- | --- | --- |
+| `gpu` | `gpu[3-4]` | 9 days 1 h | batch and interactive GPU work |
+
+Ask for GPUs with `--gres=gpu:p100:N`, where `N` is 1 or 2. Slurm makes only the allocated cards
+visible to your job. Ask for about `--cpus-per-task=16` per GPU. Without `--mem`, a job gets
+3000 MB of RAM per CPU.
+
+```shell
+#!/bin/bash
+#SBATCH --job-name=p100-test
+#SBATCH --partition=gpu
+#SBATCH --time=02:00:00
+#SBATCH --gres=gpu:p100:1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+
+nvidia-smi
+```
+
+Interactively:
+
+```shell
+srun --partition=gpu --gres=gpu:p100:1 --cpus-per-task=16 --time=04:00:00 --pty bash
+```
+
+!!! warning "The P100 is an older GPU"
+    The P100 (Pascal, CUDA compute capability 6.0) is not supported by CUDA 13 or newer, so
+    software built for Phoebe's A100 nodes or with a current CUDA may not run on it. The GPU
+    nodes run Rocky Linux 10, unlike the Koios compute nodes (Rocky Linux 9.8), and the Koios
+    software tree `/cvmfs/c9.phoebe.lan` is not available on them.
+
+### Software on the P100 nodes
+
+The nodes have **CUDA 12.9**, the last CUDA release that can build code for the P100. It comes
+with the NVIDIA HPC SDK 26.5 in `/opt/nvidia/hpc_sdk/Linux_x86_64/26.5`. Put its `cuda/12.9`
+directory first in your paths and build for `sm_60`:
+
+```shell
+SDK=/opt/nvidia/hpc_sdk/Linux_x86_64/26.5
+export PATH=$SDK/cuda/12.9/bin:$PATH
+export LD_LIBRARY_PATH=$SDK/cuda/12.9/lib64:$SDK/math_libs/12.9/lib64:$LD_LIBRARY_PATH
+
+nvcc -arch=sm_60 -o app app.cu
+# with cuBLAS, cuFFT, ...: add -I$SDK/math_libs/12.9/include -L$SDK/math_libs/12.9/lib64 -lcublas
+```
+
+`nvcc` warns that support for `sm_60` will be removed in a future release; add
+`-Wno-deprecated-gpu-targets` to hide the warning. The HPC SDK also has CUDA 13.2, which cannot
+build for the P100: do not use the `nvcc` in `$SDK/compilers/bin`, which uses CUDA 13.2. The
+HPC SDK compilers there (`nvc`, `nvc++`, `nvfortran`) use CUDA 12.9 on these nodes, for example
+`nvc++ -acc -gpu=cc60`.
+
+For GPU frameworks such as PyTorch, TensorFlow or CuPy, install them yourself with
+[conda](../software/conda.md) or [uv](../software/python-uv.md), and choose a version whose
+CUDA build still supports compute capability 6.0 (`sm_60`): many recent releases do not.
