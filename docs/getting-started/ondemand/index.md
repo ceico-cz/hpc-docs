@@ -20,7 +20,8 @@ Phoebe has two Open OnDemand portals with the same apps:
 | External | [ext.phoebe.fzu.cz](https://ext.phoebe.fzu.cz) | anywhere | a passkey, see [set up a passkey](../passkey.md) |
 
 From outside the FZU network, the internal portal shows the page "This service is available
-only from the FZU network" (HTTP 403). Connect to the VPN, or use the external portal.
+only from the FZU network" (HTTP 403). Connect to the VPN, use the external portal, or open the
+internal portal through a [SOCKS proxy over the institute SSH server limba](../socks-proxy.md).
 
 A short [screencast of a Phoebe remote desktop session](https://www.youtube.com/watch?v=TYqsTua9f2M)
 is on YouTube.
