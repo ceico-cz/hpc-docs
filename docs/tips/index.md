@@ -7,8 +7,8 @@ wikijs_updated: 2024-01-28
 
 Optional tweaks to make working on our clusters more comfortable.
 
-* [Bash tweaks](bash-tweaks.md) - make sure `~/.bashrc` is loaded at login, a complete shell
-  history, a coloured prompt, Slurm shorthands and other small commands
+* [Bash tweaks](bash-tweaks.md) - a complete shell history, a coloured prompt, Slurm shorthands
+  and other small commands
 * [Screen sessions](screen.md) - keep shells running after you disconnect, with several windows
   shown as tabs
 * [Short SSH host aliases](ssh-config.md) - type `ssh phoebe` instead of the full host name,
