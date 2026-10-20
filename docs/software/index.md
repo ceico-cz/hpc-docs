@@ -15,6 +15,8 @@ description: "How software is provided on the CEICO clusters, and guides for spe
   environment. See [Conda on Phoebe and Koios](conda.md).
 * **uv**: a fast Python package and project manager, used on top of a Python module. See
   [Python with uv](python-uv.md).
+* **Containers**: run Docker or Apptainer images, including shared PyTorch and TensorFlow
+  images on Phoebe. See [Containers with Apptainer](apptainer.md).
 * **Without root**: you can still extract binaries from an RPM package into your home
   directory. See [Unpack an RPM without root](unpack-rpm.md).
 

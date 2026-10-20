@@ -65,3 +65,18 @@ Host phoebe
 
 In a new shell, type `mount_phoebe` to mount your cluster home directory into
 `~/phoebe_mount`. Type `umount_phoebe` to unmount it.
+
+## Graphical alternatives
+
+If you prefer to drag and drop files, these programs talk to the clusters over SFTP, the
+same SSH connection, with your SSH key. Connect to `phoebe.fzu.cz` or `koios1.fzu.cz` with
+your cluster username.
+
+* **Windows**: [MobaXterm](https://mobaxterm.mobatek.net/), which we also recommend for
+  [SSH](ssh.md), shows a file browser next to every SSH session. [WinSCP](https://winscp.net/)
+  is a dedicated file-transfer program. [SFTP Net Drive](https://www.nsoftware.com/sftp/netdrive/)
+  (free for personal use) mounts your cluster home as a drive letter.
+* **macOS**: [Cyberduck](https://cyberduck.io/), free.
+* **Linux**: most file managers open SFTP addresses directly, for example
+  `sftp://<username>@phoebe.fzu.cz/home/<username>` in the address bar of GNOME Files or
+  Dolphin.

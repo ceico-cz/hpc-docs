@@ -143,6 +143,16 @@ Restoring modules from user's my-ipython
 Run `module purge` to unload all currently loaded modules. With a clean environment, load only
 the modules you need for your current task.
 
+## Clear the module cache
+
+Lmod keeps a cache of the module trees in `~/.cache/lmod` to make `module avail` and
+`module spider` faster. If a module that was just installed doesn't show up, or Lmod reports
+modules that no longer exist, delete the cache. Lmod rebuilds it the next time you use it:
+
+```
+rm -rf ~/.cache/lmod
+```
+
 ## Further reading
 
 * [Jeff Layton: Environment Modules – A Great Tool for Clusters](https://www.admin-magazine.com/HPC/Articles/Environment-Modules) (Admin magazine)
