@@ -9,25 +9,16 @@ Unless noted otherwise, add these snippets to your `~/.bashrc` on the login node
 `~` stands for your home directory. Run `source ~/.bashrc` to apply changes to the current
 shell.
 
-## Make sure `~/.bashrc` is loaded when you log in
+!!! tip "Settings from `~/.bashrc` don't work after you log in?"
+    An SSH login reads `~/.bash_profile`, not `~/.bashrc`. The `~/.bash_profile` your account
+    was created with loads `~/.bashrc`, but if you deleted or replaced it, make sure it exists
+    and contains:
 
-When you log in over SSH, Bash starts as a *login shell*, which reads `~/.bash_profile` but not
-`~/.bashrc`. Many accounts have no `~/.bash_profile`, and then nothing from your `~/.bashrc`
-takes effect after you log in. Check whether the file exists:
-
-```
-ls -l ~/.bash_profile
-```
-
-If it doesn't, create it with this content; if it does, make sure it contains these lines:
-
-```
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-```
-
-Log out and in again to check that your `~/.bashrc` settings work.
+    ```
+    if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+    fi
+    ```
 
 ## Keep a complete shell history
 
