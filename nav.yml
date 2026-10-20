@@ -50,6 +50,7 @@ nav:
           - EESSI software stack: software/eessi.md
           - Conda: software/conda.md
           - Python with uv: software/python-uv.md
+          - Containers (Apptainer): software/apptainer.md
           - Unpack an RPM without root: software/unpack-rpm.md
       - Applications:
           - CosmoSIS with Python 2.7: software/cosmosis-py27.md

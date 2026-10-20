@@ -48,6 +48,32 @@ ones used above:
 -   `--cpus-per-task=1` sets the **number of CPUs** for each process. On Phoebe's CPU nodes a CPU is one hardware thread, and every core has two, so `--cpus-per-task=64` gets 32 cores. Slurm hands out whole cores, so `--cpus-per-task=1` actually gets one core (2 CPUs). Ask for more CPUs only if your program uses them; `sleep` needs just one.
 -   With argument `--mem=4G` one can specify **memory requirements** per node, or per allocated CPU with `--mem-per-cpu=2G`. Without either, Phoebe's CPU partitions give 2 GB per CPU and Koios 3 GB per CPU (see [memory per CPU](index.md#memory-per-cpu)). When memory limits are exceeded, the job is killed to protect other jobs.
 
+## Variables Slurm sets in the job
+
+When the job runs, Slurm describes it in environment variables whose names start with
+`SLURM_`. The example script above prints two of them. The most useful ones:
+
+| Variable | Meaning | Example |
+| --- | --- | --- |
+| `SLURM_JOB_ID` | job ID | `3321452` |
+| `SLURM_JOB_NAME` | value of `--job-name` | `sleep2` |
+| `SLURM_JOB_PARTITION` | partition the job runs in | `cpu` |
+| `SLURM_JOB_NODELIST` | nodes allocated to the job | `n[4-5]` |
+| `SLURM_JOB_NUM_NODES` | number of nodes | `2` |
+| `SLURM_NTASKS` | value of `--ntasks` | `2` |
+| `SLURM_CPUS_PER_TASK` | value of `--cpus-per-task` (only set if you gave it) | `4` |
+| `SLURM_CPUS_ON_NODE` | CPUs allocated on this node | `8` |
+| `SLURM_SUBMIT_DIR` | directory you ran `sbatch` from | `/home/jose/projects` |
+
+Use them instead of repeating numbers in the script, for example to start as many threads as
+you asked CPUs for:
+
+```shell
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+```
+
+To see all of them, add `env | grep ^SLURM_ | sort` to your job script.
+
 ## Submit the job
 
 [Log in to the cluster front-end node](../getting-started/ssh.md), copy content of example jobscript from above into e.g. file `jobscript.sh` into your home directory and submit it using sbatch command:
