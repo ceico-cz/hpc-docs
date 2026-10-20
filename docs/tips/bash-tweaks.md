@@ -5,9 +5,29 @@ wikijs_updated: 2023-11-15
 
 # Bash tweaks
 
-Unless noted otherwise, add these snippets to your `~/.bashrc` on the login node. Bash runs
-that file whenever you start a new interactive shell; the tilde `~` stands for your home
-directory. Run `source ~/.bashrc` to apply changes to the current shell.
+Unless noted otherwise, add these snippets to your `~/.bashrc` on the login node; the tilde
+`~` stands for your home directory. Run `source ~/.bashrc` to apply changes to the current
+shell.
+
+## Make sure `~/.bashrc` is loaded when you log in
+
+When you log in over SSH, Bash starts as a *login shell*, which reads `~/.bash_profile` but not
+`~/.bashrc`. Many accounts have no `~/.bash_profile`, and then nothing from your `~/.bashrc`
+takes effect after you log in. Check whether the file exists:
+
+```
+ls -l ~/.bash_profile
+```
+
+If it doesn't, create it with this content; if it does, make sure it contains these lines:
+
+```
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+```
+
+Log out and in again to check that your `~/.bashrc` settings work.
 
 ## Keep a complete shell history
 
