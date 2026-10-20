@@ -128,6 +128,24 @@
 .md-typeset .photo-grid figcaption { margin-top: 0.4em; text-align: left; }
 .md-typeset img.plain { border: 0; box-shadow: none; }
 
+/* inline SVG diagrams: colours follow the light/dark scheme */
+.md-typeset .hpc-diagram { max-width: 46rem; margin: 1.4em auto 0; overflow-x: auto; }
+.hpc-diagram svg { display: block; width: 100%; min-width: 34rem; height: auto; font-family: inherit; }   /* scroll rather than shrink the text on phones */
+.hpc-diagram .box { fill: var(--md-code-bg-color); stroke: var(--md-default-fg-color--light); stroke-width: 1.2; }
+.hpc-diagram .accent { stroke: var(--md-accent-fg-color); stroke-width: 2; }
+.hpc-diagram .group { fill: none; stroke: var(--md-default-fg-color--lighter); stroke-dasharray: 5 4; }
+.hpc-diagram .net { fill: var(--md-typeset-a-color); }
+.hpc-diagram .net-label { fill: var(--md-default-bg-color); font-size: 13px; font-weight: 600; text-anchor: middle; }
+.hpc-diagram .flow { fill: none; stroke: var(--md-default-fg-color); stroke-width: 1.6; }
+.hpc-diagram .link { stroke: var(--md-typeset-a-color); stroke-width: 3; }
+.hpc-diagram .arrowhead { fill: var(--md-default-fg-color); }
+.hpc-diagram text { fill: var(--md-typeset-color); text-anchor: middle; }
+.hpc-diagram .label { font-size: 15px; font-weight: 600; }
+.hpc-diagram .sub { font-size: 12.5px; }
+.hpc-diagram .note { font-size: 12px; font-style: italic; fill: var(--md-default-fg-color--light); }
+.hpc-diagram .mono { font-family: var(--md-code-font-family); }
+.hpc-diagram .start { text-anchor: start; }
+
 /* ---- Cards ------------------------------------------------------------------ */
 .md-typeset .grid.cards > ul > li {
   border-radius: 0.4rem;
