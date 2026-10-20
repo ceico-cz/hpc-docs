@@ -18,6 +18,7 @@ nav:
               - Multi-cluster jobs with HyperQueue: systems/metacentrum/hyperqueue.md
   - Getting started:
       - Overview: getting-started/index.md
+      - What is an HPC cluster?: getting-started/hpc-cluster.md
       - Account:
           - Get an account: getting-started/account.md
           - Create an SSH key: getting-started/ssh-key.md

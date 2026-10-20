@@ -5,6 +5,8 @@ description: "From a new account to your first job on Phoebe and Koios"
 
 # Getting started
 
+New to clusters? Read [what is an HPC cluster?](hpc-cluster.md) first.
+
 Phoebe and Koios share user accounts and SSH keys, so one account works on both clusters. Each
 cluster has its own home directory.
 
