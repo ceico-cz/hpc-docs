@@ -57,6 +57,17 @@ Open Firefox and follow these steps:
 
 - Click "OK" to save the changes and close the Connection Settings window.
 
+!!! warning "No tunnel, no internet"
+    The proxy setting stays on after the SSH tunnel is gone, for example after you close the
+    terminal, restart your computer or the Wi-Fi drops. Firefox (or, with the system-wide
+    setting on macOS, every program) then cannot reach any website and shows errors such as
+    "The proxy server is refusing connections".
+
+    When you are done, switch the proxy off again: in Firefox choose "No proxy" or "Use
+    system proxy settings" in the same Connection Settings window; on macOS turn off the
+    SOCKS proxy in the network settings. Or keep the tunnel running all the time, as
+    described in [Keep the tunnel open](#keep-the-tunnel-open-linux).
+
 ## Screenshot: Firefox
 
 ![Firefox connection settings with a manual SOCKS5 proxy on localhost](../screenshots/socks5_firefox.png)
