@@ -19,6 +19,10 @@ the import, the Wiki.js edit date from the `wikijs_updated` front-matter field
 Links to other sites open in a new browser tab (`hooks/external_links.py`); write them as
 plain Markdown links, without `{target=...}`.
 
+Stylesheets listed under `extra_css` get a content hash in their URL (`extra.css?v=...`,
+`hooks/cache_bust.py`), so a deploy that changes the CSS is never drawn with a copy the
+browser cached earlier.
+
 ### Adding a system
 
 Systems are listed on `docs/systems/index.md` and have their own section under the
