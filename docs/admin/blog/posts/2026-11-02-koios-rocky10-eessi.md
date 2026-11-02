@@ -6,7 +6,7 @@ slug: koios-rocky10-eessi
 
 # Koios: Rocky Linux 10 and EESSI only
 
-The Koios login node `koios1.fzu.cz` runs Rocky Linux 10 since 30 October 2026, and 18 of the 27
+The Koios login node `koios1.fzu.cz` runs Rocky Linux 10 since 30 October 2026, and 19 of the 27
 compute nodes since 2 November. All software modules on Koios now come from the
 [EESSI software stack](../../../software/eessi.md); the former Koios module tree
 `/cvmfs/c9.phoebe.lan` has been retired.
