@@ -28,7 +28,7 @@ download them yourself:
 
 Most directories have a `README.md` that says which image the file was built from. `latest`
 points to the newest version; use the versioned directory next to it if your results must be
-reproducible. This repository is not available on Koios.
+reproducible. The same images are available on Koios.
 
 ## Get an image from Docker Hub
 

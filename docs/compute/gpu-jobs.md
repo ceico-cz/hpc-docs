@@ -134,9 +134,7 @@ srun --partition=gpu --gres=gpu:p100:1 --cpus-per-task=16 --time=04:00:00 --pty 
 
 !!! warning "The P100 is an older GPU"
     The P100 (Pascal, CUDA compute capability 6.0) is not supported by CUDA 13 or newer, so
-    software built for Phoebe's A100 nodes or with a current CUDA may not run on it. The GPU
-    nodes run Rocky Linux 10, unlike the Koios compute nodes (Rocky Linux 9.8), and the Koios
-    software tree `/cvmfs/c9.phoebe.lan` is not available on them.
+    software built for Phoebe's A100 nodes or with a current CUDA may not run on it.
 
 ### Software on the P100 nodes
 

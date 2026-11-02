@@ -11,7 +11,7 @@ description: "Home directories, project space, local scratch and the software tr
 | Project space | `/mnt/proj/<project>` | yes | yes, the same directories |
 | Local scratch | `/tmp` on the compute node | shared by the jobs on a node | private to each job |
 | Shared scratch | `/mnt/shared-scratch` | - | yes |
-| Software | `/cvmfs/...` | `2023a` to `2026a` and `system` stacks | its own stack, `c9` |
+| Software | `/cvmfs/...` | `2023a` to `2026a` and `system` stacks | EESSI only |
 
 ## Home directories
 
@@ -93,4 +93,5 @@ Application software comes from [CVMFS](https://cernvm.cern.ch/fs/) (CernVM File
 Lmod [software modules](../software/modules.md). The two clusters have different trees:
 
 * **Phoebe**: the stacks `2023a` to `2026a` and `system`, under `/cvmfs/<stack>.phoebe.lan`.
-* **Koios**: its own tree, `/cvmfs/c9.phoebe.lan`.
+* **Koios**: the [EESSI software stack](../software/eessi.md) (`/cvmfs/software.eessi.io`) only.
+  The former Koios tree `/cvmfs/c9.phoebe.lan` has been retired.

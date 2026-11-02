@@ -8,8 +8,8 @@ wikijs_updated: 2023-11-15
 Lmod (Lua-based Modules) sets up your environment (paths and variables) for the software you
 choose. Most compilers, libraries and applications on Phoebe are installed centrally and
 loaded as modules. Phoebe and Koios have different module trees: see
-[Phoebe](#phoebe) and [Koios](#koios) below. The Phoebe GPU nodes use
-[EESSI](eessi.md) instead.
+[Phoebe](#phoebe) and [Koios](#koios) below. Koios and the Phoebe GPU nodes use
+[EESSI](eessi.md).
 
 ## Where modules come from
 
@@ -41,19 +41,25 @@ For new work, use the newest stack that has what you need.
 
 ### Koios
 
-Koios has one smaller tree, `/cvmfs/c9.phoebe.lan` (`MODULEPATH=/cvmfs/c9.phoebe.lan/modules/all`),
-on the login node `koios1.fzu.cz` and the compute nodes. It has:
+Koios has no module tree of its own: all modules come from the [EESSI software stack](eessi.md),
+on the login node `koios1.fzu.cz` and on all compute and GPU nodes. No modules are available
+until you start EESSI, in each shell and at the start of each job script:
 
-| Kind | Modules |
-| --- | --- |
-| Toolchains | `foss/2022a`, `foss/2023a`, `foss/2024a`, `foss/2025a` |
-| Python | `Python/3.10.4-GCCcore-11.3.0-bare`, `3.11.3-GCCcore-12.3.0`, `3.12.3-GCCcore-13.3.0`, `3.13.1-GCCcore-14.2.0` |
-| HDF5 | `1.12.2` and `1.13.1` (`gompi-2022a`), `1.14.0` (`gompi-2023a`), `1.14.6` (`gompi-2025a`) |
-| Other | `CFITSIO`, `Clang`, `GSL`, `HEALPix`, `PFFT`, `Rust`, `Szip` |
+```
+source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
+```
 
-Koios has **no** `system` stack: no CUDA, Miniforge3 or Mathematica modules. For conda, install
-Miniforge3 into your home directory (see [conda on Koios](conda.md#on-koios)); for other
-software, install it into your home directory too.
+After that, `module avail`, `module spider` and `module load` work as described below. EESSI has
+the `foss` toolchains (`foss/2024a` to `foss/2025b` in version 2025.06), Python with
+`SciPy-bundle`, HDF5, GSL, CFITSIO and much more.
+
+The former Koios tree `/cvmfs/c9.phoebe.lan` has been retired together with Rocky Linux 9 on the
+login node. Programs and Python environments built with its modules need to be rebuilt with EESSI
+modules. A few of its modules have no EESSI counterpart (`HEALPix`, `PFFT`, `VTune`); build them
+yourself with an EESSI toolchain or ask the administrator.
+
+Koios has **no** `system` stack: no Miniforge3 or Mathematica modules. For conda, install
+Miniforge3 into your home directory (see [conda on Koios](conda.md#on-koios)).
 
 ## Search for available modules
 

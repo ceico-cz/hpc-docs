@@ -1,6 +1,6 @@
 ---
 title: "EESSI software stack"
-description: "Use the EESSI software modules, including CUDA and cuDNN, on the Rocky Linux 10 GPU nodes"
+description: "Use the EESSI software modules on Koios and on the Phoebe GPU nodes, including CUDA and cuDNN"
 tags:
   - "modules"
   - "eessi"
@@ -16,14 +16,15 @@ Installations) is a shared stack of scientific software, built with
 `/cvmfs/software.eessi.io`. It provides compilers, MPI, libraries and applications as
 [Lmod modules](modules.md), optimised for the CPU and GPU of the node you run on.
 
-On Phoebe, EESSI is the module stack of the `rocky10` partition (`gpu1` and `gpu2`): the GPU
-nodes have no Phoebe stacks (`2023a` to `2026a`, `system`) yet. EESSI is not loaded by
-default; set it up in each job or interactive session as described below.
+EESSI is the only module stack on **Koios**, on the login node `koios1.fzu.cz` and on all
+compute and GPU nodes. On **Phoebe**, it is the module stack of the `rocky10` partition (`gpu1`
+and `gpu2`): the GPU nodes have no Phoebe stacks (`2023a` to `2026a`, `system`) yet. EESSI is
+not loaded by default; set it up in each shell, job or interactive session as described below.
 
 ## Start EESSI
 
-Run this in a job or an interactive session on the `rocky10` partition, with the version you
-want:
+Run this on the Koios login node, or in a job or interactive session on Koios or on the Phoebe
+`rocky10` partition, with the version you want:
 
 ```bash
 source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash
@@ -36,8 +37,9 @@ EESSI has selected x86_64/amd/zen3 as the compatible CPU target for EESSI/2025.0
 EESSI has selected accel/nvidia/cc80 as the compatible accelerator target for EESSI/2025.06
 ```
 
-EESSI picks the builds for the node's CPU (AMD Zen 3) and GPU (NVIDIA A100, compute
-capability 8.0) by itself. After that, `module avail`, `module spider` and `module load` work
+This is the output on a Phoebe GPU node. EESSI picks the builds for the node's CPU (AMD Zen 3)
+and GPU (NVIDIA A100, compute capability 8.0) by itself; on Koios it selects
+`x86_64/intel/skylake_avx512`. After that, `module avail`, `module spider` and `module load` work
 as described in [Software modules (Lmod)](modules.md).
 
 This command unloads every module you had loaded before (`module purge`) and uses EESSI's own
@@ -120,8 +122,8 @@ See [GPU jobs](../compute/gpu-jobs.md) for requesting GPUs.
   `Lmod Warning: The system MODULEPATH has changed: please rebuild your saved collection.`
   It is harmless. Collections saved with the Phoebe stacks don't work on the GPU nodes;
   save new ones with EESSI modules if you need them.
-* EESSI is meant for the `rocky10` partition. Its CUDA and cuDNN modules work only on the
-  GPU nodes.
+* Its CUDA and cuDNN modules work only on the GPU nodes. EESSI has no GPU builds for the
+  Koios P100 cards; see [GPU jobs](../compute/gpu-jobs.md#koios-tesla-p100).
 
 ## Further reading
 
