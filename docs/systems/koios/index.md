@@ -9,8 +9,8 @@ description: "Koios, the previous-generation CEICO cluster"
 Koios is the previous-generation CEICO cluster. It has 27 compute nodes, each with two 16-core
 Intel Xeon Skylake CPUs ([Xeon Gold 6130](infrastructure.md#intel-xeon-gold-6130)) and 384 GB of RAM,
 and two GPU nodes, `gpu3` and `gpu4`, each with two [NVIDIA Tesla P100](infrastructure.md#nvidia-tesla-p100)
-cards. The login node, the GPU nodes and most compute nodes run Rocky Linux 10; the nine compute
-nodes still in the `cpu` partition run Rocky Linux 9.8 until they are reinstalled.
+cards. The login node, the GPU nodes and most compute nodes run Rocky Linux 10; the eight compute
+nodes in the `legacy` partition run Rocky Linux 9.8 until they are reinstalled.
 
 ## Accessing Koios
 
@@ -21,17 +21,17 @@ home directories are separate from Phoebe's.
 ## Slurm partitions
 
 Jobs on Koios are managed by [Slurm](../../compute/index.md). Jobs go to the `cpu` partition unless
-you ask for another one with `--partition`. Most compute nodes are in `rocky10_cpu`: use it for
-batch and interactive CPU work.
+you ask for another one with `--partition`; use it for batch and interactive CPU work.
 
 | Partition | Nodes | Per node | Time limit | Use |
 | --- | --- | --- | --- | --- |
-| `rocky10_cpu` | `n[1-2,4-19]` | 32 cores (64 threads), 384 GB | 9 days 1 h | batch and interactive jobs (Rocky Linux 10) |
-| `cpu` (default) | `n[3,20-27]` | 32 cores (64 threads), 384 GB | 9 days 1 h | batch jobs (Rocky Linux 9.8, until reinstalled) |
+| `cpu` (default) | `n[1-19]` | 32 cores (64 threads), 384 GB | 9 days 1 h | batch and interactive jobs |
+| `legacy` | `n[20-27]` | 32 cores (64 threads), 384 GB | 9 days 1 h | Rocky Linux 9.8, until these nodes are reinstalled |
 | `small_int` | `s1` (virtual machine) | 8 cores, 23 GB | 7 days 7 h | jobs that need only a small node (currently out of service) |
 | `gpu` | `gpu[3-4]` (virtual machines) | 2 Tesla P100, 32 cores, 125 GB | 9 days 1 h | [GPU jobs](../../compute/gpu-jobs.md#koios-tesla-p100) |
 
-The partitions `cpu_int` and `rocky10` were removed on 2 November 2026, and `preempt` is closed.
+The partitions `cpu_int`, `rocky10` and `rocky10_cpu` were removed in November 2026 (use `cpu`),
+and `preempt` is closed.
 Limits change from time to time; `sinfo` on the login node shows the current values.
 
 ## Hardware
