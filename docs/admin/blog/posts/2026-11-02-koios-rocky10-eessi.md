@@ -25,9 +25,10 @@ compute nodes since 2 November. All software modules on Koios now come from the
     Without it, `module avail` shows nothing. See [Software modules](../../../software/modules.md#koios).
 * **Rebuild** programs and Python environments that used `c9` modules. EESSI has the same
   `foss` toolchains and far more software; `HEALPix`, `PFFT` and `VTune` have no EESSI module.
-* **Partitions**: the Rocky Linux 10 compute nodes are in `rocky10_cpu`; use it for batch and
-  interactive work. `cpu` keeps the nine nodes that still run Rocky Linux 9.8 until they are
-  reinstalled. `cpu_int` and `rocky10` were removed, `preempt` is closed. See
+* **Partitions**: the default partition `cpu` now holds the Rocky Linux 10 compute nodes; use it
+  for batch and interactive work. The new partition `legacy` keeps the eight nodes that still run
+  Rocky Linux 9.8 until they are reinstalled. `cpu_int`, `rocky10` and the short-lived
+  `rocky10_cpu` were removed, `preempt` is closed. See
   [Koios](../../../systems/koios/index.md#slurm-partitions).
 * The Apptainer images in `/cvmfs/apptainer.phoebe.lan` are now available on Koios too.
 

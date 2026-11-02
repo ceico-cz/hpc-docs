@@ -22,7 +22,7 @@ Use the interactive partitions. Jobs there start with higher priority than batch
 | Phoebe | `cpu_int` | `n[1-20]` | 20 days 10 h | CPU work |
 | Phoebe | `rocky10` | `gpu[1-2]` | 14 days 4 h | GPU work (shared with batch jobs, normal priority) |
 | Phoebe | `small_int` | `s[1-3]` | 7 days 7 h | light work (8 cores, 64 GB per node) |
-| Koios | `rocky10_cpu` | `n[1-2,4-19]` | 9 days 1 h | CPU work (shared with batch jobs, normal priority) |
+| Koios | `cpu` | `n[1-19]` | 9 days 1 h | CPU work (shared with batch jobs, normal priority) |
 
 ## Start a screen session
 
