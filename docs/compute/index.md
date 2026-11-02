@@ -108,7 +108,7 @@ Slurm can pause or stop jobs from lower-ranked partitions on the same nodes:
 * **Suspended**: on Phoebe, jobs in the interactive partition `cpu_int` rank above the batch
   partitions. A job in `cpu` can be paused while an interactive job needs its node, and
   continues afterwards. Jobs on the GPU nodes (`rocky10`) are never paused.
-* **Requeued**: jobs in the `preempt` partition (on Phoebe and Koios) are stopped and put back
+* **Requeued**: jobs in the `preempt` partition on Phoebe are stopped and put back
   in the queue when a job from one of the regular partitions needs the node. Use it only for
   jobs that can restart from the beginning or from a checkpoint. In return it lets you use
   idle nodes that would otherwise sit unused.

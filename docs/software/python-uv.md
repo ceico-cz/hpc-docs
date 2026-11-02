@@ -10,7 +10,9 @@ description: "Install uv and manage Python projects with it on Phoebe"
 
 ### Install uv
 
-Load modules providing MPI, gcc and friends, and our Python we selected arbitrarly
+Load modules providing MPI, gcc and friends, and our Python we selected arbitrarly. On Koios,
+start [EESSI](eessi.md) first with `source /cvmfs/software.eessi.io/versions/2025.06/init/lmod/bash`;
+the module names are the same.
 ```
 module load foss/2024a
 module load Python/3.12.3-GCCcore-13.3.0
