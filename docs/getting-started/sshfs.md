@@ -66,6 +66,12 @@ Host phoebe
 In a new shell, type `mount_phoebe` to mount your cluster home directory into
 `~/phoebe_mount`. Type `umount_phoebe` to unmount it.
 
+To mount your Koios home as well, run:
+
+```
+mkdir -p ~/koios_mount && sshfs -o reconnect,ServerAliveInterval=2,ServerAliveCountMax=3 <username>@koios1.fzu.cz:/home/<username> ~/koios_mount
+```
+
 ## Graphical alternatives
 
 If you prefer to drag and drop files, these programs talk to the clusters over SFTP, the
