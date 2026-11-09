@@ -77,7 +77,7 @@ make
 ```
 #!/bin/bash
 #SBATCH --job-name=testbed
-#SBATCH --partition=cpu_int
+#SBATCH --partition=cpu
 #SBATCH --ntasks=145
 #SBATCH --time=12:00:00
 #SBATCH --exclusive
